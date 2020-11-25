@@ -18,7 +18,7 @@ typedef struct Token
     struct Token* next;
 }Token;
 // Se manejará como una lista ligada simple
-typedef struct{
+typedef struct TokensList{
     struct Token* head;
 }TokensList;
 
