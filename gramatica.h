@@ -2,9 +2,9 @@
 // Funciones
 void siguienteAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 // Define los no termniales de las gramáticas, siendo P el indicador de prima
-void P(); // inicial // TODO
-void YP(); // TODO
-void Y(); // TODO
+void P(); // inicial 
+void YP(); // Gramatica Y'
+void Y(); // Gramatica Y
 void VP(); // TODO
 void DP(); // TODO
 void D(); // TODO
