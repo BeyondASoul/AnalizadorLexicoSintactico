@@ -29,7 +29,7 @@ char *buscarPorId(IdentList *lista,int posicion); // TODO: Funcion para buscar p
 
 // Crea una lista de indetificadores
 IdentList crearIdentList(){
-    IdentList lista;
-    lista.head = NULL;
-    return lista;
+    IdentList listaDeIdentificadores;
+    listaDeIdentificadores.head = NULL;
+    return listaDeIdentificadores;
 }
