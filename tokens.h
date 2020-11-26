@@ -24,9 +24,9 @@ typedef struct TokensList{
 
 // Funciones
 TokensList ListadeTokens(); // Crea una lista de tokens y la retorna
-void verTokens(TokensList); // Funcion para mostrar los tokens, recibe el TokensList
-void agregarToken(TokensList *lista,int clase,float valor); // Agrega el token al final de la lista
-char atomo(int clase, float valor); // Crea el atomo
+void verTokens(TokensList); // TODO: Funcion para mostrar los tokens, recibe el TokensList
+void agregarToken(TokensList *lista,int clase,float valor); // TODO: Agrega el token al final de la lista
+char atomo(int clase, float valor); // TODO: Crea el atomo
 
 // Se crea una lista de tokens
 TokensList crearTokensList(){

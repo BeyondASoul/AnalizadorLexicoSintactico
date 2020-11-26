@@ -21,11 +21,11 @@ typedef struct IdentList{
 }IdentList;
 
 // Funciones
-IdentList crearIdentList();
-void verIDs(IdentList);
-void agregarID(IdentList *lista,char* identificador,int tipo);
-int buscarID(IdentList *lista,char* identificador);
-char *buscarPorId(IdentList *lista,int posicion);
+IdentList crearIdentList(); // Crea una lista de identificadores
+void verIDs(IdentList); // TODO: Funcion para ver identificadores
+void agregarID(IdentList *lista,char* identificador,int tipo); // TODO: Funcion para agregar id
+int buscarID(IdentList *lista,char* identificador); // TODO: Funcion para buscat id
+char *buscarPorId(IdentList *lista,int posicion); // TODO: Funcion para buscar por Id
 
 // Crea una lista de indetificadores
 IdentList crearIdentList(){
