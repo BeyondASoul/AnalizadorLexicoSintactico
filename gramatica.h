@@ -44,8 +44,91 @@ void siguienteAtomo(){
         caracter='_';
     }else{
         tokenAct=tokenAct->next; // Se cambia la referencia del token actual
-        caracter=tokenAct->atomo; // el caracter almacena el atomo
+        caracter=tokenAct->atomo; // el caracter almacena el atomo del token actual
     }
     return;
 }
 // Definiendo la gramática como funciones
+void P(){
+    // Derivando P en D'YY'
+    DP();
+    Y();
+    YP();
+}
+void YP(){
+    //Derivando Y' en YY'
+    Y();
+    YP();
+    //TODO: Derivando en epsilon
+}
+void Y(){
+    //Derivando Y en [
+    if (caracter=='[')
+    { // Comparando atomo
+        siguienteAtomo();
+        // Derivando Y en [V'
+        VP();
+        //Derivando Y en [V'a
+        if (caracter=='a')
+        {
+            siguienteAtomo();
+            // Derivando Y en [V'a(
+            if (caracter=='(')
+            {
+                siguienteAtomo();
+                // Derivando Y en [V'a()
+                if (caracter==')')
+                {
+                    siguienteAtomo();
+                    // Derivando Y en [V'a(){
+                        if (caracter=='{')
+                        {
+                            siguienteAtomo();
+                            // Derivando Y en [V'a(){D'
+                            DP();
+                            // Derivando Y en [V'a(){D'B
+                            B();
+                            // Derivando Y en [V'a(){D'B}
+                            if (caracter=='}')
+                            {
+                                siguienteAtomo();
+                                //Derivando Y en [V'a(){D'B}]
+                                if (caracter==']')
+                                {
+                                    siguienteAtomo();
+                                    return;
+                                }
+                                else
+                                {
+                                    printf("Error");
+                                }
+                            }
+                            else
+                            {
+                                printf("Error");
+                            }
+                        }
+                        else
+                        {
+                            printf("Error");
+                        }
+                }
+                else
+                {
+                    printf("Error");
+                }
+            }
+            else
+            {
+                printf("Error");
+            }
+            
+        }
+        else{
+            printf("Error");
+        }
+    }
+    else{
+        printf("Error");
+    }
+}
