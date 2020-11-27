@@ -14,7 +14,6 @@ typedef struct Token
 {
     int clase;
     float valor;
-    char atomo;
     struct Token* next;
 }Token;
 // Se manejará como una lista ligada simple
@@ -22,15 +21,55 @@ typedef struct TokensList{
     struct Token* head;
 }TokensList;
 
-// Funciones
-TokensList ListadeTokens(); // Crea una lista de tokens y la retorna
-void verTokens(TokensList); // TODO: Funcion para mostrar los tokens, recibe el TokensList
-void agregarToken(TokensList *lista,int clase,float valor); // TODO: Agrega el token al final de la lista
-char atomo(int clase, float valor); // TODO: Crea el atomo
-
 // Se crea una lista de tokens
 TokensList crearTokensList(){
     TokensList listaDeTokens;
     listaDeTokens.head = NULL; // Se hace referencia nulla al head de la lista
     return listaDeTokens;
+}
+
+//Funcion para imprimir los tokens
+void verTokens(FILE* archSal, TokensList tokens) {
+    if(tokens.head==NULL){
+        fprintf(archSal,"No hay tokens.\n");
+    }
+    else{
+        fprintf(archSal,"\n\nTokens:\n");
+        Token *current = tokens.head;
+        while (current != 0) {
+            if (current->clase==0){
+                fprintf(archSal,"(%d,%0.2f)\n",current->clase,current->valor);
+            }
+            if (current->clase==8){
+                fprintf(archSal,"(%d,%c)\n",current->clase,(char)current->valor);
+            }
+            else{
+                fprintf(archSal,"(%d,%0.0f)\n",current->clase,current->valor);
+            }
+            
+            current = current->next;
+        }
+    }
+}
+
+void agregarToken(TokensList *tokens,int clase,float valor){
+    if(tokens->head==NULL){
+        Token *nodo = (Token*)malloc(sizeof(Token));
+        nodo->clase = clase;
+        nodo->valor = valor;
+        nodo->next = NULL;
+        tokens->head = nodo;
+    }   
+    else{
+        Token *current = tokens->head;
+        while (current->next != 0) {
+            current = current->next;
+        }
+        Token *nuevoNodo;
+        nuevoNodo = (Token*)malloc(sizeof(Token));
+        nuevoNodo->clase = clase;
+        nuevoNodo->valor = valor;
+        nuevoNodo->next = NULL;
+        current->next = nuevoNodo;
+    }   
 }
