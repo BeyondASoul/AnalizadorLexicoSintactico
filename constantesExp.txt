@@ -1,0 +1,4 @@
+Posicion: 0		Valor: 5.24
+Posicion: 1		Valor: 3.4E-3
+Posicion: 2		Valor: 18.0e+5
+Posicion: 3		Valor: 3.1416

@@ -1,19 +1,23 @@
 int a:
 int b=31:
-float c=5.24;
+float c=5.24:
+float q=3.4E-3:
+float w=18.0e+5:
 string s1="Cadena1":
 string s2="Cadena2":
 string s3="Hola":
 char char1:
 bool b: 
-//Comentario
-/*Comentario multi
+// Comentario de una linea
+/* Comentario 
+multi
+linea
 */
-@//Comentario no aceptado
+@// Comentario no aceptado por el @
 if (a==b){
     if (a>=b){
         if (a<4){
-	    printf("Hola."):
+	    printf("Hola"):
             break:
         }
     }

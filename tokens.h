@@ -21,37 +21,6 @@ typedef struct TokensList{
     struct Token* head;
 }TokensList;
 
-// Se crea una lista de tokens
-TokensList crearTokensList(){
-    TokensList listaDeTokens;
-    listaDeTokens.head = NULL; // Se hace referencia nulla al head de la lista
-    return listaDeTokens;
-}
-
-//Funcion para imprimir los tokens
-void verTokens(FILE* archSal, TokensList tokens) {
-    if(tokens.head==NULL){
-        fprintf(archSal,"No hay tokens.\n");
-    }
-    else{
-        fprintf(archSal,"\n\nTokens:\n");
-        Token *current = tokens.head;
-        while (current != 0) {
-            if (current->clase==0){
-                fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
-            }
-            if (current->clase==8){
-                fprintf(archSal,"(%d,%c)\n",current->clase,(char)current->valor);
-            }
-            else{
-                fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
-            }
-            
-            current = current->next;
-        }
-    }
-}
-
 void agregarToken(TokensList *tokens,int clase,float valor){
     if(tokens->head==NULL){
         Token *nodo = (Token*)malloc(sizeof(Token));
@@ -72,4 +41,24 @@ void agregarToken(TokensList *tokens,int clase,float valor){
         nuevoNodo->next = NULL;
         current->next = nuevoNodo;
     }   
+}
+
+//Funcion para imprimir los tokens
+void verTokens(FILE* archSal, TokensList tokens) {
+    if(tokens.head==NULL){
+        fprintf(archSal,"No hay tokens.\n");
+    }
+    else{
+        Token *current = tokens.head;
+        while (current != 0) {
+            if (current->clase==8){
+                fprintf(archSal,"(%d,%c)\n",current->clase,(char)current->valor);
+            }
+            else{
+                fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
+            }
+            
+            current = current->next;
+        }
+    }
 }
