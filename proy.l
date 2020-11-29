@@ -11,10 +11,15 @@
 #include <string.h>
 #include "tokens.h"
 #include "identificadores.h"
+#include "cadenas.h"
+#include "reales.h"
 
 FILE *archSal; // Archivo de salida
 //IdentList tablaDeIdentificadores; // Lista ligada de identificadores
 TokensList tablaDeTokens; // Lista ligada de tokens
+IdentList tablaDeIdentificadores;
+CadList tablaDeCadenas;
+RealList tablaDeReales;
 
 // Lista estática de operadores relacionales y palabras reservadas
 char* operadoresRel[6]={"!=","==",">","<",">=","<="};
@@ -100,8 +105,18 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     int value=toAscii(yytext); // Convierte yytext a Ascii
     agregarToken(&tablaDeTokens,2,value); // Agrega token con el valor correspondiente
 };
-{clase3} {
+{clase3} { //identificadores posición, identificador, tipo (-1)
     fprintf(archSal,"clase3 %s\n",yytext);
+    int pos=buscaIdent(&tablaDeIdentificadores,yytext);
+    if(pos==-1)
+    {
+	agregarIdent(&tablaDeIdentificadores,yytext);
+	agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,yytext));
+    }
+    else
+    {
+	agregarToken(&tablaDeTokens,3,pos);
+    }
     // TODO
 };
 {clase4} {
@@ -116,11 +131,14 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 }
 {clase6} {
     fprintf(archSal,"clase6 %s\n",yytext);
-    int value=toFloat(yytext); // Convierte yytext a float
-    agregarToken(&tablaDeTokens,6,value); // Agrega token con el valor correspondiente
+    float num=toFloat(yytext);
+    agregarReal(&tablaDeReales,num);
+    agregarToken(&tablaDeTokens,6,buscaReal(&tablaDeReales,num)); // Agrega token con el valor correspondiente
 };
 {clase7} {
     fprintf(archSal,"clase7 %s\n",yytext);
+    agregarCad(&tablaDeCadenas,yytext);
+    agregarToken(&tablaDeTokens,7,buscaCad(&tablaDeCadenas,yytext));
     // TODO
 };
 {clase8} {

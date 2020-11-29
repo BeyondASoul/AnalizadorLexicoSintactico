@@ -22,14 +22,55 @@ typedef struct IdentList{
 
 // Funciones
 IdentList crearIdentList(); // Crea una lista de identificadores
-void verIDs(IdentList); // TODO: Funcion para ver identificadores
-void agregarID(IdentList *lista,char* identificador,int tipo); // TODO: Funcion para agregar id
-int buscarID(IdentList *lista,char* identificador); // TODO: Funcion para buscat id
-char *buscarPorId(IdentList *lista,int posicion); // TODO: Funcion para buscar por Id
+void agregarIdent(IdentList *lista, char* identificador);
+int buscaIdent(IdentList *lista, char* identificador);
 
 // Crea una lista de indetificadores
 IdentList crearIdentList(){
     IdentList listaDeIdentificadores;
     listaDeIdentificadores.head = NULL;
     return listaDeIdentificadores;
+}
+void agregarIdent(IdentList *lista, char* identificador)
+{
+	Ident* siguiente= (Ident*) malloc(sizeof(Ident));
+	if(lista->head==NULL)
+	{
+		siguiente->posicion=0;
+		siguiente->identificador=identificador;
+		siguiente->tipo=-1;
+		siguiente->next=NULL;
+		lista->head=siguiente;
+	}
+	else
+	{
+		Ident *current = lista->head;
+		int pos=current->posicion;
+    while (current->next != 0) 
+    {
+      current = current->next;
+      pos=current->posicion;
+    }
+    siguiente->posicion=pos++;
+		siguiente->identificador=identificador;
+		siguiente->tipo=-1;
+		siguiente->next=NULL;
+		current->next=siguiente;
+	}
+}
+int buscaIdent(IdentList *lista, char* identificador)
+{
+	if(lista->head==NULL)
+		return 0;	
+	Ident *current = lista->head;
+  while (current->next != 0) 
+  {
+  	if(strcmp(current->identificador,identificador)==0)
+   		return current->posicion;
+   	else
+   	{
+  	 	current=current->next;
+    }
+  }
+  return -1;
 }

@@ -3,6 +3,7 @@ int b=31:
 float c=5.24;
 string s1="Cadena1":
 string s2="Cadena2":
+string s3="Hola":
 char char1:
 bool b: 
 //Comentario
@@ -12,6 +13,7 @@ bool b:
 if (a==b){
     if (a>=b){
         if (a<4){
+	    printf("Hola."):
             break:
         }
     }

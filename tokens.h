@@ -13,7 +13,7 @@ definida como:
 typedef struct Token
 {
     int clase;
-    float valor;
+    int valor;
     struct Token* next;
 }Token;
 // Se manejará como una lista ligada simple
@@ -38,13 +38,13 @@ void verTokens(FILE* archSal, TokensList tokens) {
         Token *current = tokens.head;
         while (current != 0) {
             if (current->clase==0){
-                fprintf(archSal,"(%d,%0.2f)\n",current->clase,current->valor);
+                fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
             }
             if (current->clase==8){
                 fprintf(archSal,"(%d,%c)\n",current->clase,(char)current->valor);
             }
             else{
-                fprintf(archSal,"(%d,%0.0f)\n",current->clase,current->valor);
+                fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
             }
             
             current = current->next;
