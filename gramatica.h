@@ -55,20 +55,21 @@ void P()
         DP();
         Y();
         YP();
+        return;
     }
     else
         printf("ERROR EN P\n");
-    return;
 }
 void YP()
 {
-    if(c=='[')
+    if(c=='['){
         Y();
+        return;
+    }
     else if(c=='\0')
         return;
     else
         printf("ERROR EN YP\n");
-    return;
 }
 void Y()
 {
@@ -84,30 +85,32 @@ void Y()
         B();
         getAtomo();//]
         getAtomo();
+        return;
     }
     else
         printf("ERROR EN Y\n");
-    return;
 }
 void VP()
 {
-    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g'){
         V();
+        return;
+    }
     else if(c=='o')
         return;
     else 
         printf("ERROR EN VP \n");
-    return;
 }
 void DP()
 {
-    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g'){
         D();
+        return;
+    }
     else if(c=='['||c=='\0')
         return;
     else 
         printf("ERROR EN DP\n");
-    return;
 }
 void D()
 {
@@ -115,10 +118,10 @@ void D()
     {
         V();
         L();
+        return;
     }
     else 
         printf("ERROR EN D\n");
-    return;
 }
 void L()
 {
@@ -127,10 +130,10 @@ void L()
         getAtomo();
         G();
         C();
+        return;
     }
     else
         printf("ERROR EN L\n");
-    return;
 }
 void C()
 {
@@ -138,20 +141,21 @@ void C()
     {
         getAtomo();
         L();
+        return;
     }
     else if(c=='\0')
         return;
     else
         printf("ERROR EN C\n");
-    return;
 }
 void V() // TODO
 {
-    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g'){
         getAtomo();
+        return;
+    }
     else
         printf("ERROR EN V\n");
-    return;
 }
 void G() // TODO
 {
@@ -160,45 +164,52 @@ void G() // TODO
         getAtomo();//e
         getAtomo();//]
         getAtomo();//lo que sigue
+        return;
     }
     else if(c=='\0')
         return;
     else 
         printf("ERROR EN G\n");
-    return;
 }
 void S() // TODO
 {
     if(c=='x')
     {
         X();
+        return;
     }
     else if(c=='i')
     {
         I();
+        return;
     }
     else if(c=='w')
     {
         W();
+        return;
     }
     else if(c=='h')
     {
         H();
+        return;
     }
     else if(c=='p')
     {
         N();
+        return;
     }
     else if(c=='u')
     {
         getAtomo();// \0 (
         U();
         getAtomo();// lo que sigue
+        return;
     }
     else if(c=='t')
     {
         getAtomo();//:
         getAtomo();//Lo que sigue
+        return;
     }
     else if(c=='[')
     {
@@ -208,10 +219,10 @@ void S() // TODO
         getAtomo();//]
         getAtomo();//:
         getAtomo();//lo que sigue
+        return;
     }
     else 
         printf("ERROR EN S\n");
-    return;
 }
 void U() // TODO
 {
@@ -220,12 +231,12 @@ void U() // TODO
         getAtomo(); //a e r [
         F();
         getAtomo();// lo que sigue
+        return;
     }
     else if(c=='\0')
         return;
     else
         printf("ERROR EN U\n");
-    return;
 }
 void W() // TODO
 {
@@ -238,10 +249,10 @@ void W() // TODO
         getAtomo();// x i w h p u t [ \0
         B();
         getAtomo(); // lo que sigue
+        return;
     }
     else
         printf("ERROR EN W\n");
-    return;
 }
 void H() // TODO
 {
@@ -256,10 +267,10 @@ void H() // TODO
         R();
         getAtomo();//:
         getAtomo();//lo que siguue
+        return;
     }
     else
         printf("ERROR EN H\n");
-    return;
 }
 void X() // TODO
 {
@@ -276,10 +287,10 @@ void X() // TODO
         B();
         getAtomo(); //}
         getAtomo(); //lo que sigue
+        return;
     }
     else
         printf("ERROR EN X\n");
-    return;
 }
 void O() // TODO
 {
@@ -293,22 +304,23 @@ void O() // TODO
         getAtomo();//:
         getAtomo();// k \0
         O();
+        return;
     }
     else if(c=='\0')
         return;
     else 
         printf("ERROR EN O\n");
-    return;
 }
 void B() // TODO
 {
-    if(c=='x'||c=='i'||c=='w'||c=='h'||c=='p'||c=='u'||c=='t'||c=='[')
+    if(c=='x'||c=='i'||c=='w'||c=='h'||c=='p'||c=='u'||c=='t'||c=='['){
         S();
+        return;
+    } 
     else if(c=='\0')
         return;
     else
         printf("ERROR EN B\n");
-    return;
 }
 void I() // TODO
 {
@@ -323,10 +335,10 @@ void I() // TODO
         getAtomo();// ele
         J();
         getAtomo();//lo que sigue
+        return;
     }
     else
         printf("ERROR EN I\n");
-    return;
 }
 void J() // TODO
 {
@@ -336,12 +348,12 @@ void J() // TODO
         getAtomo();// x i w h p u t [ \0
         B();
         getAtomo();// lo que sigue
+        return;
     }
     else if(c=='\0')
         return;
     else
         printf("ERROR EN J \n");
-    return;
 }
 void N() // TODO
 {
@@ -354,10 +366,10 @@ void N() // TODO
         getAtomo();// x i w h p u t [ \0
         B();
         getAtomo();//lo que sigue;
+        return;
     }
     else
         printf("ERROR EN N \n");
-    return;
 }
 void R() // TODO
 {
@@ -366,18 +378,19 @@ void R() // TODO
         E();
         K();
         E();
+        return;
     }
     else
         printf("ERROR EN R\n");
-    return;
 }
 void K() // TODO
 {
-    if(c=='!'||c=='?'||c=='>'||c=='<'||c=='y'||c=='m')
+    if(c=='!'||c=='?'||c=='>'||c=='<'||c=='y'||c=='m'){
         getAtomo();
+        return;
+    }
     else
         printf("ERROR EN K \n");
-    return;
 }
 void E() // TODO
 {
@@ -385,10 +398,10 @@ void E() // TODO
     {
         T();
         EP();
+        return;
     }
     else
         printf("ERROR EN E\n");
-    return;
 }
 void EP() // TODO
 {
@@ -397,18 +410,19 @@ void EP() // TODO
         getAtomo();
         T();
         EP();
+        return;
     }
     else if(c=='-')
     {
         getAtomo();
         T();
         EP();
+        return;
     }
     else if(c=='\0')
         return;
     else
         printf("ERROR EN EP\n");
-    return;
 }
 void T() // TODO
 {
@@ -416,10 +430,10 @@ void T() // TODO
     {
         F();
         TP();
+        return;
     }
     else 
         printf("ERROR EN T\n");
-    return;
 }
 void TP() // TODO
 {
@@ -428,12 +442,12 @@ void TP() // TODO
         getAtomo();
         F();
         TP();
+        return;
     }
     else if(c=='\0')
         return;
     else 
         printf("ERROR EN TP\n");
-    return;
 }
 void F() // TODO
 {
@@ -441,14 +455,18 @@ void F() // TODO
     {
         getAtomo();
         E();
+        return;
     }
     else if(c=='a')
     {
         getAtomo();
         G();
+        return;
     }
-    else if(c=='e'||c=='r')
+    else if(c=='e'||c=='r'){
         getAtomo();
+        return;
+    }
     else if(c=='[')
     {
         getAtomo(); //a
@@ -456,10 +474,10 @@ void F() // TODO
         getAtomo(); //)
         getAtomo(); //]
         getAtomo();
+        return;
     }
     else
         printf("ERROR EN F\n");
-    return;
 }
 
 

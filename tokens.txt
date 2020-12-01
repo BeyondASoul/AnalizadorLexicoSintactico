@@ -1,3 +1,4 @@
+Token: (5,1)	Atomo: =
 Token: (1,11)	Atomo: n
 Token: (3,0)	Atomo: a
 Token: (2,58)	Atomo: :
@@ -90,7 +91,7 @@ Token: (2,58)	Atomo: :
 Token: (1,10)	Atomo: i
 Token: (2,40)	Atomo: (
 Token: (3,1)	Atomo: a
-Token: (5,0)	Atomo: !
+Token: (5,0)	Atomo: =
 Token: (3,0)	Atomo: a
 Token: (2,41)	Atomo: )
 Token: (2,123)	Atomo: {
@@ -102,7 +103,7 @@ Token: (2,58)	Atomo: :
 Token: (1,15)	Atomo: w
 Token: (2,40)	Atomo: (
 Token: (3,1)	Atomo: a
-Token: (5,0)	Atomo: !
+Token: (5,0)	Atomo: =
 Token: (6,0)	Atomo: e
 Token: (2,41)	Atomo: )
 Token: (2,123)	Atomo: {

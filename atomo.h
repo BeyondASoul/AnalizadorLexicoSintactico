@@ -26,7 +26,7 @@ char getTokenAtomo(int clase, int valor){
 	case 4: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
 	case 5: switch (valor){
 				case 0: return '!'; break;
-				case 1: return '='; break;
+				case 1: return '?'; break;
 				case 2: return '>'; break;
 				case 3: return '<'; break;
 				case 4: return 'y'; break;
@@ -35,7 +35,7 @@ char getTokenAtomo(int clase, int valor){
 	case 6: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
 	case 7: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
 	case 8: if (valor==0){
-				return '*'; break;
+				return '#'; break;
 			}
 			else{
 				return (char)valor; break;
