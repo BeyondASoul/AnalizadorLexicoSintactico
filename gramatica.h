@@ -2,34 +2,38 @@
 // Funciones
 void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 // Define los no termniales de las gramáticas, siendo P el indicador de prima
-void P(char c); // inicial 
-void YP(char c); // Gramatica Y'
-void Y(char c); // Gramatica Y
-void VP(char c); // TODO
-void DP(char c); // TODO
-void D(char c); // TODO
-void L(char c); // TODO
-void C(char c); // TODO
-void V(char c); // TODO
-void G(char c); // TODO
-void S(char c); // TODO
-void U(char c); // TODO
-void W(char c); // TODO
-void H(char c); // TODO
-void X(char c); // TODO
-void O(char c); // TODO
-void B(char c); // TODO
-void I(char c); // TODO
-void J(char c); // TODO
-void N(char c); // TODO
-void R(char c); // TODO
-void K(char c); // TODO
-void E(char c); // TODO
-void EP(char c); // TODO
-void T(char c); // TODO
-void TP(char c); // TODO
-void F(char c); // TODO
-void A(char c); // TODO: Añadir la gramatica de asignación
+void initGram(TokensList a);
+void P(); // inicial 
+void YP(); // Gramatica Y'
+void Y(); // Gramatica Y
+void VP(); // TODO
+void DP(); // TODO
+void D(); // TODO
+void L(); // TODO
+void C(); // TODO
+void V(); // TODO
+void G(); // TODO
+void S(); // TODO
+void U(); // TODO
+void W(); // TODO
+void H(); // TODO
+void X(); // TODO
+void O(); // TODO
+void B(); // TODO
+void I(); // TODO
+void J(); // TODO
+void N(); // TODO
+void R(); // TODO
+void K(); // TODO
+void E(); // TODO
+void EP(); // TODO
+void T(); // TODO
+void TP(); // TODO
+void F(); // TODO
+void A(); // TODO: Añadir la gramatica de asignación
+Token* aux;
+TokensList tabla;
+char c;
 // Demás funciones útiles
 // TODO: Funcion que reconozca el error
 // Varaibles globales
@@ -37,423 +41,429 @@ void A(char c); // TODO: Añadir la gramatica de asignación
 Token* tokenAnt   = NULL; //Referencia al token anterior
 Token* tokenAct   = NULL; //Referencia al token actual
 */
-char getAtomo()
+void initGram(TokensList a)
 {
-    
+    tabla=a;
+    aux=tabla.head;
+}
+void getAtomo()
+{
+    c=aux->atomo;
+    aux=aux->next;
 }
 // Definiendo la gramática como funciones
-void P(char c)
+void P()
 {
 
     if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g"||c=="["||c=="\0")
     {
-        DP(c);
-        Y(c);
-        YP(c);
+        DP();
+        Y();
+        YP();
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN P\n");
     return;
 }
-void YP(char c)
+void YP()
 {
     if(c=="[")
-        Y(c);
+        Y();
     else if(c=="\0")
         return;
     else
-        printf("ERROR\n");
+        printf("ERROR EN YP\n");
     return;
 }
-void Y(char c)
+void Y()
 {
     if(c=="[")
     {
-        c=getchar();
-        VP(c);
-        getchar();//(
-        getchar();//)
-        getchar();//{
-        c=getchar();//b c f n g [ \0
-        DP(c);
-        B(c);
-        getchar();//]
-        c=getchar();
+        getAtomo();
+        VP();
+        getAtomo();//(
+        getAtomo();//)
+        getAtomo();//{
+        getAtomo();//b c f n g [ \0
+        DP();
+        B();
+        getAtomo();//]
+        getAtomo();
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN Y\n");
     return;
 }
-void VP(char c)
+void VP()
 {
     if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
-        V(c);
+        V();
     else if(c=="o")
         return;
     else 
-        printf("ERROR\n");
+        printf("ERROR EN VP \n");
     return;
 }
-void DP(char c)
+void DP()
 {
     if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
-        D(c);
+        D();
     else if(c=="["||c=="\0")
         return;
     else 
-        printf("ERROR\n");
+        printf("ERROR EN DP\n");
     return;
 }
-void D(char c)
+void D()
 {
     if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
     {
-        V(c);
-        L(c);
+        V();
+        L();
     }
     else 
-        printf("ERROR\n");
+        printf("ERROR EN D\n");
     return;
 }
-void L(char c)
+void L()
 {
     if(c=="a")
     {
-        c=getchar();
-        G(c);
-        C(c);
+        getAtomo();
+        G();
+        C();
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN L\n");
     return;
 }
-void C(char c)
+void C()
 {
     if(c==",")
     {
-        c=getchar();
-        L(c);
+        getAtomo();
+        L();
     }
     else if(c=="\0")
         return;
     else
-        printf("ERROR\n");
+        printf("ERROREN C\n");
     return;
 }
-void V(char c) // TODO
+void V() // TODO
 {
     if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
-        c=getchar();
+        getAtomo();
     else
-        printf("ERROR\n");
+        printf("ERROR EN V\n");
     return;
 }
-void G(char c) // TODO
+void G() // TODO
 {
     if(c=="[")
     {
-        getchar();//e
-        getchar();//]
-        c=getchar();//lo que sigue
+        getAtomo();//e
+        getAtomo();//]
+        getAtomo();//lo que sigue
     }
     else if(c=="\0")
         return;
     else 
-        printf("ERROR\n");
+        printf("ERROR EN G\n");
     return;
 }
-void S(char c) // TODO
+void S() // TODO
 {
     if(c=="x")
     {
-        X(c);
+        X();
     }
     else if(c=="i")
     {
-        I(c);
+        I();
     }
     else if(c=="w")
     {
-        W(c);
+        W();
     }
     else if(c=="h")
     {
-        H(c);
+        H();
     }
     else if(c=="p")
     {
-        N(c);
+        N();
     }
     else if(c=="u")
     {
-        c=getchar();// \0 (
-        U(c);
-        c=getchar();// lo que sigue
+        getAtomo();// \0 (
+        U();
+        getAtomo();// lo que sigue
     }
     else if(c=="t")
     {
-        getchar();//:
-        c=getchar();//Lo que sigue
+        getAtomo();//:
+        getAtomo();//Lo que sigue
     }
     else if(c=="[")
     {
-        getchar();//a
-        getchar();//(
-        getchar();//)
-        getchar();//]
-        getchar();//:
-        c=getchar();//lo que sigue
+        getAtomo();//a
+        getAtomo();//(
+        getAtomo();//)
+        getAtomo();//]
+        getAtomo();//:
+        getAtomo();//lo que sigue
     }
     else 
-        printf("ERROR\n");
+        printf("ERROR EN S\n");
     return;
 }
-void U(char c) // TODO
+void U() // TODO
 {
     if(c=="(")
     {
-        c=getchar(); //a e r [
-        F(c);
-        c=getchar();// lo que sigue
+        getAtomo(); //a e r [
+        F();
+        getAtomo();// lo que sigue
     }
     else if(c=="\0")
         return;
     else
-        printf("ERROR\n");
+        printf("ERROR EN U\n");
     return;
 }
-void W(char c) // TODO
+void W() // TODO
 {
     if(c=="w")
     {
-        getchar();//(
-        c=getchar();// ( a e r [
-        R(c);
-        getchar();//{
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        c=getchar(); // lo que sigue
+        getAtomo();//(
+        getAtomo();// ( a e r [
+        R();
+        getAtomo();//{
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo(); // lo que sigue
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN W\n");
     return;
 }
-void H(char c) // TODO
+void H() // TODO
 {
     if(c=="h")
     {
-        getchar();//{
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        c=getchar(); //w
-        W(c);
-        c=getchar(); //( a e r [
-        R(c);
-        getchar();//:
-        c=getchar();//lo que siguue
+        getAtomo();//{
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo(); //w
+        W();
+        getAtomo(); //( a e r [
+        R();
+        getAtomo();//:
+        getAtomo();//lo que siguue
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN H\n");
     return;
 }
-void X(char c) // TODO
+void X() // TODO
 {
     if(c=="x")
     {
-        getchar();//(
-        getchar();//a
-        getchar();//)
-        getchar();//{
-        c=getchar();// k \0
-        O(c);
-        getchar();//[
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        getchar(); //}
-        c=getchar(); //lo que sigue
+        getAtomo();//(
+        getAtomo();//a
+        getAtomo();//)
+        getAtomo();//{
+        getAtomo();// k \0
+        O();
+        getAtomo();//[
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo(); //}
+        getAtomo(); //lo que sigue
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN X\n");
     return;
 }
-void O(char c) // TODO
+void O() // TODO
 {
     if(c=="k")
     {
-        getchar();//e
-        getchar();//[
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        getchar();//q
-        getchar();//:
-        c=getchar();// k \0
-        O(c);
+        getAtomo();//e
+        getAtomo();//[
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo();//q
+        getAtomo();//:
+        getAtomo();// k \0
+        O();
     }
     else if(c=="\0")
         return;
     else 
-        printf("ERROR\n");
+        printf("ERROR EN O\n");
     return;
 }
-void B(char c) // TODO
+void B() // TODO
 {
     if(c=="x"||c=="i"||c=="w"||c=="h"||c=="p"||c=="u"||c=="t"||c=="[")
-        S(c);
+        S();
     else if(c=="\0")
         return;
     else
-        printf("ERROR\n");
+        printf("ERROR EN B\n");
     return;
 }
-void I(char c) // TODO
+void I() // TODO
 {
     if(c=="i")
     {
-        getchar();//(
-        c=getchar();//( a e r [
-        R(c);
-        getchar();//{
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        c=getchar();// ele
-        J(c);
-        c=getchar();//lo que sigue
+        getAtomo();//(
+        getAtomo();//( a e r [
+        R();
+        getAtomo();//{
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo();// ele
+        J();
+        getAtomo();//lo que sigue
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN I\n");
     return;
 }
-void J(char c) // TODO
+void J() // TODO
 {
     if(c=="l")
     {
-        getchar();//{
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        c=getchar();// lo que sigue
+        getAtomo();//{
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo();// lo que sigue
     }
     else if(c=="\0")
         return;
     else
-        printf("ERROR\n");
+        printf("ERROR EN J \n");
     return;
 }
-void N(char c) // TODO
+void N() // TODO
 {
     if(c=="p")
     {
-        getchar();//[
-        getchar();//e
-        getchar();//]
-        getchar();//{
-        c=getchar();// x i w h p u t [ \0
-        B(c);
-        c=getchar();//lo que sigue;
+        getAtomo();//[
+        getAtomo();//e
+        getAtomo();//]
+        getAtomo();//{
+        getAtomo();// x i w h p u t [ \0
+        B();
+        getAtomo();//lo que sigue;
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN N \n");
     return;
 }
-void R(char c) // TODO
+void R() // TODO
 {
     if(c=="("||c=="a"||c=="e"||c=="r"||c=="[")
     {
-        E(c);
-        K(c);
-        E(c);
+        E();
+        K();
+        E();
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN R\n");
     return;
 }
-void K(char c) // TODO
+void K() // TODO
 {
     if(c=="!"||c=="?"||c==">"||c=="<"||c=="y"||c=="m")
-        c=getchar();
+        getAtomo();
     else
-        printf("ERROR\n");
+        printf("ERROR EN K \n");
     return;
 }
-void E(char c) // TODO
+void E() // TODO
 {
     if(c=="("||c=="a"||c=="e"||c=="r"||c=="[")
     {
-        T(c);
-        EP(c);
+        T();
+        EP();
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN E\n");
     return;
 }
-void EP(char c) // TODO
+void EP() // TODO
 {
     if(c=="+")
     {
-        c=getchar();
-        T(c);
-        EP(c);
+        getAtomo();
+        T();
+        EP();
     }
     else if(c=="-")
     {
-        c=getchar();
-        T(c);
-        EP(c);
+        getAtomo();
+        T();
+        EP();
     }
     else if(c=="\0")
         return;
     else
-        printf("ERROR\n");
+        printf("ERROR EN EP\n");
     return;
 }
-void T(char c) // TODO
+void T() // TODO
 {
     if(c=="("||c=="a"||c=="e"||c=="r"||c=="[")
     {
-        F(c);
-        TP(c);
+        F();
+        TP();
     }
     else 
-        printf("ERROR\n");
+        printf("ERROR EN T\n");
     return;
 }
-void TP(char c) // TODO
+void TP() // TODO
 {
     if(c=="*"||c=="/"||c=="%"||c=="#")
     {
-        c=getchar();
-        F(c);
-        TP(c);
+        getAtomo();
+        F();
+        TP();
     }
     else if(c=="\0")
         return;
     else 
-        printf("ERROR\n");
+        printf("ERROR EN TP\n");
     return;
 }
-void F(char c) // TODO
+void F() // TODO
 {
     if(c=="(")
     {
-        c=getchar();
-        E(c);
+        getAtomo();
+        E();
     }
     else if(c=="a")
     {
-        c=getchar();
-        G(c);
+        getAtomo();
+        G();
     }
     else if(c=="e"||c=="r")
-        c=getchar();
+        getAtomo();
     else if(c=="[")
     {
-        getchar(); //a
-        getchar(); //(
-        getchar(); //)
-        getchar(); //]
-        c=getchar();
+        getAtomo(); //a
+        getAtomo(); //(
+        getAtomo(); //)
+        getAtomo(); //]
+        getAtomo();
     }
     else
-        printf("ERROR\n");
+        printf("ERROR EN F\n");
     return;
 }
 

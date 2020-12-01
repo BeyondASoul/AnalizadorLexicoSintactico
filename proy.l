@@ -9,12 +9,12 @@
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
-#include "tokens.h"
+#include "gramatica.h"
 #include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
 #include "atomo.h"
-
+//#include "gramatica.h"
 // Archivos de salida necesarios
 FILE *archSal; 
 FILE *tokensFile;
@@ -30,8 +30,6 @@ TokensList tablaDeTokens;
 IdentList tablaDeIdentificadores;
 CadList tablaDeCadenas;
 RealListExp tablaDeRealesExp;
-Token aux;//token auxiliar para recorrer la tabla de tokens para el analizador sintáctico
-char c; //atomo
 // Lista estática de operadores relacionales y palabras reservadas
 char *operadoresRel[6]={"!=","==",">","<",">=","<="};
 char *palabrasRes[17]={"bool","break","case","char","continue","default","do","else","float","for","if","int","return","string","switch","while","void"};
@@ -187,8 +185,11 @@ int main(int argc, char *argv[])
     // Comienza el análisis léxico
     fprintf(archSal,"Comienza el análisis léxico:\n");
     yylex(); // Analisis Lexico
-    aux=tablaDeTokens.head;//se ubica en el primer elemento 
-    c=getAtomo();
+
+
+    initGram(tablaDeTokens); 
+    getAtomo();
+    P();
     // Aqui se imprimen tokens, identificadores, cadenas y reales.
     verTokens(tokensFile,tablaDeTokens);
     verIdentificadores(identificadoresFile,tablaDeIdentificadores);

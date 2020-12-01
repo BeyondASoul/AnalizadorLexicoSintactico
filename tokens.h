@@ -55,7 +55,7 @@ void verTokens(FILE* archSal, TokensList tokens) {
         Token *current = tokens.head;
         while (current != 0) {
             if (current->clase==8){
-                fprintf(archSal,"(%d,%c)\n",current->clase,(char)current->valor);
+                fprintf(archSal,"(%d,%c,%c)\n",current->clase,(char)current->valor,(char)current->atomo);
             }
             else{
                 fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
