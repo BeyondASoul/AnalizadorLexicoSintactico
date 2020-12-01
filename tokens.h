@@ -58,7 +58,7 @@ void verTokens(FILE* archSal, TokensList tokens) {
                 fprintf(archSal,"(%d,%c,%c)\n",current->clase,(char)current->valor,(char)current->atomo);
             }
             else{
-                fprintf(archSal,"(%d,%d)\n",current->clase,current->valor);
+                fprintf(archSal,"(%d,%d,%c)\n",current->clase,current->valor,(char)current->atomo);
             }
             
             current = current->next;

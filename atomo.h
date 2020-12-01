@@ -5,86 +5,86 @@
 char palabraAtomo(char* cadena)
 {
 	if(cadena=="bool")
-		return "b";
+		return (char)98;
 	else if(cadena=="break")
-		return "q";
+		return (char)113;
 	else if(cadena=="case")
-		return "k";
+		return 'k';
 	else if(cadena=="char")
-		return "c";
+		return 'c';
 	else if(cadena=="continue")
-		return "t";
+		return 't';
 	else if(cadena=="default")
-		return "d";
+		return 'd';
 	else if(cadena=="do")
-		return "h";
+		return 'h';
 	else if(cadena=="else")
-		return "l";
+		return 'l';
 	else if(cadena=="float")
-		return "f";
+		return 'f';
 	else if(cadena=="for")
-		return "p";
+		return 'p';
 	else if(cadena=="if")
-		return "i";
+		return 'i';
 	else if(cadena=="int")
-		return "n";
+		return 'n';
 	else if(cadena=="return")
-		return "u";
+		return 'u';
 	else if(cadena=="string")
-		return "g";
+		return 'g';
 	else if(cadena=="switch")
-		return "x";
+		return 'x';
 	else if(cadena=="while")
-		return "w";
+		return 'w';
 	else if(cadena=="void")
-		return "o";
+		return 'o';
 }
 char simboloAtomo(char* cadena)
 {
 	if(cadena=="{")
-		return "{";
+		return '{';
 	else if(cadena=="}")
-		return "}";
+		return '}';
 	else if(cadena==",")
-		return ",";
+		return ',';
 	else if(cadena==":")
-		return ":";
+		return ':';
 	else if(cadena=="(")
-		return "(";
+		return '(';
 	else if(cadena==")")
-		return ")";
+		return ')';
 	else if(cadena=="[")
-		return "[";
+		return '[';
 	else if(cadena=="]")
-		return "]";
+		return ']';
 }
 char opReAtomo(char* cadena)
 {
 	if(cadena=="!=")
-		return "!";
+		return '!';
 	else if(cadena=="==")
-		return "?";
+		return '?';
 	else if(cadena==">")
-		return ">";
+		return '>';
 	else if(cadena=="<")
-		return "<";
+		return '<';
 	else if(cadena==">=")
-		return "y";
+		return 'y';
 	else if(cadena=="<=")
-		return "m";
+		return 'm';
 }
 char opArAtomo(char* cadena)
 {
 	if(cadena=="+")
-		return "+";
+		return '+';
 	else if(cadena=="-")
-		return "-";
+		return '-';
 	else if(cadena=="*")
-		return "*";
+		return '*';
 	else if(cadena=="/")
-		return "/";
+		return '/';
 	else if(cadena=="**")
-		return "#";
+		return '#';
 	else if(cadena=="%")
-		return "%";
+		return '%';
 }

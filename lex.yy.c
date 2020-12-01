@@ -910,7 +910,7 @@ YY_RULE_SETUP
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
 };
 	YY_BREAK
 case 2:
@@ -923,7 +923,7 @@ YY_RULE_SETUP
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
 };
 	YY_BREAK
 case 3:
@@ -936,7 +936,7 @@ YY_RULE_SETUP
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
 };
 	YY_BREAK
 case 4:
@@ -946,7 +946,7 @@ YY_RULE_SETUP
     fprintf(archSal,"clase1 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(value,yytext); // Copia yytext a value
-    agregarToken(&tablaDeTokens,1,busquedaPal(value),palabraAtomo(yytext)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,1,busquedaPal(value),(char)palabraAtomo(yytext)); // Agrega token con el valor correspondiente
 };
 	YY_BREAK
 case 5:
@@ -966,7 +966,7 @@ YY_RULE_SETUP
     char *identificador=malloc(sizeof(yytext));
     strcpy(identificador,yytext);
     agregarIdent(&tablaDeIdentificadores,identificador,-1);
-    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),"a");
+    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),'a');
 };
 	YY_BREAK
 case 7:
@@ -974,7 +974,7 @@ YY_RULE_SETUP
 #line 134 "proy.l"
 {
     fprintf(archSal,"clase4 %s\n",yytext);
-    agregarToken(&tablaDeTokens,4,61,"="); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,4,61,'='); // Agrega token con el valor correspondiente
 };
 	YY_BREAK
 case 8:
@@ -993,7 +993,7 @@ YY_RULE_SETUP
 {
     fprintf(archSal,"clase6 %s\n",yytext);
     int value=toFloat(yytext); // Convierte yytext a int por ser constante ENTERA
-    agregarToken(&tablaDeTokens,6,value,"e"); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,6,value,'e'); // Agrega token con el valor correspondiente
 };
 	YY_BREAK
 case 10:
@@ -1006,7 +1006,7 @@ YY_RULE_SETUP
     char *cadena=malloc(sizeof(yytext));
     strcpy(cadena,yytext);
     agregarCadena(&tablaDeCadenas,cadena);
-    agregarToken(&tablaDeTokens,7,contadorCadenas,"s");
+    agregarToken(&tablaDeTokens,7,contadorCadenas,'s');
 };
 	YY_BREAK
 case 11:

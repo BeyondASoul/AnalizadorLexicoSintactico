@@ -95,7 +95,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
 };
 {clase0epos} {
     fprintf(archSal,"clase0epos %s\n",yytext);
@@ -103,7 +103,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
 };
 {clase0eneg} {
     fprintf(archSal,"clase0eneg %s\n",yytext);
@@ -111,13 +111,13 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
 };
 {clase1} {
     fprintf(archSal,"clase1 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(value,yytext); // Copia yytext a value
-    agregarToken(&tablaDeTokens,1,busquedaPal(value),palabraAtomo(yytext)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,1,busquedaPal(value),(char)palabraAtomo(yytext)); // Agrega token con el valor correspondiente
 };
 {clase2} {
     fprintf(archSal,"clase2 %s\n",yytext);
@@ -129,11 +129,11 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *identificador=malloc(sizeof(yytext));
     strcpy(identificador,yytext);
     agregarIdent(&tablaDeIdentificadores,identificador,-1);
-    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),"a");
+    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),'a');
 };
 {clase4} {
     fprintf(archSal,"clase4 %s\n",yytext);
-    agregarToken(&tablaDeTokens,4,61,"="); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,4,61,'='); // Agrega token con el valor correspondiente
 };
 {clase5} {
     fprintf(archSal,"clase5 %s\n",yytext);
@@ -144,7 +144,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 {clase6} {
     fprintf(archSal,"clase6 %s\n",yytext);
     int value=toFloat(yytext); // Convierte yytext a int por ser constante ENTERA
-    agregarToken(&tablaDeTokens,6,value,"e"); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,6,value,'e'); // Agrega token con el valor correspondiente
 };
 {clase7} {
     fprintf(archSal,"clase7 %s\n",yytext);
@@ -152,7 +152,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *cadena=malloc(sizeof(yytext));
     strcpy(cadena,yytext);
     agregarCadena(&tablaDeCadenas,cadena);
-    agregarToken(&tablaDeTokens,7,contadorCadenas,"s");
+    agregarToken(&tablaDeTokens,7,contadorCadenas,'s');
 };
 {clase8} {
     fprintf(archSal,"clase8 %s\n",yytext);
