@@ -35,9 +35,13 @@ Token: (1,13)	Atomo: g
 Token: (3,7)	Atomo: a
 Token: (4,61)	Atomo: =
 Token: (7,3)	Atomo: s
+Token: (1,13)	Atomo: g
+Token: (3,8)	Atomo: a
+Token: (4,61)	Atomo: =
+Token: (7,4)	Atomo: s
 Token: (2,58)	Atomo: :
 Token: (1,3)	Atomo: c
-Token: (3,8)	Atomo: a
+Token: (3,9)	Atomo: a
 Token: (2,58)	Atomo: :
 Token: (1,0)	Atomo: b
 Token: (3,1)	Atomo: a
@@ -63,9 +67,9 @@ Token: (5,3)	Atomo: <
 Token: (6,4)	Atomo: e
 Token: (2,41)	Atomo: )
 Token: (2,123)	Atomo: {
-Token: (3,9)	Atomo: a
+Token: (3,10)	Atomo: a
 Token: (2,40)	Atomo: (
-Token: (7,4)	Atomo: s
+Token: (7,5)	Atomo: s
 Token: (2,41)	Atomo: )
 Token: (2,58)	Atomo: :
 Token: (1,1)	Atomo: q
@@ -91,7 +95,7 @@ Token: (3,0)	Atomo: a
 Token: (2,41)	Atomo: )
 Token: (2,123)	Atomo: {
 Token: (1,8)	Atomo: f
-Token: (3,10)	Atomo: a
+Token: (3,11)	Atomo: a
 Token: (4,61)	Atomo: =
 Token: (0,4)	Atomo: r
 Token: (2,58)	Atomo: :

@@ -5,7 +5,8 @@ Posicion: 3		Nombre: q			Tipo: -1
 Posicion: 4		Nombre: w			Tipo: -1
 Posicion: 5		Nombre: s1			Tipo: -1
 Posicion: 6		Nombre: s2			Tipo: -1
-Posicion: 7		Nombre: s3			Tipo: -1
-Posicion: 8		Nombre: char1			Tipo: -1
-Posicion: 9		Nombre: printf			Tipo: -1
-Posicion: 10		Nombre: x			Tipo: -1
+Posicion: 7		Nombre: vacia			Tipo: -1
+Posicion: 8		Nombre: s3			Tipo: -1
+Posicion: 9		Nombre: char1			Tipo: -1
+Posicion: 10		Nombre: printf			Tipo: -1
+Posicion: 11		Nombre: x			Tipo: -1

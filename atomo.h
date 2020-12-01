@@ -1,7 +1,3 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
 char getTokenAtomo(int clase, int valor){
 	switch (clase)
 	{

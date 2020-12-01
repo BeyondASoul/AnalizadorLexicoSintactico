@@ -33,6 +33,10 @@ clase4 =
 clase7 "Cadena2"
 clase2 :
 clase1 string
+clase3 vacia
+clase4 =
+clase7 ""
+clase1 string
 clase3 s3
 clase4 =
 clase7 "Hola"
@@ -113,3 +117,4 @@ clase2 }
 clase2 }
 clase2 }
 Termina el análisis léxico.
+Comienza el análisis sintáctico:

@@ -577,11 +577,11 @@ char *yytext;
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
-//#include "gramatica.h"
-#include "identificadores.h"
 #include "tokens.h"
+#include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
+#include "gramatica.h"
 // Archivos de salida necesarios
 FILE *archSal; 
 FILE *tokensFile;
@@ -2061,22 +2061,24 @@ int main(int argc, char *argv[])
     constantesExpFile = fopen("constantesExp.txt","w");
     logFile = fopen("log.txt","w");
 
-    // Comienza el análisis léxico
+    // COMIENZA EL ANÁLISIS LÉXICO
     fprintf(archSal,"Comienza el análisis léxico:\n");
     yylex(); // Analisis Lexico
-
-
-    //initGram(tablaDeTokens); 
-    //getAtomo();
-    //P();
-    // Aqui se imprimen tokens, identificadores, cadenas y reales.
+    // AQUI SE IMPRIMEN TOKENS, IDENTIFICADORES, CADENAS Y REALES.
     verTokens(tokensFile,tablaDeTokens);
     verIdentificadores(identificadoresFile,tablaDeIdentificadores);
     verCadenas(cadenasFile,tablaDeCadenas);
     verConstantesExp(constantesExpFile,tablaDeRealesExp);
-
     fprintf(archSal,"Termina el análisis léxico.\n");
 
+    // COMIENZA EL ANÁLISIS SINTÁCTICO
+    fprintf(archSal,"Comienza el análisis sintáctico:\n");
+    tokenAux=tablaDeTokens.head; // Token Auxiliar
+    c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
+    printf("c=%c\n",c);
+    P(); // Comienza la gramática con el simbolo P
+
+    fclose(archSal);
     fclose(tokensFile);
     fclose(identificadoresFile);
     fclose(cadenasFile);

@@ -5,6 +5,7 @@ float q=3.4E-3:
 float w=18.0e+5:
 string s1="Cadena1":
 string s2="Cadena2":
+string vacia="";
 string s3="Hola":
 char char1:
 bool b: 
