@@ -1,3 +1,4 @@
+
 #include "tokens.h"
 // Funciones
 void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
@@ -34,13 +35,7 @@ void A(); // TODO: Añadir la gramatica de asignación
 Token* aux;
 TokensList tabla;
 char c;
-// Demás funciones útiles
-// TODO: Funcion que reconozca el error
-// Varaibles globales
-/*char   caracter; //caracter actual
-Token* tokenAnt   = NULL; //Referencia al token anterior
-Token* tokenAct   = NULL; //Referencia al token actual
-*/
+
 void initGram(TokensList a)
 {
     tabla=a;
@@ -55,7 +50,7 @@ void getAtomo()
 void P()
 {
 
-    if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g"||c=="["||c=="\0")
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g'||c=='['||c=='\0')
     {
         DP();
         Y();
@@ -67,9 +62,9 @@ void P()
 }
 void YP()
 {
-    if(c=="[")
+    if(c=='[')
         Y();
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else
         printf("ERROR EN YP\n");
@@ -77,7 +72,7 @@ void YP()
 }
 void Y()
 {
-    if(c=="[")
+    if(c=='[')
     {
         getAtomo();
         VP();
@@ -96,9 +91,9 @@ void Y()
 }
 void VP()
 {
-    if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
         V();
-    else if(c=="o")
+    else if(c=='o')
         return;
     else 
         printf("ERROR EN VP \n");
@@ -106,9 +101,9 @@ void VP()
 }
 void DP()
 {
-    if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
         D();
-    else if(c=="["||c=="\0")
+    else if(c=='['||c=='\0')
         return;
     else 
         printf("ERROR EN DP\n");
@@ -116,7 +111,7 @@ void DP()
 }
 void D()
 {
-    if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
     {
         V();
         L();
@@ -127,7 +122,7 @@ void D()
 }
 void L()
 {
-    if(c=="a")
+    if(c=='a')
     {
         getAtomo();
         G();
@@ -139,12 +134,12 @@ void L()
 }
 void C()
 {
-    if(c==",")
+    if(c==',')
     {
         getAtomo();
         L();
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else
         printf("ERROREN C\n");
@@ -152,7 +147,7 @@ void C()
 }
 void V() // TODO
 {
-    if(c=="b"||c=="c"||c=="f"||c=="n"||c=="g")
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
         getAtomo();
     else
         printf("ERROR EN V\n");
@@ -160,13 +155,13 @@ void V() // TODO
 }
 void G() // TODO
 {
-    if(c=="[")
+    if(c=='[')
     {
         getAtomo();//e
         getAtomo();//]
         getAtomo();//lo que sigue
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else 
         printf("ERROR EN G\n");
@@ -174,38 +169,38 @@ void G() // TODO
 }
 void S() // TODO
 {
-    if(c=="x")
+    if(c=='x')
     {
         X();
     }
-    else if(c=="i")
+    else if(c=='i')
     {
         I();
     }
-    else if(c=="w")
+    else if(c=='w')
     {
         W();
     }
-    else if(c=="h")
+    else if(c=='h')
     {
         H();
     }
-    else if(c=="p")
+    else if(c=='p')
     {
         N();
     }
-    else if(c=="u")
+    else if(c=='u')
     {
         getAtomo();// \0 (
         U();
         getAtomo();// lo que sigue
     }
-    else if(c=="t")
+    else if(c=='t')
     {
         getAtomo();//:
         getAtomo();//Lo que sigue
     }
-    else if(c=="[")
+    else if(c=='[')
     {
         getAtomo();//a
         getAtomo();//(
@@ -220,13 +215,13 @@ void S() // TODO
 }
 void U() // TODO
 {
-    if(c=="(")
+    if(c=='(')
     {
         getAtomo(); //a e r [
         F();
         getAtomo();// lo que sigue
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else
         printf("ERROR EN U\n");
@@ -234,7 +229,7 @@ void U() // TODO
 }
 void W() // TODO
 {
-    if(c=="w")
+    if(c=='w')
     {
         getAtomo();//(
         getAtomo();// ( a e r [
@@ -250,7 +245,7 @@ void W() // TODO
 }
 void H() // TODO
 {
-    if(c=="h")
+    if(c=='h')
     {
         getAtomo();//{
         getAtomo();// x i w h p u t [ \0
@@ -268,7 +263,7 @@ void H() // TODO
 }
 void X() // TODO
 {
-    if(c=="x")
+    if(c=='x')
     {
         getAtomo();//(
         getAtomo();//a
@@ -288,7 +283,7 @@ void X() // TODO
 }
 void O() // TODO
 {
-    if(c=="k")
+    if(c=='k')
     {
         getAtomo();//e
         getAtomo();//[
@@ -299,7 +294,7 @@ void O() // TODO
         getAtomo();// k \0
         O();
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else 
         printf("ERROR EN O\n");
@@ -307,9 +302,9 @@ void O() // TODO
 }
 void B() // TODO
 {
-    if(c=="x"||c=="i"||c=="w"||c=="h"||c=="p"||c=="u"||c=="t"||c=="[")
+    if(c=='x'||c=='i'||c=='w'||c=='h'||c=='p'||c=='u'||c=='t'||c=='[')
         S();
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else
         printf("ERROR EN B\n");
@@ -317,7 +312,7 @@ void B() // TODO
 }
 void I() // TODO
 {
-    if(c=="i")
+    if(c=='i')
     {
         getAtomo();//(
         getAtomo();//( a e r [
@@ -335,14 +330,14 @@ void I() // TODO
 }
 void J() // TODO
 {
-    if(c=="l")
+    if(c=='l')
     {
         getAtomo();//{
         getAtomo();// x i w h p u t [ \0
         B();
         getAtomo();// lo que sigue
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else
         printf("ERROR EN J \n");
@@ -350,7 +345,7 @@ void J() // TODO
 }
 void N() // TODO
 {
-    if(c=="p")
+    if(c=='p')
     {
         getAtomo();//[
         getAtomo();//e
@@ -366,7 +361,7 @@ void N() // TODO
 }
 void R() // TODO
 {
-    if(c=="("||c=="a"||c=="e"||c=="r"||c=="[")
+    if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
     {
         E();
         K();
@@ -378,7 +373,7 @@ void R() // TODO
 }
 void K() // TODO
 {
-    if(c=="!"||c=="?"||c==">"||c=="<"||c=="y"||c=="m")
+    if(c=='!'||c=='?'||c=='>'||c=='<'||c=='y'||c=='m')
         getAtomo();
     else
         printf("ERROR EN K \n");
@@ -386,7 +381,7 @@ void K() // TODO
 }
 void E() // TODO
 {
-    if(c=="("||c=="a"||c=="e"||c=="r"||c=="[")
+    if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
     {
         T();
         EP();
@@ -397,19 +392,19 @@ void E() // TODO
 }
 void EP() // TODO
 {
-    if(c=="+")
+    if(c=='+')
     {
         getAtomo();
         T();
         EP();
     }
-    else if(c=="-")
+    else if(c=='-')
     {
         getAtomo();
         T();
         EP();
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else
         printf("ERROR EN EP\n");
@@ -417,7 +412,7 @@ void EP() // TODO
 }
 void T() // TODO
 {
-    if(c=="("||c=="a"||c=="e"||c=="r"||c=="[")
+    if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
     {
         F();
         TP();
@@ -428,13 +423,13 @@ void T() // TODO
 }
 void TP() // TODO
 {
-    if(c=="*"||c=="/"||c=="%"||c=="#")
+    if(c=='*'||c=='/'||c=='%'||c=='#')
     {
         getAtomo();
         F();
         TP();
     }
-    else if(c=="\0")
+    else if(c=='\0')
         return;
     else 
         printf("ERROR EN TP\n");
@@ -442,19 +437,19 @@ void TP() // TODO
 }
 void F() // TODO
 {
-    if(c=="(")
+    if(c=='(')
     {
         getAtomo();
         E();
     }
-    else if(c=="a")
+    else if(c=='a')
     {
         getAtomo();
         G();
     }
-    else if(c=="e"||c=="r")
+    else if(c=='e'||c=='r')
         getAtomo();
-    else if(c=="[")
+    else if(c=='[')
     {
         getAtomo(); //a
         getAtomo(); //(

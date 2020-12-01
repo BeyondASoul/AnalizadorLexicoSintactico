@@ -2,89 +2,47 @@
 #include<stdlib.h>
 #include<string.h>
 
-char palabraAtomo(char* cadena)
-{
-	if(cadena=="bool")
-		return (char)98;
-	else if(cadena=="break")
-		return (char)113;
-	else if(cadena=="case")
-		return 'k';
-	else if(cadena=="char")
-		return 'c';
-	else if(cadena=="continue")
-		return 't';
-	else if(cadena=="default")
-		return 'd';
-	else if(cadena=="do")
-		return 'h';
-	else if(cadena=="else")
-		return 'l';
-	else if(cadena=="float")
-		return 'f';
-	else if(cadena=="for")
-		return 'p';
-	else if(cadena=="if")
-		return 'i';
-	else if(cadena=="int")
-		return 'n';
-	else if(cadena=="return")
-		return 'u';
-	else if(cadena=="string")
-		return 'g';
-	else if(cadena=="switch")
-		return 'x';
-	else if(cadena=="while")
-		return 'w';
-	else if(cadena=="void")
-		return 'o';
-}
-char simboloAtomo(char* cadena)
-{
-	if(cadena=="{")
-		return '{';
-	else if(cadena=="}")
-		return '}';
-	else if(cadena==",")
-		return ',';
-	else if(cadena==":")
-		return ':';
-	else if(cadena=="(")
-		return '(';
-	else if(cadena==")")
-		return ')';
-	else if(cadena=="[")
-		return '[';
-	else if(cadena=="]")
-		return ']';
-}
-char opReAtomo(char* cadena)
-{
-	if(cadena=="!=")
-		return '!';
-	else if(cadena=="==")
-		return '?';
-	else if(cadena==">")
-		return '>';
-	else if(cadena=="<")
-		return '<';
-	else if(cadena==">=")
-		return 'y';
-	else if(cadena=="<=")
-		return 'm';
-}
-char opArAtomo(char* cadena)
-{
-	if(cadena=="+")
-		return '+';
-	else if(cadena=="-")
-		return '-';
-	else if(cadena=="*")
-		return '*';
-	else if(cadena=="/")
-		return '/';
-	else if(cadena=="**")
-		return '#';
-	else if(cadena=="%")
-		return '%';
+char getTokenAtomo(int clase, int valor){
+	switch (clase)
+	{
+	case 0: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
+	case 1: switch (valor){
+				case 0: return 'b'; break;
+				case 1: return 'q'; break;
+				case 2: return 'k'; break;
+				case 3: return 'c'; break;
+				case 4: return 't'; break;
+				case 5: return 'd'; break;
+				case 6: return 'h'; break;
+				case 7: return 'l'; break;
+				case 8: return 'f'; break;
+				case 9: return 'p'; break;
+				case 10: return 'i'; break;
+				case 11: return 'n'; break;
+				case 12: return 'u'; break;
+				case 13: return 'g'; break;
+				case 14: return 'x'; break;
+				case 15: return 'w'; break;
+				case 16: return 'o'; break;
+			}
+	case 2: return (char)valor; break;
+	case 3: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
+	case 4: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
+	case 5: switch (valor){
+				case 0: return '!'; break;
+				case 1: return '='; break;
+				case 2: return '>'; break;
+				case 3: return '<'; break;
+				case 4: return 'y'; break;
+				case 5: return 'm'; break;
+			}
+	case 6: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
+	case 7: return '_'; break; // No hace nada, ya se agrega el atomo en proy.l
+	case 8: if (valor==0){
+				return '*'; break;
+			}
+			else{
+				return (char)valor; break;
+			}
+	}
 }

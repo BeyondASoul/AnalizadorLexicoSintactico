@@ -9,12 +9,11 @@
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
-#include "gramatica.h"
+//#include "gramatica.h"
 #include "identificadores.h"
+#include "tokens.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
-#include "atomo.h"
-//#include "gramatica.h"
 // Archivos de salida necesarios
 FILE *archSal; 
 FILE *tokensFile;
@@ -117,12 +116,12 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     fprintf(archSal,"clase1 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(value,yytext); // Copia yytext a value
-    agregarToken(&tablaDeTokens,1,busquedaPal(value),(char)palabraAtomo(yytext)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,1,busquedaPal(value),'_'); // Agrega token con el valor correspondiente
 };
 {clase2} {
     fprintf(archSal,"clase2 %s\n",yytext);
     int value=toAscii(yytext); // Convierte yytext a Ascii
-    agregarToken(&tablaDeTokens,2,value,simboloAtomo(yytext)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,2,value,'_'); // Agrega token con el valor correspondiente
 };
 {clase3} {
     fprintf(archSal,"clase3 %s\n",yytext);
@@ -139,7 +138,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     fprintf(archSal,"clase5 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(value,yytext); // Copia yytext a value
-    agregarToken(&tablaDeTokens,5,busquedaOp(value),opReAtomo(yytext)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,5,busquedaOp(value),'_'); // Agrega token con el valor correspondiente
 }
 {clase6} {
     fprintf(archSal,"clase6 %s\n",yytext);
@@ -157,11 +156,11 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 {clase8} {
     fprintf(archSal,"clase8 %s\n",yytext);
     if(!strcmp("**",yytext)){
-        agregarToken(&tablaDeTokens,8,48,opArAtomo(yytext));
+        agregarToken(&tablaDeTokens,8,48,'_');
     }
     else{
         int value=toAscii(yytext);
-        agregarToken(&tablaDeTokens,8,value,opArAtomo(yytext));
+        agregarToken(&tablaDeTokens,8,value,'_');
     }
 };
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
@@ -187,9 +186,9 @@ int main(int argc, char *argv[])
     yylex(); // Analisis Lexico
 
 
-    initGram(tablaDeTokens); 
-    getAtomo();
-    P();
+    //initGram(tablaDeTokens); 
+    //getAtomo();
+    //P();
     // Aqui se imprimen tokens, identificadores, cadenas y reales.
     verTokens(tokensFile,tablaDeTokens);
     verIdentificadores(identificadoresFile,tablaDeIdentificadores);

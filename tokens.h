@@ -9,6 +9,7 @@ definida como:
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
+#include "atomo.h"
 // Estructura de los tokens, con un apuntador al siguiente token
 typedef struct Token
 {
@@ -22,7 +23,10 @@ typedef struct TokensList{
     struct Token* head;
 }TokensList;
 
-void agregarToken(TokensList *tokens,int clase,int valor,char* atomo){
+void agregarToken(TokensList *tokens,int clase,int valor,char atomo){
+    if(atomo == '_'){
+        atomo = getTokenAtomo(clase,valor);
+    }
     if(tokens->head==NULL){
         Token *nodo = (Token*)malloc(sizeof(Token));
         nodo->clase = clase;
@@ -55,10 +59,10 @@ void verTokens(FILE* archSal, TokensList tokens) {
         Token *current = tokens.head;
         while (current != 0) {
             if (current->clase==8){
-                fprintf(archSal,"(%d,%c,%c)\n",current->clase,(char)current->valor,(char)current->atomo);
+                fprintf(archSal,"Token: (%d,%c)\tAtomo: %c\n",current->clase,(char)current->valor,(char)current->atomo);
             }
             else{
-                fprintf(archSal,"(%d,%d,%c)\n",current->clase,current->valor,(char)current->atomo);
+                fprintf(archSal,"Token: (%d,%d)\tAtomo: %c\n",current->clase,current->valor,(char)current->atomo);
             }
             
             current = current->next;
