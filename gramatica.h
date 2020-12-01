@@ -1,6 +1,6 @@
 #include "tokens.h"
 // Funciones
-void siguienteAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
+void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 // Define los no termniales de las gramáticas, siendo P el indicador de prima
 void P(char c); // inicial 
 void YP(char c); // Gramatica Y'
@@ -36,18 +36,11 @@ void A(char c); // TODO: Añadir la gramatica de asignación
 /*char   caracter; //caracter actual
 Token* tokenAnt   = NULL; //Referencia al token anterior
 Token* tokenAct   = NULL; //Referencia al token actual
-
-void siguienteAtomo(){
-    tokenAnt=tokenAct; // Se cambia la referencia del token anterior
-    if (tokenAct->next==NULL){ // Agrega un token provisional para conocer el final
-        tokenAct=NULL;
-        caracter='_';
-    }else{
-        tokenAct=tokenAct->next; // Se cambia la referencia del token actual
-        caracter=tokenAct->atomo; // el caracter almacena el atomo del token actual
-    }
-    return;
-}*/
+*/
+char getAtomo()
+{
+    
+}
 // Definiendo la gramática como funciones
 void P(char c)
 {

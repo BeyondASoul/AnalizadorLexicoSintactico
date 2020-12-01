@@ -14,6 +14,7 @@ typedef struct Token
 {
     int clase;
     int valor;
+    char atomo;
     struct Token* next;
 }Token;
 // Se manejará como una lista ligada simple
@@ -21,11 +22,12 @@ typedef struct TokensList{
     struct Token* head;
 }TokensList;
 
-void agregarToken(TokensList *tokens,int clase,float valor){
+void agregarToken(TokensList *tokens,int clase,int valor,char* atomo){
     if(tokens->head==NULL){
         Token *nodo = (Token*)malloc(sizeof(Token));
         nodo->clase = clase;
         nodo->valor = valor;
+        nodo->atomo= atomo;
         nodo->next = NULL;
         tokens->head = nodo;
     }   
@@ -38,6 +40,7 @@ void agregarToken(TokensList *tokens,int clase,float valor){
         nuevoNodo = (Token*)malloc(sizeof(Token));
         nuevoNodo->clase = clase;
         nuevoNodo->valor = valor;
+        nuevoNodo->atomo= atomo;
         nuevoNodo->next = NULL;
         current->next = nuevoNodo;
     }   

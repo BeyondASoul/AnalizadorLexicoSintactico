@@ -13,6 +13,7 @@
 #include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
+#include "atomo.h"
 
 // Archivos de salida necesarios
 FILE *archSal; 
@@ -29,7 +30,8 @@ TokensList tablaDeTokens;
 IdentList tablaDeIdentificadores;
 CadList tablaDeCadenas;
 RealListExp tablaDeRealesExp;
-
+Token aux;//token auxiliar para recorrer la tabla de tokens para el analizador sintáctico
+char c; //atomo
 // Lista estática de operadores relacionales y palabras reservadas
 char *operadoresRel[6]={"!=","==",">","<",">=","<="};
 char *palabrasRes[17]={"bool","break","case","char","continue","default","do","else","float","for","if","int","return","string","switch","while","void"};
@@ -95,7 +97,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes);
+    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
 };
 {clase0epos} {
     fprintf(archSal,"clase0epos %s\n",yytext);
@@ -103,7 +105,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes);
+    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
 };
 {clase0eneg} {
     fprintf(archSal,"clase0eneg %s\n",yytext);
@@ -111,40 +113,40 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
     agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes);
+    agregarToken(&tablaDeTokens,0,contadorConstantes,"r");
 };
 {clase1} {
     fprintf(archSal,"clase1 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(value,yytext); // Copia yytext a value
-    agregarToken(&tablaDeTokens,1,busquedaPal(value)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,1,busquedaPal(value),palabraAtomo(yytext)); // Agrega token con el valor correspondiente
 };
 {clase2} {
     fprintf(archSal,"clase2 %s\n",yytext);
     int value=toAscii(yytext); // Convierte yytext a Ascii
-    agregarToken(&tablaDeTokens,2,value); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,2,value,simboloAtomo(yytext)); // Agrega token con el valor correspondiente
 };
 {clase3} {
     fprintf(archSal,"clase3 %s\n",yytext);
     char *identificador=malloc(sizeof(yytext));
     strcpy(identificador,yytext);
     agregarIdent(&tablaDeIdentificadores,identificador,-1);
-    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador));
+    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),"a");
 };
 {clase4} {
     fprintf(archSal,"clase4 %s\n",yytext);
-    agregarToken(&tablaDeTokens,4,61); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,4,61,"="); // Agrega token con el valor correspondiente
 };
 {clase5} {
     fprintf(archSal,"clase5 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(value,yytext); // Copia yytext a value
-    agregarToken(&tablaDeTokens,5,busquedaOp(value)); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,5,busquedaOp(value),opReAtomo(yytext)); // Agrega token con el valor correspondiente
 }
 {clase6} {
     fprintf(archSal,"clase6 %s\n",yytext);
     int value=toFloat(yytext); // Convierte yytext a int por ser constante ENTERA
-    agregarToken(&tablaDeTokens,6,value); // Agrega token con el valor correspondiente
+    agregarToken(&tablaDeTokens,6,value,"e"); // Agrega token con el valor correspondiente
 };
 {clase7} {
     fprintf(archSal,"clase7 %s\n",yytext);
@@ -152,16 +154,16 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     char *cadena=malloc(sizeof(yytext));
     strcpy(cadena,yytext);
     agregarCadena(&tablaDeCadenas,cadena);
-    agregarToken(&tablaDeTokens,7,contadorCadenas);
+    agregarToken(&tablaDeTokens,7,contadorCadenas,"s");
 };
 {clase8} {
     fprintf(archSal,"clase8 %s\n",yytext);
     if(!strcmp("**",yytext)){
-        agregarToken(&tablaDeTokens,8,48);
+        agregarToken(&tablaDeTokens,8,48,opArAtomo(yytext));
     }
     else{
         int value=toAscii(yytext);
-        agregarToken(&tablaDeTokens,8,value);
+        agregarToken(&tablaDeTokens,8,value,opArAtomo(yytext));
     }
 };
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
@@ -185,6 +187,8 @@ int main(int argc, char *argv[])
     // Comienza el análisis léxico
     fprintf(archSal,"Comienza el análisis léxico:\n");
     yylex(); // Analisis Lexico
+    aux=tablaDeTokens.head;//se ubica en el primer elemento 
+    c=getAtomo();
     // Aqui se imprimen tokens, identificadores, cadenas y reales.
     verTokens(tokensFile,tablaDeTokens);
     verIdentificadores(identificadoresFile,tablaDeIdentificadores);
