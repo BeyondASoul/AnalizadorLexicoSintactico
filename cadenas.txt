@@ -1,1 +1,1 @@
-Posicion: 0		Valor: "Hola"
+No hay cadenas.

@@ -1,33 +1,5 @@
-int a:
-int b:
-float c:
-float q:
-float w:
-string s1:
-string s2:
-string vacia:
-string s3:
-char char1:
-bool b: 
-// Comentario de una linea
-/* Comentario 
-multi
-linea
-*/
-@// Comentario no aceptado por el @
-if (a==b){
-    if (a>=b){
-        if (a<4){
-	    printf("Hola"):
-            break:
-        }
+[void main(){
+        int a:
+        float b,c:
     }
-}
-else{
-    if(b!=a){
-        float x:
-        while(b!=0){
-            string string1:
-        }
-    }
-}
+]

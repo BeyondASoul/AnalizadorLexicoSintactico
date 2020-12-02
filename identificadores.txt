@@ -1,13 +1,4 @@
-Posicion: 0		Nombre: a			Tipo: -1
-Posicion: 1		Nombre: b			Tipo: -1
-Posicion: 2		Nombre: c			Tipo: -1
-Posicion: 3		Nombre: q			Tipo: -1
-Posicion: 4		Nombre: w			Tipo: -1
-Posicion: 5		Nombre: s1			Tipo: -1
-Posicion: 6		Nombre: s2			Tipo: -1
-Posicion: 7		Nombre: vacia			Tipo: -1
-Posicion: 8		Nombre: s3			Tipo: -1
-Posicion: 9		Nombre: char1			Tipo: -1
-Posicion: 10		Nombre: printf			Tipo: -1
-Posicion: 11		Nombre: x			Tipo: -1
-Posicion: 12		Nombre: string1			Tipo: -1
+Posicion: 0		Nombre: main			Tipo: -1
+Posicion: 1		Nombre: a			Tipo: -1
+Posicion: 2		Nombre: b			Tipo: -1
+Posicion: 3		Nombre: c			Tipo: -1
