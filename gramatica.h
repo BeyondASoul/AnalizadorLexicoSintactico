@@ -81,20 +81,20 @@ void Y()
         VP();
         if(c=='a')
         {
-            getAtomo();//(
+            getAtomo();
             if(c=='(')
             {
-                getAtomo();//)
+                getAtomo();
                 if(c==')')
                 {
-                    getAtomo();//{
+                    getAtomo();
                     if(c=='{')
                     {
-                        getAtomo();//b c f n g [ \0
+                        getAtomo();
                         DP();
                         B();
                         if(c=='}')
-                            getAtomo();//]
+                            getAtomo();
                         else
                             printf("ERROR EN Y, SE ESPERABA: }\n");
                     }
@@ -193,13 +193,11 @@ void G() // TODO
         if(c=='e')
         {
             getAtomo();//lo que sigue
-            if(c==']')
+            if (c==']')
                 getAtomo();
             else
-                printf("ERROR EN G, SE ESPERABA: ]\n");
+                printf("ERROR EN G, SE ESPERABA: ]");    
         }
-        else
-            printf("ERROR EN G, SE ESPERABA: e\n");
     }
     else if(c=='\0'||c==':'||c==',')
         return;
