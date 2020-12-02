@@ -78,39 +78,19 @@ void Y()
     {
         getAtomo();
         VP();
-        if(c=='a')
-        {
-            getAtomo();//(
-            if(c=='(')
-            {
-                getAtomo();//)
-                if(c==')')
-                {
-                    getAtomo();//{
-                    if(c=='{')
-                    {
-                        getAtomo();//b c f n g [ \0
-                        DP();
-                        B();
-                        if(c=='}')
-                            getAtomo();//]
-                        else
-                            printf("ERROR EN Y, SE ESPERABA: }\n");
-                    }
-                    else
-                        printf("ERROR EN Y, SE ESPERABA: {\n");
-                }
-                else
-                    printf("ERROR EN Y, SE ESPERABA: )\n");
-            }
-            else
-                printf("ERROR EN Y, SE ESPERABA: (\n");
+        if(c=='a'||c=='('||c==')'||c=='{')
+        DP();
+        B();
+        if(c=='}'){
+            getAtomo();
+            return;
         }
-        else
-            printf("ERROR EN Y, SE ESPERABA: a\n");
+        else{
+            printf("ERROR EN Y, SE ESPERABA: }\n");
+        }
     }
     else
-        printf("ERROR EN Y, SE ESPERABA: [\n");
+        printf("ERROR EN Y, SE ESPERABA: [, a, (, ) ó {\n");
     return;
 }
 void VP()
@@ -173,7 +153,7 @@ void C()
     else if(c=='\0'||c==':')
         return;
     else
-        printf("ERROREN C\n");
+        printf("ERROR EN C\n");
     return;
 }
 void V() // TODO
@@ -186,19 +166,23 @@ void V() // TODO
 }
 void G() // TODO
 {
-    getAtomo();
-    if(c=='e')
+    if(c=='[')
     {
         getAtomo();//]
-        if(c==']')
+        if(c=='e'){
             getAtomo();//lo que sigue
+            if (c==']')
+                getAtomo();
+            else
+                printf("ERROR EN G, SE ESPERABA: ]");
+        }
         else
-            printf("ERROR EN G, SE ESPERABA: ]\n");
+            printf("ERROR EN G, SE ESPERABA: e\n");
     }
-    else if(c=='\0')
+    else if(c==','||c==':'||c=='\0')
         return;
     else 
-        printf("ERROR EN G, SE ESPERABA: e\n");
+        printf("ERROR EN G, SE ESPERABA: [\n");
     return;
 }
 void S() // TODO

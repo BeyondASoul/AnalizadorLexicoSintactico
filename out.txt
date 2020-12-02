@@ -22,6 +22,7 @@ clase3 s2
 clase2 :
 clase1 string
 clase3 vacia
+clase2 :
 clase1 string
 clase3 s3
 clase2 :

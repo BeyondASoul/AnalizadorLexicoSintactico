@@ -21,6 +21,7 @@ Token: (3,6)	Atomo: a
 Token: (2,58)	Atomo: :
 Token: (1,13)	Atomo: g
 Token: (3,7)	Atomo: a
+Token: (2,58)	Atomo: :
 Token: (1,13)	Atomo: g
 Token: (3,8)	Atomo: a
 Token: (2,58)	Atomo: :

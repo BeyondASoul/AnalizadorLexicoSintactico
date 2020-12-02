@@ -5,7 +5,7 @@ float q:
 float w:
 string s1:
 string s2:
-string vacia;
+string vacia:
 string s3:
 char char1:
 bool b: 

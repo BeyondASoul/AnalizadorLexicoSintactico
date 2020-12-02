@@ -195,6 +195,7 @@ int main(int argc, char *argv[])
     fprintf(archSal,"Comienza el análisis sintáctico:\n");
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
+    printf("c=%c\n",c);
     P(); // Comienza la gramática con el simbolo P
 
     // ----------------------------------------------------

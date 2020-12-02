@@ -13,7 +13,6 @@
         ESPACIO, SALTO O TABULACIÓN        
         ESPACIO, SALTO O TABULACIÓN        
         ESPACIO, SALTO O TABULACIÓN        
-xxxxxxxxERROR: ';' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx
         ESPACIO, SALTO O TABULACIÓN        
         ESPACIO, SALTO O TABULACIÓN        
         ESPACIO, SALTO O TABULACIÓN        
