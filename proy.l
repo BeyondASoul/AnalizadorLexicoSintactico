@@ -164,7 +164,8 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
 ({comentunalinea}"\n"|{comentmulti}) {fprintf(logFile,"\\\\\\\\COMENTARIO UNICO/MULTILINEA: %s\n",yytext);}
 (\@{comentunalinea}|\@{comentmulti}) {fprintf(logFile,"********COMENTARIO con @ DESCARTADO: %s\n",yytext);}
-. {fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);}
+. { printf("ERROR, EL ANALIZADOR SINTACTICO NO ESPERABA '%s'\n\n",yytext);
+    fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);};
 %%
 int main(int argc, char *argv[])
 {

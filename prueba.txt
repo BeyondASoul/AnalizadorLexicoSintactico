@@ -1,5 +1,6 @@
 [void main(){
-        int a:
-        float b,c:
+        int a,b:
+        float c,d:
+        char a[4]:
     }
 ]

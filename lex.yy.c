@@ -1041,14 +1041,15 @@ YY_RULE_SETUP
 case 15:
 YY_RULE_SETUP
 #line 167 "proy.l"
-{fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);}
+{ printf("ERROR, EL ANALIZADOR SINTACTICO NO ESPERABA '%s'\n\n",yytext);
+    fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);};
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 168 "proy.l"
+#line 169 "proy.l"
 ECHO;
 	YY_BREAK
-#line 1052 "lex.yy.c"
+#line 1053 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2045,7 +2046,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 168 "proy.l"
+#line 169 "proy.l"
 
 
 int main(int argc, char *argv[])

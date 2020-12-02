@@ -56,7 +56,8 @@ void getAtomo()
 // Definiendo la gramática como funciones
 void P()
 {
-    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g'||c=='['||c=='\0')
+    printf("Entrando a P con c=%c\n",c);
+    if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g'||c=='['||c=='_')
     {
         DP();
         Y();
@@ -68,12 +69,13 @@ void P()
 }
 void YP()
 {
+    printf("Entrando a YP con c=%c\n",c);
     if(c=='[')
     {
         Y();
         YP();
     }
-    else if(c=='\0')
+    else if(c=='_')
         return;
     else
         printErrorNT(1,'Y',c);
@@ -81,6 +83,7 @@ void YP()
 }
 void Y()
 {
+    printf("Entrando a Y con c=%c\n",c);
     if(c=='[')
     {
         getAtomo();
@@ -99,15 +102,20 @@ void Y()
                         getAtomo();
                         DP();
                         B();
-                        if(c=='}')
+                        if(c=='}'){
                             getAtomo();
-                            if (c==']'){
-                                if (tokenAux->next!=NULL)
-                                    printConEsperado(0,'Y',']',c);
-                                else
-                                    printf("ANALISIS SINTÁCTICO TERMINADO CORRECTAMENTE\n");
+                            if(c==']')
+                                getAtomo();
+                                if(c=='_'){
+                                    printf("TERMINO EL ANALISIS SINTACTICO CON EXITO\n");
                                     exit(EXIT_SUCCESS);
-                            }
+                                }
+                                else
+                                {
+                                    printConEsperado(0,'Y','_',c);
+                                }
+                                
+                        }
                         else
                             printConEsperado(0,'Y','}',c);
                     }
@@ -129,6 +137,7 @@ void Y()
 }
 void VP()
 {
+    printf("Entrando a VP con c=%c\n",c);
     if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
         V();
     else if(c=='o')
@@ -139,12 +148,13 @@ void VP()
 }
 void DP()
 {
+    printf("Entrando a DP con c=%c\n",c);
     if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
     {
         D();
         DP();
     }
-    else if(c=='x'||c=='i'||c=='w'||c=='h'||c=='p'||c=='u'||c=='t'||c=='['||c=='\0')
+    else if(c=='x'||c=='i'||c=='w'||c=='h'||c=='p'||c=='u'||c=='t'||c=='['||c=='}'||c=='_')
         return;
     else 
         printErrorNT(1,'D',c);
@@ -152,6 +162,7 @@ void DP()
 }
 void D()
 {
+    printf("Entrando a D con c=%c\n",c);
     if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
     {
         V();
@@ -162,11 +173,12 @@ void D()
             printErrorNT(0,'D',c);
     }
     else 
-        printf("ERROR EN D\n");
+        printErrorNT(0,'D',c);
     return;
 }
 void L()
 {
+    printf("Entrando a L con c=%c\n",c);
     if(c=='a')
     {
         getAtomo();
@@ -179,12 +191,13 @@ void L()
 }
 void C()
 {
+    printf("Entrando a C con c=%c\n",c);
     if(c==',')
     {
         getAtomo();
         L();
     }
-    else if(c=='\0'||c==':')
+    else if(c=='_'||c==':')
         return;
     else
         printErrorNT(0,'C',c);
@@ -192,6 +205,8 @@ void C()
 }
 void V() // TODO
 {
+    printf("Entrando a V con c=%c\n",c);
+    printf("Entrando a V con c=%c\n",c);
     if(c=='b'||c=='c'||c=='f'||c=='n'||c=='g')
         getAtomo();
     else
@@ -200,6 +215,7 @@ void V() // TODO
 }
 void G() // TODO
 {
+    printf("Entrando a G con c=%c\n",c);
     if(c=='[')
     {
         getAtomo();//e
@@ -212,7 +228,7 @@ void G() // TODO
                 printConEsperado(0,'G',']',c); 
         }
     }
-    else if(c=='\0'||c==':'||c==',')
+    else if(c=='_'||c==':'||c==',')
         return;
     else 
         printConEsperado(0,'G','[',c); 
@@ -220,6 +236,7 @@ void G() // TODO
 }
 void S() // TODO
 {
+    printf("Entrando a S con c=%c\n",c);
     if(c=='x')
         X();
     else if(c=='i')
@@ -232,7 +249,7 @@ void S() // TODO
         N();
     else if(c=='u')
     {
-        getAtomo();// \0 (
+        getAtomo();// _ (
         U();
         if(c==':')
             getAtomo();// lo que sigue
@@ -285,6 +302,7 @@ void S() // TODO
 }
 void U() // TODO
 {
+    printf("Entrando a U con c=%c\n",c);
     if(c=='(')
     {
         getAtomo(); //a e r [
@@ -302,6 +320,7 @@ void U() // TODO
 }
 void W() // TODO
 {
+    printf("Entrando a W con c=%c\n",c);
     if(c=='w')
     {
         getAtomo();//(
@@ -336,12 +355,13 @@ void W() // TODO
 }
 void H() // TODO
 {
+    printf("Entrando a H con c=%c\n",c);
     if(c=='h')
     {
         getAtomo();//{
         if(c=='{')
         {
-            getAtomo();// x i w h p u t [ \0
+            getAtomo();// x i w h p u t [ _
             B();
             if(c=='w')
             {
@@ -376,6 +396,7 @@ void H() // TODO
 }
 void X() // TODO
 {
+    printf("Entrando a X con c=%c\n",c);
     if(c=='x')
     {
         getAtomo();//(
@@ -428,6 +449,7 @@ void X() // TODO
 }
 void O() // TODO
 {
+    printf("Entrando a O con c=%c\n",c);
     if(c=='k')
     {
         getAtomo();//e
@@ -436,7 +458,7 @@ void O() // TODO
             getAtomo();//[
             if(c=='[')
             {
-                getAtomo();// x i w h p u t [ \0
+                getAtomo();// x i w h p u t [ _
                 B();
                 if(c==']')
                 {
@@ -446,7 +468,7 @@ void O() // TODO
                         getAtomo();//:
                         if(c==':')
                         {
-                            getAtomo();// k \0
+                            getAtomo();// k _
                             O();
                         }
                         else
@@ -464,21 +486,21 @@ void O() // TODO
         else
             printConEsperado(0,'O','e',c);
     }
-    else if(c=='\0'||c=='d')
+    else if(c=='_'||c=='d')
         return;
     else 
         printConEsperado(0,'O','k',c);
-        printf("ERROR EN O, SE ESPERABA: k\n");
     return;
 }
 void B() // TODO
 {
+    printf("Entrando a B con c=%c\n",c);
     if(c=='x'||c=='i'||c=='w'||c=='h'||c=='p'||c=='u'||c=='t'||c=='[')
     {
         S();
         B();
     }
-    else if(c=='\0'||c==']'||c=='}')
+    else if(c=='_'||c==']'||c=='}')
         return;
     else
         printErrorNT(0,'B',c);
@@ -486,6 +508,7 @@ void B() // TODO
 }
 void I() // TODO
 {
+    printf("Entrando a I con c=%c\n",c);
     if(c=='i')
     {
         getAtomo();//(
@@ -498,7 +521,7 @@ void I() // TODO
                 getAtomo();//{
                 if(c=='{')
                 {
-                    getAtomo();// x i w h p u t [ \0
+                    getAtomo();// x i w h p u t [ _
                     B();
                     if(c=='}')
                     {
@@ -508,7 +531,6 @@ void I() // TODO
                             getAtomo();//lo que sigue
                         else
                             printConEsperado(0,'I',':',c);
-                            printf("ERROR EN I, SE ESPERABA: :\n");
                     }
                     else
                         printConEsperado(0,'I','}',c);
@@ -528,12 +550,13 @@ void I() // TODO
 }
 void J() // TODO
 {
+    printf("Entrando a J con c=%c\n",c);
     if(c=='l')
     {
         getAtomo();//{
         if(c=='{')
         {
-            getAtomo();// x i w h p u t [ \0
+            getAtomo();// x i w h p u t [ _
             B();
             if(c=='}')
                 getAtomo();// lo que sigue
@@ -543,7 +566,7 @@ void J() // TODO
         else
             printConEsperado(0,'J','{',c);
     }
-    else if(c=='\0'||c==':')
+    else if(c=='_'||c==':')
         return;
     else
             printConEsperado(0,'J','l',c);
@@ -551,6 +574,7 @@ void J() // TODO
 }
 void N() // TODO
 {
+    printf("Entrando a N con c=%c\n",c);
     if(c=='p')
     {
         getAtomo();//[
@@ -565,7 +589,7 @@ void N() // TODO
                     getAtomo();//{
                     if(c=='{')
                     {
-                        getAtomo();// x i w h p u t [ \0
+                        getAtomo();// x i w h p u t [ _
                         B();
                         if(c=='}')
                             getAtomo();//lo que sigue;
@@ -577,7 +601,6 @@ void N() // TODO
                 }
                 else
                     printConEsperado(0,'N',']',c);
-                    printf("ERROR EN N, SE ESPERABA: ]\n");
             }
             else
                 printConEsperado(0,'N','e',c);
@@ -591,6 +614,7 @@ void N() // TODO
 }
 void R() // TODO
 {
+    printf("Entrando a R con c=%c\n",c);
     if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
     {
         E();
@@ -599,11 +623,11 @@ void R() // TODO
     }
     else
         printErrorNT(0,'R',c);
-        printf("ERROR EN R\n");
     return;
 }
 void K() // TODO
 {
+    printf("Entrando a K con c=%c\n",c);
     if(c=='!'||c=='?'||c=='>'||c=='<'||c=='y'||c=='m')
         getAtomo();
     else
@@ -612,6 +636,7 @@ void K() // TODO
 }
 void E() // TODO
 {
+    printf("Entrando a E con c=%c\n",c);
     if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
     {
         T();
@@ -623,13 +648,14 @@ void E() // TODO
 }
 void EP() // TODO
 {
+    printf("Entrando a EP con c=%c\n",c);
     if(c=='+'||c=='-')
     {
         getAtomo();
         T();
         EP();
     }
-    else if(c=='\0'||c=='('||c=='a'||c=='e'||c=='r'||c=='['||c==')')
+    else if(c=='_'||c=='('||c=='a'||c=='e'||c=='r'||c=='['||c==')')
         return;
     else
         printErrorNT(1,'E',c);
@@ -637,6 +663,7 @@ void EP() // TODO
 }
 void T() // TODO
 {
+    printf("Entrando a T con c=%c\n",c);
     if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
     {
         F();
@@ -648,13 +675,14 @@ void T() // TODO
 }
 void TP() // TODO
 {
+    printf("Entrando a TP con c=%c\n",c);
     if(c=='*'||c=='/'||c=='%'||c=='#')
     {
         getAtomo();
         F();
         TP();
     }
-    else if(c=='\0'||c=='('||c=='a'||c=='e'||c=='r'||c=='['||c==')'||c=='+'||c=='-')
+    else if(c=='_'||c=='('||c=='a'||c=='e'||c=='r'||c=='['||c==')'||c=='+'||c=='-')
         return;
     else 
         printErrorNT(1,'T',c);
@@ -662,6 +690,7 @@ void TP() // TODO
 }
 void F() // TODO
 {
+    printf("Entrando a F con c=%c\n",c);
     if(c=='(')
     {
         getAtomo();
@@ -714,13 +743,13 @@ void printConEsperado(bool prima,char noTerminal,char esperado,char hay){
         printf("ERROR EN '%cP', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
     else
         printf("ERROR EN '%c', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
-    //exit(EXIT_FAILURE);
+    exit(EXIT_FAILURE);
 }
 void printErrorNT(bool prima,char noTerminal, char hay){
     if (prima == 1)
         printf("ERROR EN '%cP', NO SE ESPERABA '%c'\n", noTerminal, hay);
     else
         printf("ERROR EN '%c', NO SE ESPERABA '%c'\n", noTerminal, hay);
-    //exit(EXIT_FAILURE);
+    exit(EXIT_FAILURE);
 }
 
