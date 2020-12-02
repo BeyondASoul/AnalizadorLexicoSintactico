@@ -1,3 +1,4 @@
+#include "tokens.h"
 // Funciones
 void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 // Define los no termniales de las gramáticas, siendo P el indicador de prima
@@ -173,7 +174,7 @@ void C()
     else if(c=='\0'||c==':')
         return;
     else
-        printf("ERROREN C\n");
+        printf("ERROR EN C\n");
     return;
 }
 void V() // TODO
@@ -186,19 +187,24 @@ void V() // TODO
 }
 void G() // TODO
 {
-    getAtomo();
-    if(c=='e')
+    if(c=='[')
     {
-        getAtomo();//]
-        if(c==']')
+        getAtomo();//e
+        if(c=='e')
+        {
             getAtomo();//lo que sigue
+            if(c==']')
+                getAtomo();
+            else
+                printf("ERROR EN G, SE ESPERABA: ]\n");
+        }
         else
-            printf("ERROR EN G, SE ESPERABA: ]\n");
+            printf("ERROR EN G, SE ESPERABA: e\n");
     }
-    else if(c=='\0')
+    else if(c=='\0'||c==':'||c==',')
         return;
     else 
-        printf("ERROR EN G, SE ESPERABA: e\n");
+        printf("ERROR EN G, SE ESPERABA: [\n");
     return;
 }
 void S() // TODO
