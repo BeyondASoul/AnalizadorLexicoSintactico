@@ -1,1 +1,1 @@
-No hay cadenas.
+Posicion: 0		Valor: "CHALESOTE"

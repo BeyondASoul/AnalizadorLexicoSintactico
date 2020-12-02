@@ -2,5 +2,9 @@
         int a,b:
         float c,d:
         char a[4]:
+	if(a==b)
+	{
+		cadena="CHALESOTE":
+	}
     }
 ]

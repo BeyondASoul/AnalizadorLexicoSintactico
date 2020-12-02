@@ -235,7 +235,7 @@ void G() // TODO
                 printConEsperado(0, 'G', ']', c);
         }
     }
-    else if (c == '_' || c == ':' || c == ',')
+    else if (c == '_' || c == ':' || c == ','||c=='('||c=='a'||c=='e'||c=='r'||c==')'||c=='+'||c=='-'||c=='#'||c=='%'||c=='/'||c=='*'||c=='!'||c=='?'||c=='<'||c=='>'||c=='y'||c=='m')
         return;
     else
         printConEsperado(0, 'G', '[', c);
@@ -662,7 +662,7 @@ void EP() // TODO
         T();
         EP();
     }
-    else if (c == '_' || c == '(' || c == 'a' || c == 'e' || c == 'r' || c == '[' || c == ')')
+    else if (c == '_' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm')
         return;
     else
         printErrorNT(1, 'E', c);
@@ -689,7 +689,7 @@ void TP() // TODO
         F();
         TP();
     }
-    else if (c == '_' || c == '(' || c == 'a' || c == 'e' || c == 'r' || c == '[' || c == ')' || c == '+' || c == '-')
+    else if (c == '_' || c == '+' || c == '-' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm')
         return;
     else
         printErrorNT(1, 'T', c);

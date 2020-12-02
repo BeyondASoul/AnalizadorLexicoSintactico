@@ -22,6 +22,18 @@ clase2 [
 clase6 4
 clase2 ]
 clase2 :
+clase1 if
+clase2 (
+clase3 a
+clase5 ==
+clase3 b
+clase2 )
+clase2 {
+clase3 cadena
+clase4 =
+clase7 "CHALESOTE"
+clase2 :
+clase2 }
 clase2 }
 clase2 ]
 Termina el análisis léxico.
@@ -49,8 +61,9 @@ Atomo actual: c=[
 Atomo actual: c=e
 Atomo actual: c=]
 Atomo actual: c=:
-Atomo actual: c=}
-Atomo actual: c=]
-Atomo actual: c=_
-Terminó el análisis sintáctico con éxito...
--------------------------------------------
+Atomo actual: c=i
+Atomo actual: c=(
+Atomo actual: c=a
+Atomo actual: c=?
+Atomo actual: c=a
+Atomo actual: c=)

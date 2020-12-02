@@ -3,3 +3,4 @@ Posicion: 1		Nombre: a			Tipo: -1
 Posicion: 2		Nombre: b			Tipo: -1
 Posicion: 3		Nombre: c			Tipo: -1
 Posicion: 4		Nombre: d			Tipo: -1
+Posicion: 5		Nombre: cadena			Tipo: -1
