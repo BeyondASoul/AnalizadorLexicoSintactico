@@ -181,7 +181,7 @@ int main(int argc, char *argv[])
 
     // ----------------------------------------------------
     // COMIENZA EL ANÁLISIS LÉXICO
-    fprintf(archSal,"Comienza el análisis léxico:\n");
+    fprintf(archSal,"-------------------------------------------\nComienza el análisis léxico:\n");
     yylex(); // Analisis Lexico
     // AQUI SE IMPRIMEN TOKENS, IDENTIFICADORES, CADENAS Y REALES.
     verTokens(tokensFile,tablaDeTokens);
@@ -192,10 +192,11 @@ int main(int argc, char *argv[])
 
     // ----------------------------------------------------
     // COMIENZA EL ANÁLISIS SINTÁCTICO
-    fprintf(archSal,"Comienza el análisis sintáctico:\n");
+    fprintf(archSal,"-------------------------------------------\nComienza el análisis sintáctico:\n");
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
-    printf("c=%c\n",c);
+    archSalG=archSal;
+    fprintf(archSal,"Atomo incial: c=%c\n",c);
     P(); // Comienza la gramática con el simbolo P
 
     // ----------------------------------------------------
