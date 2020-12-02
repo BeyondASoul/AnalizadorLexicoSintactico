@@ -9,6 +9,7 @@
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
+#include "tokens.h"
 #include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
@@ -83,7 +84,6 @@ clase5 ("!"{clase4})|({clase4}{clase4})|(">")|("<")|(">"{clase4})|("<"{clase4})
 clase6 {num}{1,14}
 clase7 \"([^\"]*)\"
 clase8 ("+"|"-"|"**"|"*"|"/"|"%")
-
 /*UNA VEZ QUE SE TIENEN LAS EXPRESIONES REGULARES DE LAS CLASES, SE CREARÁN LAS DIFERENTES ACCIONES*/
 /*QUE EL PROGRAMA REALIZARÁ DEPENDIENDO DE LA EXPRESIÓN REGULAR RECONOCIDA*/
 %%
@@ -166,11 +166,10 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 ({comentunalinea}"\n"|{comentmulti}) {fprintf(logFile,"\\\\\\\\COMENTARIO UNICO/MULTILINEA: %s\n",yytext);}
 (\@{comentunalinea}|\@{comentmulti}) {fprintf(logFile,"********COMENTARIO con @ DESCARTADO: %s\n",yytext);}
 . {fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);}
-
 %%
-
 int main(int argc, char *argv[])
 {
+    // ----------------------------------------------------
     // Se abren todos los archivos necesarios
     yyin = fopen(argv[1],"r");
     archSal = fopen(argv[2],"w");
@@ -180,6 +179,7 @@ int main(int argc, char *argv[])
     constantesExpFile = fopen("constantesExp.txt","w");
     logFile = fopen("log.txt","w");
 
+    // ----------------------------------------------------
     // COMIENZA EL ANÁLISIS LÉXICO
     fprintf(archSal,"Comienza el análisis léxico:\n");
     yylex(); // Analisis Lexico
@@ -190,13 +190,14 @@ int main(int argc, char *argv[])
     verConstantesExp(constantesExpFile,tablaDeRealesExp);
     fprintf(archSal,"Termina el análisis léxico.\n");
 
+    // ----------------------------------------------------
     // COMIENZA EL ANÁLISIS SINTÁCTICO
     fprintf(archSal,"Comienza el análisis sintáctico:\n");
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
-    printf("c=%c\n",c);
     P(); // Comienza la gramática con el simbolo P
-    printf("c=%c\n",c);
+
+    // ----------------------------------------------------
     fclose(archSal);
     fclose(tokensFile);
     fclose(identificadoresFile);

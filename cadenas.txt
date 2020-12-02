@@ -1,5 +1,1 @@
-Posicion: 0		Valor: "Cadena1"
-Posicion: 1		Valor: "Cadena2"
-Posicion: 2		Valor: ""
-Posicion: 3		Valor: "Hola"
-Posicion: 4		Valor: "Hola"
+Posicion: 0		Valor: "Hola"

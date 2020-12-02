@@ -1,55 +1,50 @@
-#include "tokens.h"
 // Funciones
 void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 // Define los no termniales de las gramáticas, siendo P el indicador de prima
-void initGram(TokensList a);
 void P(); // inicial 
 void YP(); // Gramatica Y'
 void Y(); // Gramatica Y
-void VP(); // TODO
-void DP(); // TODO
-void D(); // TODO
-void L(); // TODO
-void C(); // TODO
-void V(); // TODO
-void G(); // TODO
-void S(); // TODO
-void U(); // TODO
-void W(); // TODO
-void H(); // TODO
-void X(); // TODO
-void O(); // TODO
-void B(); // TODO
-void I(); // TODO
-void J(); // TODO
-void N(); // TODO
-void R(); // TODO
-void K(); // TODO
-void E(); // TODO
-void EP(); // TODO
-void T(); // TODO
-void TP(); // TODO
-void F(); // TODO
+void VP(); // Gramatica V'
+void DP(); // Gramatica D'
+void D(); // Gramatica D
+void L(); // Gramatica L
+void C(); // Gramatica C
+void V(); // Gramatica V
+void G(); // Gramatica G
+void S(); // Gramatica S
+void U(); // Gramatica U
+void W(); // Gramatica W
+void H(); // Gramatica H
+void X(); // Gramatica X
+void O(); // Gramatica O
+void B(); // Gramatica B
+void I(); // Gramatica I
+void J(); // Gramatica J
+void N(); // Gramatica N
+void R(); // Gramatica R
+void K(); // Gramatica K
+void E(); // Gramatica E
+void EP(); // Gramatica E'
+void T(); // Gramatica T
+void TP(); // Gramatica T'
+void F(); // Gramatica F
 void A(); // TODO: Añadir la gramatica de asignación
-Token* tokenAux;
-TokensList tabla;
+
+//Variables
 char c;
-// Demás funciones útiles
-// TODO: Funcion que reconozca el error
-// Varaibles globales
-/*char   caracter; //caracter actual
-Token* tokenAnt   = NULL; //Referencia al token anterior
-Token* tokenAct   = NULL; //Referencia al token actual
-*/
-void initGram(TokensList a)
-{
-    tabla=a;
-    tokenAux=tabla.head;
-}
+Token* tokenAux=NULL;
+
+/* Función para obtener el atomo siguiente e ir recorriendolos*/
 void getAtomo()
 {
-    c=tokenAux->atomo;
-    tokenAux=tokenAux->next;
+    if (tokenAux->next==NULL){
+        tokenAux=NULL;
+        c='_';
+    }else{
+        tokenAux=tokenAux->next;
+        c=tokenAux->atomo;
+    }
+    printf("c=%c\n",c);
 }
 // Definiendo la gramática como funciones
 void P()

@@ -1,12 +1,12 @@
 int a:
-int b=31:
-float c=5.24:
-float q=3.4E-3:
-float w=18.0e+5:
-string s1="Cadena1":
-string s2="Cadena2":
-string vacia="";
-string s3="Hola":
+int b:
+float c:
+float q:
+float w:
+string s1:
+string s2:
+string vacia;
+string s3:
 char char1:
 bool b: 
 // Comentario de una linea
@@ -24,12 +24,10 @@ if (a==b){
     }
 }
 else{
-    a = a+a**a:
     if(b!=a){
-        float x=3.1416:
+        float x:
         while(b!=0){
-            b=b-1:
+            string string1:
         }
-    
     }
 }
