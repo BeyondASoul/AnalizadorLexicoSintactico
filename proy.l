@@ -9,7 +9,6 @@
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
-#include "tokens.h"
 #include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
@@ -197,7 +196,7 @@ int main(int argc, char *argv[])
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
     printf("c=%c\n",c);
     P(); // Comienza la gramática con el simbolo P
-
+    printf("c=%c\n",c);
     fclose(archSal);
     fclose(tokensFile);
     fclose(identificadoresFile);
