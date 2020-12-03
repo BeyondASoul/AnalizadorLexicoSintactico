@@ -662,7 +662,7 @@ void EP() // TODO
         T();
         EP();
     }
-    else if (c == '_' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm')
+    else if (c == '_' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm'||c==')')
         return;
     else
         printErrorNT(1, 'E', c);
@@ -689,7 +689,7 @@ void TP() // TODO
         F();
         TP();
     }
-    else if (c == '_' || c == '+' || c == '-' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm')
+    else if (c == '_' || c == '+' || c == '-' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm'||c==')')
         return;
     else
         printErrorNT(1, 'T', c);

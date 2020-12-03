@@ -67,3 +67,5 @@ Atomo actual: c=a
 Atomo actual: c=?
 Atomo actual: c=a
 Atomo actual: c=)
+Atomo actual: c={
+Atomo actual: c=a
