@@ -763,18 +763,21 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
         printConEsperado(0, 'F', 'a', c);
     return;
 }
+
 void A() // Conjunto de selección: c.s={ a }
 {
     printEntrada(0, 'A', c);
-    if (c == 'a')
+    if(c=='a')
     {
-        getAtomo();
-        if (c == '=')
+        getAtomo();//=
+        if(c=='[')
+            G();
+        if(c=='=')
         {
-            getAtomo();
+            getAtomo(); // conjunto de selección M
             M();
-            if (c == ':')
-                getAtomo();
+            if(c==':')
+                getAtomo(); //lo que sigue
         }
     }
     return;

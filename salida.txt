@@ -9,14 +9,40 @@ clase2 )
 clase2 {
 clase1 int
 clase3 a
+clase2 ,
+clase3 x
+clase2 [
+clase6 3
+clase2 ]
+clase2 ,
+clase3 r
 clase2 :
 clase1 char
 clase3 cad
+clase2 :
+clase1 float
+clase3 r1
+clase2 ,
+clase3 h
+clase2 [
+clase6 5
+clase2 ]
 clase2 :
 clase3 a
 clase4 =
 clase6 3
 clase2 :
+clase3 r
+clase4 =
+clase6 5
+clase2 :
+clase1 if
+clase2 (
+clase3 a
+clase5 ==
+clase6 3
+clase2 )
+clase2 {
 clase1 switch
 clase2 (
 clase3 a
@@ -57,6 +83,80 @@ clase7 "Default"
 clase2 ]
 clase2 }
 clase2 }
+clase1 else
+clase2 {
+clase3 a
+clase4 =
+clase6 5
+clase2 :
+clase2 }
+clase2 :
+clase1 do
+clase2 {
+clase3 a
+clase4 =
+clase3 a
+clase8 -
+clase6 1
+clase2 :
+clase1 for
+clase2 [
+clase6 10
+clase2 ]
+clase2 {
+clase3 r
+clase4 =
+clase3 r
+clase8 +
+clase6 1
+clase8 /
+clase6 42
+clase2 :
+clase3 a
+clase4 =
+clase3 a
+clase8 +
+clase3 r
+clase2 :
+clase1 while
+clase2 (
+clase3 a
+clase5 <=
+clase6 2
+clase2 )
+clase2 {
+clase3 cad
+clase4 =
+clase8 +
+clase7 "chalesote"
+clase2 ,
+clase7 "si sirvio"
+clase2 ,
+clase3 a
+clase2 ,
+clase3 cad
+clase2 [
+clase6 3
+clase2 ]
+clase2 :
+clase3 h
+clase2 [
+clase6 3
+clase2 ]
+clase4 =
+real sin e 3.1416
+clase2 :
+clase2 }
+clase2 }
+clase2 }
+clase1 while
+clase2 (
+clase3 a
+clase5 <=
+clase6 1
+clase2 )
+clase2 :
+clase2 }
 clase2 ]
 TERMINÓ EL ANÁLISIS LÉXICO CON ÉXITO...
 
@@ -79,6 +179,19 @@ Entrando a 'D' con el átomo = 'n'
 Entrando a 'V' con el átomo = 'n'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'G' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
 Actualizando el caracter actual: Átomo = ':'
 Entrando a 'G' con el átomo = ':'
 Entrando a 'C' con el átomo = ':'
@@ -90,6 +203,23 @@ Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'L' con el átomo = 'a'
 Actualizando el caracter actual: Átomo = ':'
 Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'f'
+Entrando a 'DP' con el átomo = 'f'
+Entrando a 'D' con el átomo = 'f'
+Entrando a 'V' con el átomo = 'f'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'G' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = ':'
 Entrando a 'C' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'DP' con el átomo = 'a'
@@ -105,6 +235,42 @@ Entrando a 'F' con el átomo = 'e'
 Actualizando el caracter actual: Átomo = ':'
 Entrando a 'TP' con el átomo = ':'
 Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'M' con el átomo = 'e'
+Entrando a 'E' con el átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'i'
+Entrando a 'B' con el átomo = 'i'
+Entrando a 'S' con el átomo = 'i'
+Entrando a 'I' con el átomo = 'i'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'R' con el átomo = 'a'
+Entrando a 'E' con el átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '?'
+Entrando a 'G' con el átomo = '?'
+Entrando a 'TP' con el átomo = '?'
+Entrando a 'EP' con el átomo = '?'
+Entrando a 'K' con el átomo = '?'
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'E' con el átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ')'
+Entrando a 'TP' con el átomo = ')'
+Entrando a 'EP' con el átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
 Actualizando el caracter actual: Átomo = 'x'
 Entrando a 'B' con el átomo = 'x'
 Entrando a 'S' con el átomo = 'x'
@@ -171,6 +337,199 @@ Entrando a 'M' con el átomo = 's'
 Actualizando el caracter actual: Átomo = ']'
 Entrando a 'B' con el átomo = ']'
 Actualizando el caracter actual: Átomo = '}'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = 'l'
+Entrando a 'J' con el átomo = 'l'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'M' con el átomo = 'e'
+Entrando a 'E' con el átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ':'
+Actualizando el caracter actual: Átomo = 'h'
+Entrando a 'B' con el átomo = 'h'
+Entrando a 'S' con el átomo = 'h'
+Entrando a 'H' con el átomo = 'h'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'M' con el átomo = 'a'
+Entrando a 'E' con el átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '-'
+Entrando a 'G' con el átomo = '-'
+Entrando a 'TP' con el átomo = '-'
+Entrando a 'EP' con el átomo = '-'
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'p'
+Entrando a 'B' con el átomo = 'p'
+Entrando a 'S' con el átomo = 'p'
+Entrando a 'N' con el átomo = 'p'
+Actualizando el caracter actual: Átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'M' con el átomo = 'a'
+Entrando a 'E' con el átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '+'
+Entrando a 'G' con el átomo = '+'
+Entrando a 'TP' con el átomo = '+'
+Entrando a 'EP' con el átomo = '+'
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = '/'
+Entrando a 'TP' con el átomo = '/'
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'M' con el átomo = 'a'
+Entrando a 'E' con el átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '+'
+Entrando a 'G' con el átomo = '+'
+Entrando a 'TP' con el átomo = '+'
+Entrando a 'EP' con el átomo = '+'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'w'
+Entrando a 'B' con el átomo = 'w'
+Entrando a 'S' con el átomo = 'w'
+Entrando a 'W' con el átomo = 'w'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'R' con el átomo = 'a'
+Entrando a 'E' con el átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = 'm'
+Entrando a 'G' con el átomo = 'm'
+Entrando a 'TP' con el átomo = 'm'
+Entrando a 'EP' con el átomo = 'm'
+Entrando a 'K' con el átomo = 'm'
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'E' con el átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ')'
+Entrando a 'TP' con el átomo = ')'
+Entrando a 'EP' con el átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = '+'
+Entrando a 'M' con el átomo = '+'
+Actualizando el caracter actual: Átomo = 's'
+Entrando a 'L' con el átomo = 's'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 's'
+Entrando a 'L' con el átomo = 's'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'G' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'G' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'r'
+Entrando a 'M' con el átomo = 'r'
+Entrando a 'E' con el átomo = 'r'
+Entrando a 'T' con el átomo = 'r'
+Entrando a 'F' con el átomo = 'r'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = 'w'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'R' con el átomo = 'a'
+Entrando a 'E' con el átomo = 'a'
+Entrando a 'T' con el átomo = 'a'
+Entrando a 'F' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = 'm'
+Entrando a 'G' con el átomo = 'm'
+Entrando a 'TP' con el átomo = 'm'
+Entrando a 'EP' con el átomo = 'm'
+Entrando a 'K' con el átomo = 'm'
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'E' con el átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ')'
+Entrando a 'TP' con el átomo = ')'
+Entrando a 'EP' con el átomo = ')'
+Actualizando el caracter actual: Átomo = ':'
 Actualizando el caracter actual: Átomo = '}'
 Entrando a 'B' con el átomo = '}'
 Actualizando el caracter actual: Átomo = ']'

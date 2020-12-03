@@ -1,15 +1,33 @@
 [void main(){
-        int a:
+        int a,x[3],r:
         char cad:
+        float r1,h[5]:
         a=3:
-        switch (a){
-            case 1 [ cad = "Case 1"]
-            break:
-            case 2 [ cad = "Case 2"]
-            break:
-            case 3 [ cad = "Case 3"]
-            break:
-            default [ cad = "Default"]
+        r=5:
+        if(a==3){
+            switch (a){
+                case 1 [ cad = "Case 1"]
+                break:
+                case 2 [ cad = "Case 2"]
+                break:
+                case 3 [ cad = "Case 3"]
+                break:
+                default [ cad = "Default"]
+            }
         }
+        else{
+            a=5:
+        }:
+        do{
+            a=a-1:
+            for [10]{
+                r=r+1/42:
+                a=a+r:
+                while(a<=2){
+                    cad=+"chalesote","si sirvio",a,cad[3]:
+                    h[3]=3.1416:
+                }
+            }
+        }while(a<=1):
     }
 ]

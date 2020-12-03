@@ -1,3 +1,7 @@
 Posicion: 0		Nombre: main			Tipo: -1
 Posicion: 1		Nombre: a			Tipo: -1
-Posicion: 2		Nombre: cad			Tipo: -1
+Posicion: 2		Nombre: x			Tipo: -1
+Posicion: 3		Nombre: r			Tipo: -1
+Posicion: 4		Nombre: cad			Tipo: -1
+Posicion: 5		Nombre: r1			Tipo: -1
+Posicion: 6		Nombre: h			Tipo: -1
