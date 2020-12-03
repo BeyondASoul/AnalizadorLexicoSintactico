@@ -61,7 +61,7 @@ void getAtomo()
     fprintf(archSalG, "Actualizando el caracter actual: Átomo = '%c'\n", c);
 }
 // Definiendo la gramática como funciones
-void P()
+void P() // Conjunto de selección: c.s={ b c f n g [ }
 {
     printEntrada(0, 'P', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g' || c == '[' || c == '_')
@@ -74,7 +74,7 @@ void P()
         printErrorNT(0, 'P', c);
     return;
 }
-void YP()
+void YP() // Conjunto de selección: c.s={ [ ┤ }
 {
     printEntrada(1, 'Y', c);
     if (c == '[')
@@ -88,7 +88,7 @@ void YP()
         printErrorNT(1, 'Y', c);
     return;
 }
-void Y()
+void Y() // Conjunto de selección: c.s={ [ }
 {
     printEntrada(0, 'Y', c);
     if (c == '[')
@@ -147,7 +147,7 @@ void Y()
         printConEsperado(0, 'Y', '[', c);
     return;
 }
-void VP()
+void VP() // Conjunto de selección: c.s={ b c f n g o }
 {
     printEntrada(1, 'V', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
@@ -158,7 +158,7 @@ void VP()
         printErrorNT(1, 'V', c);
     return;
 }
-void DP()
+void DP() // Conjunto de selección: c.s={ b c f n g [ x i w h p u t } }
 {
     printEntrada(1, 'D', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
@@ -172,7 +172,7 @@ void DP()
         printErrorNT(1, 'D', c);
     return;
 }
-void D()
+void D() // Conjunto de selección: c.s={ b c f n g }
 {
     printEntrada(0, 'D', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
@@ -188,7 +188,7 @@ void D()
         printErrorNT(0, 'D', c);
     return;
 }
-void L()
+void L() // Conjunto de selección: c.s={ a }
 {
     printEntrada(0, 'L', c);
     if (c == 'a')
@@ -206,7 +206,7 @@ void L()
         printErrorNT(0, 'L', c);
     return;
 }
-void C()
+void C() // Conjunto de selección: c.s={ , : }
 {
     printEntrada(0, 'C', c);
     if (c == ',')
@@ -220,7 +220,7 @@ void C()
         printErrorNT(0, 'C', c);
     return;
 }
-void V()
+void V() // Conjunto de selección: c.s={ b c f n g }
 {
     printEntrada(0, 'V', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
@@ -229,7 +229,7 @@ void V()
         printErrorNT(0, 'V', c);
     return;
 }
-void G()
+void G() // Conjunto de selección: c.s={ [ : ( a e r ) + - # % / * ! ? <> y m = }
 {
     printEntrada(0, 'G', c);
     if (c == '[')
@@ -244,13 +244,13 @@ void G()
                 printConEsperado(0, 'G', ']', c);
         }
     }
-    else if (c == '_' || c == ':' || c == ',' || c == '(' || c == 'a' || c == 'e' || c == 'r' || c == ')' || c == '+' || c == '-' || c == '#' || c == '%' || c == '/' || c == '*' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm')
+    else if (c == '_' || c == ':' || c == ',' || c == '(' || c == 'a' || c == 'e' || c == 'r' || c == ')' || c == '+' || c == '-' || c == '#' || c == '%' || c == '/' || c == '*' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm' || c == '=')
         return;
     else
         printConEsperado(0, 'G', '[', c);
     return;
 }
-void S()
+void S() // Conjunto de selección: c.s={ a x i w h p u t [ }
 {
     printEntrada(0, 'S', c);
     if (c == 'x')
@@ -318,7 +318,7 @@ void S()
         printErrorNT(0, 'S', c);
     return;
 }
-void U()
+void U() // Conjunto de selección: c.s={ : ( }
 {
     printEntrada(0, 'U', c);
     if (c == '(')
@@ -336,7 +336,7 @@ void U()
         printErrorNT(0, 'U', c);
     return;
 }
-void W()
+void W() // Conjunto de selección: c.s={ w }
 {
     printEntrada(0, 'W', c);
     if (c == 'w')
@@ -371,7 +371,7 @@ void W()
         printErrorNT(0, 'W', c);
     return;
 }
-void H()
+void H() // Conjunto de selección: c.s={ h }
 {
     printEntrada(0, 'H', c);
     if (c == 'h')
@@ -414,7 +414,7 @@ void H()
         printConEsperado(0, 'H', 'h', c);
     return;
 }
-void X()
+void X() // Conjunto de selección: c.s={ x }
 {
     printEntrada(0, 'X', c);
     if (c == 'x')
@@ -471,7 +471,7 @@ void X()
         printConEsperado(0, 'X', 'x', c);
     return;
 }
-void O()
+void O() // Conjunto de selección: c.s={ k d }
 {
     printEntrada(0, 'O', c);
     if (c == 'k')
@@ -516,7 +516,7 @@ void O()
         printConEsperado(0, 'O', 'k', c);
     return;
 }
-void B()
+void B() // Conjunto de selección: c.s={ a x i w h p u t [ ] } }
 {
     printEntrada(0, 'B', c);
     if (c == 'a' || c == 'x' || c == 'i' || c == 'w' || c == 'h' || c == 'p' || c == 'u' || c == 't' || c == '[')
@@ -530,7 +530,7 @@ void B()
         printErrorNT(0, 'B', c);
     return;
 }
-void I()
+void I() // Conjunto de selección: c.s={ i }
 {
     printEntrada(0, 'I', c);
     if (c == 'i')
@@ -572,7 +572,7 @@ void I()
         printConEsperado(0, 'I', 'i', c);
     return;
 }
-void J()
+void J() // Conjunto de selección: c.s={ l : }
 {
     printEntrada(0, 'J', c);
     if (c == 'l')
@@ -596,7 +596,7 @@ void J()
         printConEsperado(0, 'J', 'l', c);
     return;
 }
-void N()
+void N() // Conjunto de selección: c.s={ p }
 {
     printEntrada(0, 'N', c);
     if (c == 'p')
@@ -636,7 +636,7 @@ void N()
         printConEsperado(0, 'N', 'p', c);
     return;
 }
-void R()
+void R() // Conjunto de selección: c.s={ ( a e r [ }
 {
     printEntrada(0, 'R', c);
     if (c == '(' || c == 'a' || c == 'e' || c == 'r' || c == '[')
@@ -649,7 +649,7 @@ void R()
         printErrorNT(0, 'R', c);
     return;
 }
-void K()
+void K() // Conjunto de selección: c.s={ ! ? > < y m }
 {
     printEntrada(0, 'K', c);
     if (c == '!' || c == '?' || c == '>' || c == '<' || c == 'y' || c == 'm')
@@ -658,7 +658,7 @@ void K()
         printErrorNT(0, 'K', c);
     return;
 }
-void E()
+void E() // Conjunto de selección: c.s={ ( a e r [ }
 {
     printEntrada(0, 'E', c);
     if (c == '(' || c == 'a' || c == 'e' || c == 'r' || c == '[')
@@ -672,7 +672,7 @@ void E()
         printErrorNT(0, 'E', c);
     return;
 }
-void EP()
+void EP() // Conjunto de selección: c.s={ + - ! ? <> y m ) : }
 {
     printEntrada(1, 'E', c);
     if (c == '+' || c == '-')
@@ -687,7 +687,7 @@ void EP()
         printErrorNT(1, 'E', c);
     return;
 }
-void T()
+void T() // Conjunto de selección: c.s={ ( a e r [ }
 {
     printEntrada(0, 'T', c);
     if (c == '(' || c == 'a' || c == 'e' || c == 'r' || c == '[')
@@ -699,7 +699,7 @@ void T()
         printErrorNT(0, 'T', c);
     return;
 }
-void TP()
+void TP() // Conjunto de selección: c.s={ * / % # + - ! ? <> y m ) : }
 {
     printEntrada(1, 'T', c);
     if (c == '*' || c == '/' || c == '%' || c == '#')
@@ -714,7 +714,7 @@ void TP()
         printErrorNT(1, 'T', c);
     return;
 }
-void F()
+void F() // Conjunto de selección: c.s={ ( a e r [ }
 {
     printEntrada(0, 'F', c);
     if (c == '(')
@@ -763,7 +763,7 @@ void F()
         printConEsperado(0, 'F', 'a', c);
     return;
 }
-void A()
+void A() // Conjunto de selección: c.s={ a }
 {
     printEntrada(0, 'A', c);
     if (c == 'a')
@@ -779,7 +779,7 @@ void A()
     }
     return;
 }
-void M()
+void M() // Conjunto de selección: c.s={ ( a e r [ s + }
 {
     printEntrada(0, 'M', c);
     if (c == '(' || c == 'a' || c == 'e' || c == 'r' || c == '[')
@@ -799,39 +799,44 @@ void M()
         printErrorNT(0, 'M', c);
     return;
 }
+
+// Función que notifica el error en un no terminal, e indica lo que esperaba
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay)
 {
     if (prima == 1)
     {
-        fprintf(archSalG,"EL ANALISIS SINTACTICO SE HA DETENIDO EN EL NO TERMINAL '%cP', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n",noTerminal,hay,esperado);
+        fprintf(archSalG, "EL ANALISIS SINTACTICO SE HA DETENIDO EN EL NO TERMINAL '%cP', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
         printf("ERROR EN '%cP', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
     }
     else
     {
-        fprintf(archSalG,"EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n",noTerminal,hay,esperado);
+        fprintf(archSalG, "EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
         printf("ERROR EN '%c', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: 'salida.txt'\n");
     }
     exit(EXIT_FAILURE);
 }
+
+// Función que notifica el error en un no terminal, e indica lo que encontró
 void printErrorNT(bool prima, char noTerminal, char hay)
 {
     if (prima == 1)
     {
-        fprintf(archSalG,"EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n",noTerminal,c);
+        fprintf(archSalG, "EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
         printf("ERROR EN '%cP', NO SE ESPERABA '%c'\n", noTerminal, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
     }
     else
     {
-        fprintf(archSalG,"EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n",noTerminal,c);
+        fprintf(archSalG, "EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
         printf("ERROR EN '%c', NO SE ESPERABA '%c'\n", noTerminal, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
     }
     exit(EXIT_FAILURE);
 }
 
+// Función que notifica la entrada a un no terminal, y el atomo con el que se ingresa al mismo
 void printEntrada(bool prima, char noTerminal, char caracter)
 {
     if (prima == 1)
