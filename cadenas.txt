@@ -1,1 +1,2 @@
-No hay cadenas.
+Posicion: 0		Valor: "chalesote"
+Posicion: 1		Valor: "si sirvio"

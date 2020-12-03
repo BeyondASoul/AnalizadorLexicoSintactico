@@ -193,6 +193,11 @@ void L()
         G();
         C();
     }
+    else if(c=='s')
+    {
+        getAtomo();// conjutno de selección
+        C();
+    }
     else
         printErrorNT(0, 'L', c);
     return;
@@ -654,6 +659,8 @@ void E() // TODO
         T();
         EP();
     }
+    else if(c==':')
+        return;
     else
         printErrorNT(0, 'E', c);
     return;
@@ -667,7 +674,7 @@ void EP() // TODO
         T();
         EP();
     }
-    else if (c == '_' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm'||c==')')
+    else if (c == '_' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm'||c==')'||c==':')
         return;
     else
         printErrorNT(1, 'E', c);
@@ -694,7 +701,7 @@ void TP() // TODO
         F();
         TP();
     }
-    else if (c == '_' || c == '+' || c == '-' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm'||c==')')
+    else if (c == '_' || c == '+' || c == '-' || c == '!' || c == '?' || c == '<' || c == '>' || c == 'y' || c == 'm'||c==')'||c==':')
         return;
     else
         printErrorNT(1, 'T', c);
@@ -753,13 +760,13 @@ void A()
 {
     if(c=='a')
     {
-        getAtomo();
+        getAtomo();//=
         if(c=='=')
         {
-            getAtomo();
+            getAtomo(); // conjunto de selección M
             M();
             if(c==':')
-                getAtomo();
+                getAtomo(); //lo que sigue
         }
     }
     return;
@@ -767,22 +774,17 @@ void A()
 void M()
 {
     if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
-    {
-        getAtomo();
-        F();
-    }
+        E();
     else if(c=='s')
-        getAtomo();
+        getAtomo();//:
     else if(c=='+')
     {
         getAtomo();
-        if(c=='s')
-        {
+        L();
+        if(c==':')
             getAtomo();
-            C();
-        }
         else
-            printf("ERROR EN M, SE ESPERABA: s\n");
+            printf("ERROR EN M, SE ESPERABA: :\n");
     }
     else
         printf("ERROR EN M\n");

@@ -1,1 +1,1 @@
-No hay constantes reales exponenciales.
+Posicion: 0		Valor: 3.3
