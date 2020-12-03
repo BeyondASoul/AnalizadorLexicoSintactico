@@ -125,12 +125,26 @@ clase5 <=
 clase6 2
 clase2 )
 clase2 {
+clase3 h
+clase2 [
+clase6 1
+clase2 ]
+clase4 =
+clase0eneg 4.32e-32
+clase2 :
+clase3 h
+clase2 [
+clase6 2
+clase2 ]
+clase4 =
+clase0epos 3.02e+31
+clase2 :
 clase3 cad
 clase4 =
 clase8 +
-clase7 "chalesote"
+clase7 "concatenacion"
 clase2 ,
-clase7 "si sirvio"
+clase7 "de canedas"
 clase2 ,
 clase3 a
 clase2 ,
@@ -459,6 +473,40 @@ Actualizando el caracter actual: Átomo = ')'
 Entrando a 'TP' con el átomo = ')'
 Entrando a 'EP' con el átomo = ')'
 Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'G' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'r'
+Entrando a 'M' con el átomo = 'r'
+Entrando a 'E' con el átomo = 'r'
+Entrando a 'T' con el átomo = 'r'
+Entrando a 'F' con el átomo = 'r'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'G' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'e'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'r'
+Entrando a 'M' con el átomo = 'r'
+Entrando a 'E' con el átomo = 'r'
+Entrando a 'T' con el átomo = 'r'
+Entrando a 'F' con el átomo = 'r'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
 Entrando a 'S' con el átomo = 'a'

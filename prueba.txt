@@ -24,7 +24,9 @@
                 r=r+1/42:
                 a=a+r:
                 while(a<=2){
-                    cad=+"chalesote","si sirvio",a,cad[3]:
+                    h[1]=4.32e-32:
+                    h[2]=3.02e+31:
+                    cad=+"concatenacion","de canedas",a,cad[3]:
                     h[3]=3.1416:
                 }
             }
