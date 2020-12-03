@@ -34,6 +34,7 @@ void T();  // Gramatica T
 void TP(); // Gramatica T'
 void F();  // Gramatica F
 void A();  // TODO: Añadir la gramatica de asignación
+void M();
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay);
 void printErrorNT(bool prima, char noTerminal, char hay);
 
@@ -246,6 +247,8 @@ void S() // TODO
     printf("Entrando a S con c=%c\n", c);
     if (c == 'x')
         X();
+    else if(c=='a')
+        A();
     else if (c == 'i')
         I();
     else if (c == 'w')
@@ -370,29 +373,31 @@ void H() // TODO
         {
             getAtomo(); // x i w h p u t [ _
             B();
-            if (c == 'w')
+            if (c == '}')
             {
-                getAtomo(); //(
-                if (c == '(')
+                getAtomo(); //w
+                if (c == 'w')
                 {
-                    getAtomo(); //( a e r [
-                    R();
-                    if (c == ')')
+                    getAtomo(); // (
+                    if (c == '(')
                     {
                         getAtomo();
-                        if (c == ':')
+                        R();
+                        if (c == ')')
                             getAtomo();
+                            if(c==':')
+                                getAtomo();
                         else
-                            printConEsperado(0, 'H', ':', c);
+                            printConEsperado(0, 'H', ')', c);
                     }
                     else
-                        printConEsperado(0, 'H', ')', c);
+                        printConEsperado(0, 'H', '(', c);
                 }
                 else
-                    printConEsperado(0, 'H', '(', c);
+                    printConEsperado(0, 'H', 'w', c);
             }
             else
-                printConEsperado(0, 'H', 'w', c);
+                printConEsperado(0, 'H', '}', c);
         }
         else
             printConEsperado(0, 'H', '{', c);
@@ -502,7 +507,7 @@ void O() // TODO
 void B() // TODO
 {
     printf("Entrando a B con c=%c\n", c);
-    if (c == 'x' || c == 'i' || c == 'w' || c == 'h' || c == 'p' || c == 'u' || c == 't' || c == '[')
+    if (c=='a'||c == 'x' || c == 'i' || c == 'w' || c == 'h' || c == 'p' || c == 'u' || c == 't' || c == '[')
     {
         S();
         B();
@@ -744,7 +749,45 @@ void F() // TODO
         printConEsperado(0, 'F', 'a', c);
     return;
 }
-
+void A()
+{
+    if(c=='a')
+    {
+        getAtomo();
+        if(c=='=')
+        {
+            getAtomo();
+            M();
+            if(c==':')
+                getAtomo();
+        }
+    }
+    return;
+}
+void M()
+{
+    if(c=='('||c=='a'||c=='e'||c=='r'||c=='[')
+    {
+        getAtomo();
+        F();
+    }
+    else if(c=='s')
+        getAtomo();
+    else if(c=='+')
+    {
+        getAtomo();
+        if(c=='s')
+        {
+            getAtomo();
+            C();
+        }
+        else
+            printf("ERROR EN M, SE ESPERABA: s\n");
+    }
+    else
+        printf("ERROR EN M\n");
+    return;
+}
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay)
 {
     if (prima == 1)
