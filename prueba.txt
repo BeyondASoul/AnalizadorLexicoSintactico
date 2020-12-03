@@ -1,13 +1,15 @@
 [void main(){
-        int a,b:
-        float c,d:
-        char cad[4]:
-	if(a==b)
-	{
-		cad=+"chalesote","si sirvio",a,cad[3]:
-		b=3.3:
-		a=7:
-		d=[mifuncion()]:
-	}:
+        int a:
+        char cad:
+        a=3:
+        switch (a){
+            case 1 [ cad = "Case 1"]
+            break:
+            case 2 [ cad = "Case 2"]
+            break:
+            case 3 [ cad = "Case 3"]
+            break:
+            default [ cad = "Default"]
+        }
     }
 ]

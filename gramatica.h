@@ -162,7 +162,7 @@ void DP()
         D();
         DP();
     }
-    else if (c == 'x' || c == 'i' || c == 'w' || c == 'h' || c == 'p' || c == 'u' || c == 't' || c == '[' || c == '}' || c == '_')
+    else if (c=='a'||c == 'x' || c == 'i' || c == 'w' || c == 'h' || c == 'p' || c == 'u' || c == 't' || c == '[' || c == '}' || c == '_')
         return;
     else
         printErrorNT(1, 'D', c);
@@ -423,36 +423,40 @@ void X() // TODO
             if (c == 'a')
             {
                 getAtomo(); //{
-                if (c == '{')
+                if (c == ')')
                 {
                     getAtomo();
-                    O();
-                    if (c == 'd')
+                    if (c == '{')
                     {
                         getAtomo();
-                        if (c == '[')
+                        O();
+                        if (c == 'd')
                         {
                             getAtomo();
-                            B();
-                            if (c == ']')
+                            if (c == '[')
                             {
                                 getAtomo();
-                                if (c == '}')
+                                B();
+                                if (c == ']')
+                                {
                                     getAtomo();
+                                    if(c=='}')
+                                        getAtomo();
+                                }
                                 else
-                                    printConEsperado(0, 'X', '}', c);
+                                    printConEsperado(0, 'X', ']', c);
                             }
                             else
-                                printConEsperado(0, 'X', ']', c);
+                                printConEsperado(0, 'X', '[', c);
                         }
                         else
-                            printConEsperado(0, 'X', '[', c);
+                            printConEsperado(0, 'X', 'd', c);
                     }
                     else
-                        printConEsperado(0, 'X', 'd', c);
+                        printConEsperado(0, 'X', '{', c);
                 }
                 else
-                    printConEsperado(0, 'X', '{', c);
+                    printConEsperado(0, 'X', '(', c);
             }
             else
                 printConEsperado(0, 'X', 'a', c);
