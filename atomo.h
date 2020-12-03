@@ -1,3 +1,4 @@
+// Obtiene el átomo, dependiendo de su clase y su valor
 char getTokenAtomo(int clase, int valor){
 	switch (clase)
 	{

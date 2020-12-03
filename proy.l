@@ -83,32 +83,33 @@ clase5 ("!"{clase4})|({clase4}{clase4})|(">")|("<")|(">"{clase4})|("<"{clase4})
 clase6 {num}{1,14}
 clase7 \"([^\"]*)\"
 clase8 ("+"|"-"|"**"|"*"|"/"|"%")
+
 /*UNA VEZ QUE SE TIENEN LAS EXPRESIONES REGULARES DE LAS CLASES, SE CREARÁN LAS DIFERENTES ACCIONES*/
 /*QUE EL PROGRAMA REALIZARÁ DEPENDIENDO DE LA EXPRESIÓN REGULAR RECONOCIDA*/
 %%
 {real} {
     fprintf(archSal,"real sin e %s\n",yytext);
-    contadorConstantes++;
+    contadorConstantes++; // Aumenta el contador de constantes
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
-    agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
+    agregarConstanteExp(&tablaDeRealesExp,exponencial); // Agrega la constante
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r'); // Agrega el token
 };
 {clase0epos} {
     fprintf(archSal,"clase0epos %s\n",yytext);
-    contadorConstantes++;
+    contadorConstantes++; // Aumenta el contador de constantes
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
-    agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
+    agregarConstanteExp(&tablaDeRealesExp,exponencial); // Agrega la constante
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r'); // Agrega el token
 };
 {clase0eneg} {
     fprintf(archSal,"clase0eneg %s\n",yytext);
-    contadorConstantes++;
+    contadorConstantes++; // Aumenta el contador de constantes
     char *exponencial=malloc(sizeof(yytext)); // Se reserva la memoria
     strcpy(exponencial,yytext); // Copia yytext a exponencial
-    agregarConstanteExp(&tablaDeRealesExp,exponencial);
-    agregarToken(&tablaDeTokens,0,contadorConstantes,'r');
+    agregarConstanteExp(&tablaDeRealesExp,exponencial); // Agrega la constante
+    agregarToken(&tablaDeTokens,0,contadorConstantes,'r'); // Agrega el token
 };
 {clase1} {
     fprintf(archSal,"clase1 %s\n",yytext);
@@ -123,10 +124,10 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 };
 {clase3} {
     fprintf(archSal,"clase3 %s\n",yytext);
-    char *identificador=malloc(sizeof(yytext));
-    strcpy(identificador,yytext);
-    agregarIdent(&tablaDeIdentificadores,identificador,-1);
-    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),'a');
+    char *identificador=malloc(sizeof(yytext)); // Reserva la memoria para el identificador
+    strcpy(identificador,yytext); // Copia yytext a identificador
+    agregarIdent(&tablaDeIdentificadores,identificador,-1); // Agrega el identificador
+    agregarToken(&tablaDeTokens,3,buscaIdent(&tablaDeIdentificadores,identificador),'a'); // Agrega el token buscando el identificador en la tabla
 };
 {clase4} {
     fprintf(archSal,"clase4 %s\n",yytext);
@@ -145,20 +146,20 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 };
 {clase7} {
     fprintf(archSal,"clase7 %s\n",yytext);
-    contadorCadenas++;
-    char *cadena=malloc(sizeof(yytext));
-    strcpy(cadena,yytext);
-    agregarCadena(&tablaDeCadenas,cadena);
-    agregarToken(&tablaDeTokens,7,contadorCadenas,'s');
+    contadorCadenas++; // Aumenta el contador de cadenas
+    char *cadena=malloc(sizeof(yytext)); // Reserva la memoria de la cadena
+    strcpy(cadena,yytext); // Copia yytext a cadena
+    agregarCadena(&tablaDeCadenas,cadena); // Agrega la cadena
+    agregarToken(&tablaDeTokens,7,contadorCadenas,'s'); // Agrega el token
 };
 {clase8} {
     fprintf(archSal,"clase8 %s\n",yytext);
     if(!strcmp("**",yytext)){
-        agregarToken(&tablaDeTokens,8,48,'_');
+        agregarToken(&tablaDeTokens,8,48,'_'); // Agrega el token para ** que es 0, 48 en ascii
     }
     else{
         int value=toAscii(yytext);
-        agregarToken(&tablaDeTokens,8,value,'_');
+        agregarToken(&tablaDeTokens,8,value,'_'); // Agrega el token para cualquier otro
     }
 };
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
@@ -181,25 +182,34 @@ int main(int argc, char *argv[])
 
     // ----------------------------------------------------
     // COMIENZA EL ANÁLISIS LÉXICO
-    fprintf(archSal,"-------------------------------------------\nComienza el análisis léxico:\n");
+    fprintf(archSal,"-------------------------------------------\n\nCOMIENZA EL ANÁLISIS LÉXICO:\n");
     yylex(); // Analisis Lexico
     // AQUI SE IMPRIMEN TOKENS, IDENTIFICADORES, CADENAS Y REALES.
     verTokens(tokensFile,tablaDeTokens);
     verIdentificadores(identificadoresFile,tablaDeIdentificadores);
     verCadenas(cadenasFile,tablaDeCadenas);
     verConstantesExp(constantesExpFile,tablaDeRealesExp);
-    fprintf(archSal,"Termina el análisis léxico.\n");
+    printf("-------------------------------------------\n\n");
+    printf("TERMINÓ EL ANÁLISIS LÉXICO CON ÉXITO...\n\n");
+    printf("PARA VER LOS TOKENS GENERADOS, VISITE: 'tokens.txt'\n\n");
+    printf("PARA VER LOS IDENTIFICADORES GENERADOS, VISITE: 'identificadores.txt'\n\n");
+    printf("PARA VER LAS CADENAS GENERADAS, VISITE: 'cadenas.txt'\n\n");
+    printf("PARA VER LAS CONSTANTES REALES, VISITE: 'constantesExp.txt'\n\n");
+    printf("PARA VER EL LOG DE ESPACIOS, COMENTARIOS Y ERRORES, VISITE: 'log.txt'\n\n");
+    fprintf(archSal,"TERMINÓ EL ANÁLISIS LÉXICO CON ÉXITO...\n\n");
+    printf("-------------------------------------------\n\n");
 
     // ----------------------------------------------------
     // COMIENZA EL ANÁLISIS SINTÁCTICO
-    fprintf(archSal,"-------------------------------------------\nComienza el análisis sintáctico:\n");
+    fprintf(archSal,"-------------------------------------------\n\nCOMIENZA EL ANÁLISIS SINTÁCTICO:\n");
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
-    archSalG=archSal;
-    fprintf(archSal,"Atomo incial: c=%c\n",c);
+    archSalG=archSal; // Referencia a archivo de salida para usar en gramatica.h
+    fprintf(archSal,"Atomo incial: c=%c\n",c); // Imprime el atomo inicial
     P(); // Comienza la gramática con el simbolo P
 
     // ----------------------------------------------------
+    // CIERRA LOS ARCHIVOS UTILIZADOS
     fclose(archSal);
     fclose(tokensFile);
     fclose(identificadoresFile);
