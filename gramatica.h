@@ -1,3 +1,12 @@
+/*SILVA NUÑEZ ALEJANDRO BRYAN*/
+/*SANTIAGO VILLEGAS FERNANDO*/
+/*ANALIZADOR LÉXICO-SINTACTICO*/
+/*COMPILADORES*/
+/*ENTREGA: 03/12/2020*/
+/*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
+Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
+
+
 #include "tokens.h"
 
 // Define el booleano, utilizado para verificar en el error si el no terminal es primo o no.

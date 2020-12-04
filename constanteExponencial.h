@@ -1,3 +1,10 @@
+/*SILVA NUÑEZ ALEJANDRO BRYAN*/
+/*SANTIAGO VILLEGAS FERNANDO*/
+/*ANALIZADOR LÉXICO-SINTACTICO*/
+/*COMPILADORES*/
+/*ENTREGA: 03/12/2020*/
+/*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
+Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
 /*
 	De igual manera a los tokens y a los tokens, identificadores y cadenas,
 	se utilizara este archivo para la creación y manipulación de las constantes reales
