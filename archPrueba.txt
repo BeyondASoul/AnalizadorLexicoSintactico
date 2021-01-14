@@ -1,0 +1,101 @@
+@ Variables globales
+int a,b,d:
+bool c:
+char x,y,z:
+float r1,h,E,M:
+string cad, cad1, cad2:
+
+@ Funciones
+[ void func1()
+  {
+	int a,b:
+	a=12:
+	b=a%3:
+	return:
+  }
+]
+
+@ Sentencia return
+[ int dos() {
+	return (2):
+ }
+]
+
+@ Setencias de Asignacion
+[ string asig() {
+	cad = "cadena1":
+	cad = "cadena2":
+	cad = +"cadena3", cad:
+	cad2 = +cad, "uno" , "otracadena":
+
+	@ Sentencia For
+	for[5] {
+		@ Sentencia Switch
+		switch (menu) {
+			case 1 [ cad1 = "Se eligio opcion 1":]
+			break:
+			case 2 [ 
+				if (a != 7){ 
+					return(3): 
+				}:
+			]
+			break:
+			default [continue:]
+		}
+		[hola()]:
+		return([p()]):
+	}
+	c=1:
+	a=b:
+	d=[funcX()]:
+	cad = cad:
+	r1 = 2.7E-3:
+	h = 3.5E5:
+	E = 18.0e+5:
+	M = 5.0**2:
+	b=2*c/3**5:
+
+	@ If anidado (and)
+	if (c1 >= 64.2E5){
+		if (c2 < ([len()] * 43.5)){
+			a=a*1:
+		} else {
+			continue:
+		}:
+	}:
+	
+ }
+]
+
+[ bool band() {
+	@ Constante caracter y valores booleanos
+	char c1,c2:
+	bool flag:
+	c1 = 65: @se daran como ASCII
+	flag = 0: @ valor de 0 (false) y 1 (true)
+	return (flag):
+ }
+]
+
+[ float main() {
+	@ Sentencia IF
+	if(x == 1) {
+		[fun()]:
+	} else {
+		@ Sentencia While
+		while (cad2 != 65) {
+			[scan()]:
+		}
+	}:
+	
+	@ Sentencia do while
+	do {
+		@ Expresiones aritmeticas
+		m = d*(0.3+d)**10:
+		n = f+[f()]%2:
+		l = 100-g[5]/[j()]:
+		u = 450*18.0e+5 -(k[7]+2.7E-3):
+	} while (m >= 0):
+	return (5.67E-5):
+ }
+]

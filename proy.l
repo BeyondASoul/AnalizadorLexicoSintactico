@@ -66,8 +66,7 @@ float toFloat(char *num){
 num [0-9]
 let [a-zA-Z]
 espacio [[:space:]]
-comentunalinea \/\/.*
-comentmulti \/\*(.*"\n")*\*\/
+
 
 
 /*EXPRESIONES DE CLASE*/
@@ -75,7 +74,7 @@ comentmulti \/\*(.*"\n")*\*\/
 real {num}+(\.)+{num}+
 clase0epos {real}((e|E)({espacio}|"+"){num}+)?
 clase0eneg {real}((e|E)({espacio}?"-")({num}+))
-clase1 ("bool"|"break"|"case"|"char"|"continue"|"default"|"do"|"else"|"float"|"for"|"if"|"int"|"returnt"|"string"|"switch"|"while"|"void")
+clase1 ("bool"|"break"|"case"|"char"|"continue"|"default"|"do"|"else"|"float"|"for"|"if"|"int"|"return"|"string"|"switch"|"while"|"void")
 clase2 "{"|"}"|","|":"|"("|")"|"["|"]"
 clase3 {let}+({let}|{num}|("_"))*
 clase4 "="
@@ -163,8 +162,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     }
 };
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
-({comentunalinea}"\n"|{comentmulti}) {fprintf(logFile,"\\\\\\\\COMENTARIO UNICO/MULTILINEA: %s\n",yytext);}
-(\@{comentunalinea}|\@{comentmulti}) {fprintf(logFile,"********COMENTARIO con @ DESCARTADO: %s\n",yytext);}
+(\@.) {fprintf(logFile,"********COMENTARIO con @ \n");}
 . { printf("ERROR, EL ANALIZADOR SINTACTICO NO ESPERABA '%s'\n\n",yytext);
     fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);};
 %%

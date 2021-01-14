@@ -1,6 +1,6 @@
-Posicion: 0		Valor: "Case 1"
-Posicion: 1		Valor: "Case 2"
-Posicion: 2		Valor: "Case 3"
-Posicion: 3		Valor: "Default"
-Posicion: 4		Valor: "concatenacion"
-Posicion: 5		Valor: "de canedas"
+Posicion: 0		Valor: "cadena1"
+Posicion: 1		Valor: "cadena2"
+Posicion: 2		Valor: "cadena3"
+Posicion: 3		Valor: "uno"
+Posicion: 4		Valor: "otracadena"
+Posicion: 5		Valor: "Se eligio opcio
