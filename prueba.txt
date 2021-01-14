@@ -1,35 +1,101 @@
-[void main(){
-        int a,x[3],r:
-        char cad:
-        float r1,h[5]:
-        a=3:
-        r=5:
-        if(a==3){
-            switch (a){
-                case 1 [ cad = "Case 1"]
-                break:
-                case 2 [ cad = "Case 2"]
-                break:
-                case 3 [ cad = "Case 3"]
-                break:
-                default [ cad = "Default"]
-            }
-        }
-        else{
-            a=5:
-        }:
-        do{
-            a=a-1:
-            for [10]{
-                r=r+1/42:
-                a=a+r:
-                while(a<=2){
-                    h[1]=4.32e-32:
-                    h[2]=3.02e+31:
-                    cad=+"concatenacion","de canedas",a,cad[3]:
-                    h[3]=3.1416:
-                }
-            }
-        }while(a<=1):
-    }
+@ Variables globales
+int a,b,d:
+bool c:
+char x,y,z:
+float r1,h,E,M:
+string cad, cad1, cad2:
+
+@ Funciones
+[ void func1()
+  {
+	int a,b:
+	a=12:
+	b=a%3:
+	return:
+  }
+]
+
+@ Sentencia return
+[ int dos() {
+	return (2):
+ }
+]
+
+@ Setencias de Asignacion
+[ string asig() {
+	cad = "cadena1":
+	cad = "cadena2":
+	cad = +"cadena3", cad:
+	cad2 = +cad, "uno" , "otracadena":
+
+	@ Sentencia For
+	for[5] {
+		@ Sentencia Switch
+		switch (menu) {
+			case 1 [ cad1 = "Se eligio opcion 1":]
+			break:
+			case 2 [ 
+				if (a != 7){ 
+					return(3): 
+				}:
+			]
+			break:
+			default [continue:]
+		}
+		[hola()]:
+		return([p()]):
+	}
+	c=1:
+	a=b:
+	d=[funcX()]:
+	cad = cad:
+	r1 = 2.7E-3:
+	h = 3.5E5:
+	E = 18.0e+5:
+	M = 5.0**2:
+	b=2*c/3**5:
+
+	@ If anidado (and)
+	if (c1 >= 64.2E5){
+		if (c2 < ([len()] * 43.5)){
+			a=a*1:
+		} else {
+			continue:
+		}:
+	}:
+	
+ }
+]
+
+[ bool band() {
+	@ Constante caracter y valores booleanos
+	char c1,c2:
+	bool flag:
+	c1 = 65: @se daran como ASCII
+	flag = 0: @ valor de 0 (false) y 1 (true)
+	return (flag):
+ }
+]
+
+[ float main() {
+	@ Sentencia IF
+	if(x == 1) {
+		[fun()]:
+	} else {
+		@ Sentencia While
+		while (cad2 != 65) {
+			[scan()]:
+		}
+	}:
+	
+	@ Sentencia do while
+	do {
+		@ Expresiones aritmeticas
+		m = d*(0.3+d)**10:
+		n = f+[f()]%2:
+		l = 100-g[5]/[j()]:
+		u = 450*18.0e+5 -(k[7]+2.7E-3):
+	} while (m >= 0):
+	return (5.67E-5):
+ }
 ]

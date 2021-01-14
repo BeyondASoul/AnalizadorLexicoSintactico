@@ -132,6 +132,8 @@ void Y() // Conjunto de selección: c.s={ [ }
                                 fprintf(archSalG, "-------------------------------------------\n");
                                 return exit(EXIT_SUCCESS);
                             }
+                            else if (c == '[')
+                                Y();
                             else
                             {
                                 printConEsperado(0, 'Y', '_', c);

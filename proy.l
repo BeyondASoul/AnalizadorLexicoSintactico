@@ -72,7 +72,7 @@ espacio [[:space:]]
 /*EXPRESIONES DE CLASE*/
 
 real {num}+(\.)+{num}+
-clase0epos {real}((e|E)({espacio}|"+"){num}+)?
+clase0epos {real}((e|E)({espacio}?|"+"){num}+)?
 clase0eneg {real}((e|E)({espacio}?"-")({num}+))
 clase1 ("bool"|"break"|"case"|"char"|"continue"|"default"|"do"|"else"|"float"|"for"|"if"|"int"|"return"|"string"|"switch"|"while"|"void")
 clase2 "{"|"}"|","|":"|"("|")"|"["|"]"
@@ -162,7 +162,7 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
     }
 };
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
-(\@.) {fprintf(logFile,"********COMENTARIO con @ \n");}
+(\@.*) {fprintf(logFile,"********COMENTARIO con @********\n");}
 . { printf("ERROR, EL ANALIZADOR SINTACTICO NO ESPERABA '%s'\n\n",yytext);
     fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);};
 %%
