@@ -6,7 +6,6 @@
 /*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
 Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
 
-
 #include "tokens.h"
 #include "identificadores.h"
 
@@ -21,12 +20,12 @@ void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 void P();                                                                    // inicial
 void YP();                                                                   // Gramatica Y'
 void Y();                                                                    // Gramatica Y
-int VP();                                                                   // Gramatica V'
+int VP();                                                                    // Gramatica V'
 void DP();                                                                   // Gramatica D'
 void D();                                                                    // Gramatica D
-void L(int tipo);                                                                    // Gramatica L
+void L(int tipo);                                                            // Gramatica L
 void C();                                                                    // Gramatica C
-int V();                                                                    // Gramatica V
+int V();                                                                     // Gramatica V
 void G();                                                                    // Gramatica G
 void S();                                                                    // Gramatica S
 void U();                                                                    // Gramatica U
@@ -58,6 +57,7 @@ int t;
 int p;
 Token *tokenAux = NULL;
 FILE *archSalG;
+FILE *identificadoresActual;
 
 /* Función para obtener el atomo siguiente e ir recorriendolos*/
 void getAtomo()
@@ -69,6 +69,9 @@ void getAtomo()
     }
     else
     {
+        if(tokenAux->next->clase == 3 && tokenAux->clase == 1){
+            t = tokenAux->valor;
+        }
         tokenAux = tokenAux->next;
         c = tokenAux->atomo;
         p = tokenAux->valor;
@@ -109,13 +112,13 @@ void Y() // Conjunto de selección: c.s={ [ }
     if (c == '[')
     {
         getAtomo();
-        t=VP();
+        t = VP();
         if (c == 'a')
         {
             //revisa si el identificador no está repetido
             revisaIdentificador();
             //asigna tipo
-            asignaTipo(t,p);
+            asignaTipo(t, p);
             getAtomo();
             if (c == '(')
             {
@@ -135,6 +138,8 @@ void Y() // Conjunto de selección: c.s={ [ }
                                 getAtomo();
                             if (c == '_')
                             {
+                                fprintf(identificadoresActual,"\nIdentificadores Actualizados con su tipo:\n");
+                                verIdentificadores(identificadoresActual,tablaDeIdentificadores);
                                 printf("TERMINÓ EL ANÁLISIS SINTÁCTICO CON ÉXITO...\n\n");
                                 printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n\n");
                                 printf("-------------------------------------------\n");
@@ -176,7 +181,7 @@ int VP() // Conjunto de selección: c.s={ b c f n g o }
     else if (c == 'o')
     {
         getAtomo();
-        return busquedaPal(c);
+        return t;
     }
     else
     {
@@ -203,8 +208,8 @@ void D() // Conjunto de selección: c.s={ b c f n g }
     printEntrada(0, 'D', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
     {
-        t=V();
-        if(t==-1)
+        t = V();
+        if (t == -1)
             exit(EXIT_FAILURE);
         L(t);
         if (c == ':')
@@ -222,9 +227,9 @@ void L(int tipo) // Conjunto de selección: c.s={ a }
     if (c == 'a')
     {
         //revisar si el identificaador está duplicado
-        revisaIdentificador():
+        revisaIdentificador();
         //asignar el tipo al identificador
-        asignaTipo(tipo,p);
+        asignaTipo(tipo, p);
         getAtomo();
         G();
         C();
@@ -244,7 +249,7 @@ void C() // Conjunto de selección: c.s={ , : }
     if (c == ',')
     {
         getAtomo();
-        L();
+        L(t);
     }
     else if (c == '_' || c == ':')
         return;
@@ -258,7 +263,7 @@ int V() // Conjunto de selección: c.s={ b c f n g }
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
     {
         getAtomo();
-        return busquedaPal(c)
+        return t;
     }
     else
     {
@@ -324,7 +329,7 @@ void S() // Conjunto de selección: c.s={ a x i w h p u t [ }
         getAtomo(); //a
         if (c == 'a')
         {
-             //revisa si el identificador no está repetido
+            //revisa si el identificador no está repetido
             revisaIdentificador();
             getAtomo(); //(
             if (c == '(')
@@ -464,7 +469,7 @@ void X() // Conjunto de selección: c.s={ x }
             getAtomo(); //a
             if (c == 'a')
             {
-                 //revisa si el identificador no está repetido
+                //revisa si el identificador no está repetido
                 revisaIdentificador();
                 getAtomo(); //{
                 if (c == ')')
@@ -769,7 +774,7 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
     }
     else if (c == 'a')
     {
-         //revisa si el identificador no está repetido
+        //revisa si el identificador no está repetido
         revisaIdentificador();
         getAtomo();
         G();
@@ -781,7 +786,7 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
         getAtomo(); //a
         if (c == 'a')
         {
-             //revisa si el identificador no está repetido
+            //revisa si el identificador no está repetido
             revisaIdentificador();
             getAtomo(); //(
             if (c == '(')
@@ -812,18 +817,18 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
 void A() // Conjunto de selección: c.s={ a }
 {
     printEntrada(0, 'A', c);
-    if(c=='a')
+    if (c == 'a')
     {
-         //revisa si el identificador no está repetido
+        //revisa si el identificador no está repetido
         revisaIdentificador();
-        getAtomo();//=
-        if(c=='[')
+        getAtomo(); //=
+        if (c == '[')
             G();
-        if(c=='=')
+        if (c == '=')
         {
             getAtomo(); // conjunto de selección M
             M();
-            if(c==':')
+            if (c == ':')
                 getAtomo(); //lo que sigue
         }
     }
@@ -839,7 +844,7 @@ void M() // Conjunto de selección: c.s={ ( a e r [ s + }
     else if (c == '+')
     {
         getAtomo();
-        L();
+        L(t);
         if (c == ':')
             getAtomo();
         else
@@ -897,16 +902,16 @@ void printEntrada(bool prima, char noTerminal, char caracter)
 
 void revisaIdentificador()
 {
-
 }
 
 void asignaTipo(int tipo, int pos)
 {
-    Ident *aux;
-    aux=&tablaDeIdentificadores;
-    while(aux->posicion=!pos)
+    IdentList *auxTabla;
+    auxTabla = &tablaDeIdentificadores;
+    Ident *auxIdent = auxTabla->head;
+    while (auxIdent->posicion != pos)
     {
-        aux=aux->next;
+        auxIdent = auxIdent->next;
     }
-    aux->tipo=tipo;
+    auxIdent->tipo = tipo;
 }

@@ -191,6 +191,7 @@ int main(int argc, char *argv[])
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
     archSalG=archSal; // Referencia a archivo de salida para usar en gramatica.h
+    identificadoresActual=identificadoresFile; //reimprime los identificadores pero ahora con su tipo en gramatica.h
     fprintf(archSal,"Atomo incial: c=%c\n",c); // Imprime el atomo inicial
     P(); // Comienza la gramática con el simbolo P
 

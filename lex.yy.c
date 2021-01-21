@@ -565,7 +565,6 @@ char *yytext;
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
-#include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
 #include "gramatica.h"
@@ -581,26 +580,15 @@ int contadorCadenas;
 int contadorConstantes;
 // Listas ligadas de tokens, identificadores, cadenas y constantes reales
 TokensList tablaDeTokens;
-IdentList tablaDeIdentificadores;
 CadList tablaDeCadenas;
 RealListExp tablaDeRealesExp;
 // Lista estática de operadores relacionales y palabras reservadas
 char *operadoresRel[6]={"!=","==",">","<",">=","<="};
-char *palabrasRes[17]={"bool","break","case","char","continue","default","do","else","float","for","if","int","return","string","switch","while","void"};
 // Funciones para buscar el token en cada lista (operadores relacionales y palabras reservadas)
 // OPERADORES RELACIONALES
 int busquedaOp(char* cadena){
     for(int i=0;i<6;i++){
         if(!strcmp(operadoresRel[i],cadena)){
-            return i;
-        }
-    }
-    return -1;
-}
-// PALABRA RESERVADA
-int busquedaPal(char* cadena){
-    for(int i=0;i<17;i++){
-        if(!strcmp(palabrasRes[i],cadena)){
             return i;
         }
     }
@@ -619,7 +607,7 @@ float toFloat(char *num){
 /*EXPRESIONES DE CLASE*/
 /*UNA VEZ QUE SE TIENEN LAS EXPRESIONES REGULARES DE LAS CLASES, SE CREARÁN LAS DIFERENTES ACCIONES*/
 /*QUE EL PROGRAMA REALIZARÁ DEPENDIENDO DE LA EXPRESIÓN REGULAR RECONOCIDA*/
-#line 623 "lex.yy.c"
+#line 611 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -801,9 +789,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 88 "proy.l"
+#line 76 "proy.l"
 
-#line 807 "lex.yy.c"
+#line 795 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -888,7 +876,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 89 "proy.l"
+#line 77 "proy.l"
 {
     fprintf(archSal,"real sin e %s\n",yytext);
     contadorConstantes++; // Aumenta el contador de constantes
@@ -901,7 +889,7 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 97 "proy.l"
+#line 85 "proy.l"
 {
     fprintf(archSal,"clase0epos %s\n",yytext);
     contadorConstantes++; // Aumenta el contador de constantes
@@ -914,7 +902,7 @@ YY_RULE_SETUP
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 105 "proy.l"
+#line 93 "proy.l"
 {
     fprintf(archSal,"clase0eneg %s\n",yytext);
     contadorConstantes++; // Aumenta el contador de constantes
@@ -926,7 +914,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 113 "proy.l"
+#line 101 "proy.l"
 {
     fprintf(archSal,"clase1 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
@@ -936,7 +924,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 119 "proy.l"
+#line 107 "proy.l"
 {
     fprintf(archSal,"clase2 %s\n",yytext);
     int value=toAscii(yytext); // Convierte yytext a Ascii
@@ -945,7 +933,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 124 "proy.l"
+#line 112 "proy.l"
 {
     fprintf(archSal,"clase3 %s\n",yytext);
     char *identificador=malloc(sizeof(yytext)); // Reserva la memoria para el identificador
@@ -956,7 +944,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 131 "proy.l"
+#line 119 "proy.l"
 {
     fprintf(archSal,"clase4 %s\n",yytext);
     agregarToken(&tablaDeTokens,4,61,'='); // Agrega token con el valor correspondiente
@@ -964,7 +952,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 135 "proy.l"
+#line 123 "proy.l"
 {
     fprintf(archSal,"clase5 %s\n",yytext);
     char *value=malloc(sizeof(yytext)); // Se reserva la memoria
@@ -974,7 +962,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 141 "proy.l"
+#line 129 "proy.l"
 {
     fprintf(archSal,"clase6 %s\n",yytext);
     int value=toFloat(yytext); // Convierte yytext a int por ser constante ENTERA
@@ -984,7 +972,7 @@ YY_RULE_SETUP
 case 10:
 /* rule 10 can match eol */
 YY_RULE_SETUP
-#line 146 "proy.l"
+#line 134 "proy.l"
 {
     fprintf(archSal,"clase7 %s\n",yytext);
     contadorCadenas++; // Aumenta el contador de cadenas
@@ -996,7 +984,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 154 "proy.l"
+#line 142 "proy.l"
 {
     fprintf(archSal,"clase8 %s\n",yytext);
     if(!strcmp("**",yytext)){
@@ -1011,26 +999,26 @@ YY_RULE_SETUP
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 164 "proy.l"
+#line 152 "proy.l"
 {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 165 "proy.l"
+#line 153 "proy.l"
 {fprintf(logFile,"********COMENTARIO con @********\n");}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 166 "proy.l"
+#line 154 "proy.l"
 { printf("ERROR, EL ANALIZADOR SINTACTICO NO ESPERABA '%s'\n\n",yytext);
     fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);};
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 168 "proy.l"
+#line 156 "proy.l"
 ECHO;
 	YY_BREAK
-#line 1034 "lex.yy.c"
+#line 1022 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2027,7 +2015,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 168 "proy.l"
+#line 156 "proy.l"
 
 
 int main(int argc, char *argv[])
@@ -2067,6 +2055,7 @@ int main(int argc, char *argv[])
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
     archSalG=archSal; // Referencia a archivo de salida para usar en gramatica.h
+    identificadoresActual=identificadoresFile; //reimprime los identificadores pero ahora con su tipo en gramatica.h
     fprintf(archSal,"Atomo incial: c=%c\n",c); // Imprime el atomo inicial
     P(); // Comienza la gramática con el simbolo P
 

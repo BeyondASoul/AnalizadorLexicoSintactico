@@ -15,6 +15,34 @@ string cad, cad1, cad2:
   }
 ]
 
+@ Funciones faltantes con variables faltantes
+[ void hola()
+	{
+		int menu:
+	}
+]
+[ void p()
+	{
+	}
+]
+[ int funcX()
+	{
+	}
+]
+[ int len()
+	{
+	}
+]
+[ int fun()
+	{
+	}
+]
+[ char scan()
+	{
+		int m,n,f,l,g,j,u,k:
+	}
+]
+
 @ Sentencia return
 [ int dos() {
 	return (2):
