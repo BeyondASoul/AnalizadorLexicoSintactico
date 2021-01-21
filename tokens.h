@@ -29,7 +29,6 @@ typedef struct TokensList
 {
     struct Token *head;
 } TokensList;
-
 // Funcion para agregar el token en la lista ligada simple
 void agregarToken(TokensList *tokens, int clase, int valor, char atomo)
 {

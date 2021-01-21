@@ -9,7 +9,6 @@
 /*Bibliotecas e inicializacines: */
 #include <stdio.h>
 #include <string.h>
-#include "identificadores.h"
 #include "cadenas.h"
 #include "constanteExponencial.h"
 #include "gramatica.h"
@@ -25,26 +24,15 @@ int contadorCadenas;
 int contadorConstantes;
 // Listas ligadas de tokens, identificadores, cadenas y constantes reales
 TokensList tablaDeTokens;
-IdentList tablaDeIdentificadores;
 CadList tablaDeCadenas;
 RealListExp tablaDeRealesExp;
 // Lista estática de operadores relacionales y palabras reservadas
 char *operadoresRel[6]={"!=","==",">","<",">=","<="};
-char *palabrasRes[17]={"bool","break","case","char","continue","default","do","else","float","for","if","int","return","string","switch","while","void"};
 // Funciones para buscar el token en cada lista (operadores relacionales y palabras reservadas)
 // OPERADORES RELACIONALES
 int busquedaOp(char* cadena){
     for(int i=0;i<6;i++){
         if(!strcmp(operadoresRel[i],cadena)){
-            return i;
-        }
-    }
-    return -1;
-}
-// PALABRA RESERVADA
-int busquedaPal(char* cadena){
-    for(int i=0;i<17;i++){
-        if(!strcmp(palabrasRes[i],cadena)){
             return i;
         }
     }

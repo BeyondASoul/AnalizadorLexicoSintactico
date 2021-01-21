@@ -29,6 +29,7 @@ typedef struct IdentList
     struct Ident *head;
 } IdentList;
 
+IdentList tablaDeIdentificadores;
 // Busca el identificador y verifica si existe en la lista ligada simple
 int buscaIdent(IdentList *lista, char *identificador)
 {

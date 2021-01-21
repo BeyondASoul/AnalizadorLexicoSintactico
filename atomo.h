@@ -6,6 +6,18 @@
 /*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
 Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
 // Obtiene el átomo, dependiendo de su clase y su valor
+char *palabrasRes[17]={"bool","break","case","char","continue","default","do","else","float","for","if","int","return","string","switch","while","void"};
+
+// PALABRA RESERVADA
+int busquedaPal(char* cadena){
+    for(int i=0;i<17;i++){
+        if(!strcmp(palabrasRes[i],cadena)){
+            return i;
+        }
+    }
+    return -1;
+}
+
 char getTokenAtomo(int clase, int valor){
 	switch (clase)
 	{

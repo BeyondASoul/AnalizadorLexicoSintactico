@@ -8,6 +8,7 @@ Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje
 
 
 #include "tokens.h"
+#include "identificadores.h"
 
 // Define el booleano, utilizado para verificar en el error si el no terminal es primo o no.
 typedef int bool;
@@ -20,12 +21,12 @@ void getAtomo(); // Ayuda a obtener el siguiente atomo para analizar.
 void P();                                                                    // inicial
 void YP();                                                                   // Gramatica Y'
 void Y();                                                                    // Gramatica Y
-void VP();                                                                   // Gramatica V'
+int VP();                                                                   // Gramatica V'
 void DP();                                                                   // Gramatica D'
 void D();                                                                    // Gramatica D
-void L();                                                                    // Gramatica L
+void L(int tipo);                                                                    // Gramatica L
 void C();                                                                    // Gramatica C
-void V();                                                                    // Gramatica V
+int V();                                                                    // Gramatica V
 void G();                                                                    // Gramatica G
 void S();                                                                    // Gramatica S
 void U();                                                                    // Gramatica U
@@ -49,8 +50,12 @@ void M();                                                                    // 
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay); // Imprime error
 void printErrorNT(bool prima, char noTerminal, char hay);                    // Imprime error
 void printEntrada(bool prima, char noTerminal, char caracter);               // Imprime entrada a cada no terminal
+void revisaIdentificador();
+void asignaTipo(int tipo, int pos);
 //Variables
 char c;
+int t;
+int p;
 Token *tokenAux = NULL;
 FILE *archSalG;
 
@@ -66,6 +71,7 @@ void getAtomo()
     {
         tokenAux = tokenAux->next;
         c = tokenAux->atomo;
+        p = tokenAux->valor;
     }
     fprintf(archSalG, "Actualizando el caracter actual: Átomo = '%c'\n", c);
 }
@@ -103,9 +109,13 @@ void Y() // Conjunto de selección: c.s={ [ }
     if (c == '[')
     {
         getAtomo();
-        VP();
+        t=VP();
         if (c == 'a')
         {
+            //revisa si el identificador no está repetido
+            revisaIdentificador();
+            //asigna tipo
+            asignaTipo(t,p);
             getAtomo();
             if (c == '(')
             {
@@ -158,16 +168,21 @@ void Y() // Conjunto de selección: c.s={ [ }
         printConEsperado(0, 'Y', '[', c);
     return;
 }
-void VP() // Conjunto de selección: c.s={ b c f n g o }
+int VP() // Conjunto de selección: c.s={ b c f n g o }
 {
     printEntrada(1, 'V', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
-        V();
+        return V();
     else if (c == 'o')
+    {
         getAtomo();
+        return busquedaPal(c);
+    }
     else
+    {
         printErrorNT(1, 'V', c);
-    return;
+        return -1;
+    }
 }
 void DP() // Conjunto de selección: c.s={ b c f n g [ x i w h p u t } }
 {
@@ -188,8 +203,10 @@ void D() // Conjunto de selección: c.s={ b c f n g }
     printEntrada(0, 'D', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
     {
-        V();
-        L();
+        t=V();
+        if(t==-1)
+            exit(EXIT_FAILURE);
+        L(t);
         if (c == ':')
             getAtomo();
         else
@@ -199,11 +216,15 @@ void D() // Conjunto de selección: c.s={ b c f n g }
         printErrorNT(0, 'D', c);
     return;
 }
-void L() // Conjunto de selección: c.s={ a }
+void L(int tipo) // Conjunto de selección: c.s={ a }
 {
     printEntrada(0, 'L', c);
     if (c == 'a')
     {
+        //revisar si el identificaador está duplicado
+        revisaIdentificador():
+        //asignar el tipo al identificador
+        asignaTipo(tipo,p);
         getAtomo();
         G();
         C();
@@ -231,14 +252,19 @@ void C() // Conjunto de selección: c.s={ , : }
         printErrorNT(0, 'C', c);
     return;
 }
-void V() // Conjunto de selección: c.s={ b c f n g }
+int V() // Conjunto de selección: c.s={ b c f n g }
 {
     printEntrada(0, 'V', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g')
+    {
         getAtomo();
+        return busquedaPal(c)
+    }
     else
+    {
         printErrorNT(0, 'V', c);
-    return;
+        return -1;
+    }
 }
 void G() // Conjunto de selección: c.s={ [ : ( a e r ) + - # % / * ! ? <> y m = }
 {
@@ -298,6 +324,8 @@ void S() // Conjunto de selección: c.s={ a x i w h p u t [ }
         getAtomo(); //a
         if (c == 'a')
         {
+             //revisa si el identificador no está repetido
+            revisaIdentificador();
             getAtomo(); //(
             if (c == '(')
             {
@@ -436,6 +464,8 @@ void X() // Conjunto de selección: c.s={ x }
             getAtomo(); //a
             if (c == 'a')
             {
+                 //revisa si el identificador no está repetido
+                revisaIdentificador();
                 getAtomo(); //{
                 if (c == ')')
                 {
@@ -739,6 +769,8 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
     }
     else if (c == 'a')
     {
+         //revisa si el identificador no está repetido
+        revisaIdentificador();
         getAtomo();
         G();
     }
@@ -749,6 +781,8 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
         getAtomo(); //a
         if (c == 'a')
         {
+             //revisa si el identificador no está repetido
+            revisaIdentificador();
             getAtomo(); //(
             if (c == '(')
             {
@@ -780,6 +814,8 @@ void A() // Conjunto de selección: c.s={ a }
     printEntrada(0, 'A', c);
     if(c=='a')
     {
+         //revisa si el identificador no está repetido
+        revisaIdentificador();
         getAtomo();//=
         if(c=='[')
             G();
@@ -857,4 +893,20 @@ void printEntrada(bool prima, char noTerminal, char caracter)
         fprintf(archSalG, "Entrando a '%cP' con el átomo = '%c'\n", noTerminal, c);
     else
         fprintf(archSalG, "Entrando a '%c' con el átomo = '%c'\n", noTerminal, c);
+}
+
+void revisaIdentificador()
+{
+
+}
+
+void asignaTipo(int tipo, int pos)
+{
+    Ident *aux;
+    aux=&tablaDeIdentificadores;
+    while(aux->posicion=!pos)
+    {
+        aux=aux->next;
+    }
+    aux->tipo=tipo;
 }
