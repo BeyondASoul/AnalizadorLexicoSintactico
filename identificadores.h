@@ -15,6 +15,13 @@ definida como:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+typedef struct repetidos
+{
+    int *cantidad;
+    char *variable;
+}repetidos;
+
+
 // Estructura de los ID, con un apuntador al siguiente ID
 typedef struct Ident
 {
@@ -107,4 +114,15 @@ void verIdentificadores(FILE *archSal, IdentList list)
             actual = actual->next;
         }
     }
+}
+
+int total()
+{
+    IdentList *listaux=&tablaDeIdentificadores;
+    Ident *aux=listaux->head;
+    while (aux->posicion != NULL)
+    {
+        aux = aux->next;
+    }
+    return aux->posicion;
 }

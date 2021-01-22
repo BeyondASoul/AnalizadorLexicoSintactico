@@ -49,12 +49,16 @@ void M();                                                                    // 
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay); // Imprime error
 void printErrorNT(bool prima, char noTerminal, char hay);                    // Imprime error
 void printEntrada(bool prima, char noTerminal, char caracter);               // Imprime entrada a cada no terminal
-void revisaIdentificador();
+void revisaIdentificador(int pos);
+void revisaTipo(int pos);
 void asignaTipo(int tipo, int pos);
+void inicializa();
 //Variables
 char c;
 int t;
 int p;
+repetidos rep;
+repetidos nodef;
 Token *tokenAux = NULL;
 FILE *archSalG;
 FILE *identificadoresActual;
@@ -81,6 +85,7 @@ void getAtomo()
 // Definiendo la gramática como funciones
 void P() // Conjunto de selección: c.s={ b c f n g [ }
 {
+    inicializa();
     printEntrada(0, 'P', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g' || c == '[' || c == '_')
     {
@@ -116,7 +121,7 @@ void Y() // Conjunto de selección: c.s={ [ }
         if (c == 'a')
         {
             //revisa si el identificador no está repetido
-            revisaIdentificador();
+            revisaIdentificador(p);
             //asigna tipo
             asignaTipo(t, p);
             getAtomo();
@@ -227,7 +232,7 @@ void L(int tipo) // Conjunto de selección: c.s={ a }
     if (c == 'a')
     {
         //revisar si el identificaador está duplicado
-        revisaIdentificador();
+        revisaIdentificador(p);
         //asignar el tipo al identificador
         asignaTipo(tipo, p);
         getAtomo();
@@ -329,8 +334,8 @@ void S() // Conjunto de selección: c.s={ a x i w h p u t [ }
         getAtomo(); //a
         if (c == 'a')
         {
-            //revisa si el identificador no está repetido
-            revisaIdentificador();
+            //revisa si el identificador está definido
+            revisaTipo(p);
             getAtomo(); //(
             if (c == '(')
             {
@@ -469,8 +474,8 @@ void X() // Conjunto de selección: c.s={ x }
             getAtomo(); //a
             if (c == 'a')
             {
-                //revisa si el identificador no está repetido
-                revisaIdentificador();
+                //revisa si el identificador está definido
+                revisaTipo(p);
                 getAtomo(); //{
                 if (c == ')')
                 {
@@ -774,8 +779,8 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
     }
     else if (c == 'a')
     {
-        //revisa si el identificador no está repetido
-        revisaIdentificador();
+        //revisa si el identificador está definido
+        revisaTipo(p);
         getAtomo();
         G();
     }
@@ -786,8 +791,8 @@ void F() // Conjunto de selección: c.s={ ( a e r [ }
         getAtomo(); //a
         if (c == 'a')
         {
-            //revisa si el identificador no está repetido
-            revisaIdentificador();
+            //revisa si el identificador está definido
+            revisaTipo(p);
             getAtomo(); //(
             if (c == '(')
             {
@@ -819,8 +824,8 @@ void A() // Conjunto de selección: c.s={ a }
     printEntrada(0, 'A', c);
     if (c == 'a')
     {
-        //revisa si el identificador no está repetido
-        revisaIdentificador();
+        //revisa si el identificador está definido
+        revisaTipo(p);
         getAtomo(); //=
         if (c == '[')
             G();
@@ -900,10 +905,45 @@ void printEntrada(bool prima, char noTerminal, char caracter)
         fprintf(archSalG, "Entrando a '%c' con el átomo = '%c'\n", noTerminal, c);
 }
 
-void revisaIdentificador()
+void revisaIdentificador(int pos)
 {
+    int i,aux;
+    IdentList *auxTabla;
+    auxTabla = &tablaDeIdentificadores;
+    Ident *auxIdent = auxTabla->head;
+    while (auxIdent->posicion != pos)
+    {
+        auxIdent = auxIdent->next;
+    }
+    for(i=0;i>=total();i++)
+    {
+        if(rep.variable[i]==NULL)
+        {
+            rep.variable[i]=auxIdent->identificador;
+            rep.cantidad[i]=rep.cantidad[i]++;
+            if(rep.cantidad[i]>0)
+            {
+                fprintf(archSalG,"El identificador %s está declarado anteriormente\n",rep.variable[i]);
+                fprintf(archSalG,"Número de incidencias: %i\n",rep.cantidad[i]);
+            }
+            break;
+        }
+    }
 }
-
+void revisaTipo(int pos)
+{
+    IdentList *auxTabla;
+    auxTabla = &tablaDeIdentificadores;
+    Ident *auxIdent = auxTabla->head;
+    while (auxIdent->posicion != pos)
+    {
+        auxIdent = auxIdent->next;
+    }
+    if(auxIdent->tipo==-1)
+    {
+        fprintf(archSalG,"El identificador %s no ha sido declarado\n",auxIdent->identificador);
+    }
+}
 void asignaTipo(int tipo, int pos)
 {
     IdentList *auxTabla;
@@ -914,4 +954,19 @@ void asignaTipo(int tipo, int pos)
         auxIdent = auxIdent->next;
     }
     auxIdent->tipo = tipo;
+}
+void inicializa()
+{
+    int i;
+    rep.cantidad=(int*)malloc(total()*sizeof(int));
+    rep.variable=(char*)malloc(total()*sizeof(char));
+    nodef.cantidad=(int*)malloc(total()*sizeof(int));
+    nodef.variable=(char*)malloc(total()*sizeof(char));
+    for(i=0;i>=total();i++)
+    {
+        rep.variable[i]=NULL;
+        rep.cantidad[i]=-1;
+        nodef.variable[i]=NULL;
+        nodef.cantidad[i]=-1;
+    }
 }

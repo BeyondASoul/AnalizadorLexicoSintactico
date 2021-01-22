@@ -1,6 +1,0 @@
-Posicion: 0		Valor: "cadena1"
-Posicion: 1		Valor: "cadena2"
-Posicion: 2		Valor: "cadena3"
-Posicion: 3		Valor: "uno"
-Posicion: 4		Valor: "otracadena"
-Posicion: 5		Valor: "Se eligio opcio
