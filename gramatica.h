@@ -923,8 +923,8 @@ void revisaIdentificador(int pos)
             rep.cantidad[i]=rep.cantidad[i]++;
             if(rep.cantidad[i]>0)
             {
-                fprintf(archSalG,"El identificador %s está declarado anteriormente\n",rep.variable[i]);
-                fprintf(archSalG,"Número de incidencias: %i\n",rep.cantidad[i]);
+                printf("ERROR: EL IDENTIFICADOR %S ESTÁ DECLARADO ANTERIORMENTE\N",rep.variable[i]);
+                printf("NÚMERO DE INCIDENCIAS: %i\n",rep.cantidad[i]);
             }
             break;
         }
@@ -941,7 +941,8 @@ void revisaTipo(int pos)
     }
     if(auxIdent->tipo==-1)
     {
-        fprintf(archSalG,"El identificador %s no ha sido declarado\n",auxIdent->identificador);
+        printf("ERROR: EL IDENTIFICADOR %S NO HA SIDO DECLARADO\n",auxIdent->identificador);
+        printf("ANALISIS SEMÁNTICO TERMINADO SIN ÉXITO\n");
     }
 }
 void asignaTipo(int tipo, int pos)

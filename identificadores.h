@@ -120,7 +120,7 @@ int total()
 {
     IdentList *listaux=&tablaDeIdentificadores;
     Ident *aux=listaux->head;
-    while (aux->posicion != NULL)
+    while (aux->next != NULL)
     {
         aux = aux->next;
     }

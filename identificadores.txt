@@ -1,0 +1,20 @@
+Posicion: 0		Nombre: func1			Tipo: -1
+Posicion: 1		Nombre: a			Tipo: -1
+Posicion: 2		Nombre: y			Tipo: -1
+Posicion: 3		Nombre: b			Tipo: -1
+Posicion: 4		Nombre: c			Tipo: -1
+Posicion: 5		Nombre: cad			Tipo: -1
+Posicion: 6		Nombre: cad1			Tipo: -1
+Posicion: 7		Nombre: cad2			Tipo: -1
+Posicion: 8		Nombre: n			Tipo: -1
+
+Identificadores Actualizados con su tipo:
+Posicion: 0		Nombre: func1			Tipo: 16
+Posicion: 1		Nombre: a			Tipo: 11
+Posicion: 2		Nombre: y			Tipo: 11
+Posicion: 3		Nombre: b			Tipo: 8
+Posicion: 4		Nombre: c			Tipo: 3
+Posicion: 5		Nombre: cad			Tipo: 13
+Posicion: 6		Nombre: cad1			Tipo: 13
+Posicion: 7		Nombre: cad2			Tipo: 13
+Posicion: 8		Nombre: n			Tipo: -1

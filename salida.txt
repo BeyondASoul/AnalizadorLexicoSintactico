@@ -1,0 +1,120 @@
+-------------------------------------------
+
+COMIENZA EL ANÁLISIS LÉXICO:
+clase2 [
+clase1 void
+clase3 func1
+clase2 (
+clase2 )
+clase2 {
+clase1 int
+clase3 a
+clase2 ,
+clase3 y
+clase2 :
+clase1 float
+clase3 b
+clase2 :
+clase1 char
+clase3 c
+clase2 :
+clase1 string
+clase3 cad
+clase2 ,
+clase3 cad1
+clase2 ,
+clase3 cad2
+clase2 :
+clase3 n
+clase4 =
+clase6 3
+clase2 :
+clase2 }
+clase2 ]
+TERMINÓ EL ANÁLISIS LÉXICO CON ÉXITO...
+
+-------------------------------------------
+
+COMIENZA EL ANÁLISIS SINTÁCTICO:
+Atomo incial: c=[
+Entrando a 'P' con el átomo = '['
+Entrando a 'DP' con el átomo = '['
+Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'o'
+Entrando a 'VP' con el átomo = 'o'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'n'
+Entrando a 'DP' con el átomo = 'n'
+Entrando a 'D' con el átomo = 'n'
+Entrando a 'V' con el átomo = 'n'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'f'
+Entrando a 'DP' con el átomo = 'f'
+Entrando a 'D' con el átomo = 'f'
+Entrando a 'V' con el átomo = 'f'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'c'
+Entrando a 'DP' con el átomo = 'c'
+Entrando a 'D' con el átomo = 'c'
+Entrando a 'V' con el átomo = 'c'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'g'
+Entrando a 'DP' con el átomo = 'g'
+Entrando a 'D' con el átomo = 'g'
+Entrando a 'V' con el átomo = 'g'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'DP' con el átomo = 'a'
+Entrando a 'B' con el átomo = 'a'
+Entrando a 'S' con el átomo = 'a'
+Entrando a 'A' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = '='
+Actualizando el caracter actual: Átomo = 'e'
+Entrando a 'M' con el átomo = 'e'
+Entrando a 'E' con el átomo = 'e'
+Entrando a 'T' con el átomo = 'e'
+Entrando a 'F' con el átomo = 'e'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'TP' con el átomo = ':'
+Entrando a 'EP' con el átomo = ':'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '_'
+TERMINÓ EL ANÁLISIS SINTÁCTICO CON ÉXITO...
+
+-------------------------------------------
