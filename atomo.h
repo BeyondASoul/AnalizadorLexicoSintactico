@@ -1,10 +1,11 @@
 /*SILVA NUÑEZ ALEJANDRO BRYAN*/
 /*SANTIAGO VILLEGAS FERNANDO*/
-/*ANALIZADOR LÉXICO-SINTACTICO*/
+/*ANALIZADOR LÉXICO-SINTACTICO-SEMÁNTICO*/
 /*COMPILADORES*/
-/*ENTREGA: 03/12/2020*/
-/*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
-Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
+/*ENTREGA: 26/01/2021*/
+/*OBJETIVO: CONSTRUIR EN UN MISMO PROGRAMA, LOS ANALIZADORES LÉXICO, SINTÁCTICO 
+Y SEMÁNTICO QUE REVISEN PROGRAMAS FUENTE ESCRITOS CON EL LENGUAJE ELABORADO EN CLASE.*/
+
 // Obtiene el átomo, dependiendo de su clase y su valor
 char *palabrasRes[17]={"bool","break","case","char","continue","default","do","else","float","for","if","int","return","string","switch","while","void"};
 
@@ -61,4 +62,5 @@ char getTokenAtomo(int clase, int valor){
 				return (char)valor; break;
 			}
 	}
+	return '_';
 }

@@ -976,7 +976,7 @@ YY_RULE_SETUP
 {
     fprintf(archSal,"clase7 %s\n",yytext);
     contadorCadenas++; // Aumenta el contador de cadenas
-    char *cadena=malloc(sizeof(yytext)); // Reserva la memoria de la cadena
+    char *cadena=malloc(sizeof(yytext)*50); // Reserva la memoria de la cadena
     strcpy(cadena,yytext); // Copia yytext a cadena
     agregarCadena(&tablaDeCadenas,cadena); // Agrega la cadena
     agregarToken(&tablaDeTokens,7,contadorCadenas,'s'); // Agrega el token
@@ -2047,11 +2047,11 @@ int main(int argc, char *argv[])
     printf("PARA VER LAS CONSTANTES REALES, VISITE: 'constantesExp.txt'\n\n");
     printf("PARA VER EL LOG DE ESPACIOS, COMENTARIOS Y ERRORES, VISITE: 'log.txt'\n\n");
     fprintf(archSal,"TERMINÓ EL ANÁLISIS LÉXICO CON ÉXITO...\n\n");
-    printf("-------------------------------------------\n\n");
+    printf("-------------------------------------------\n");
 
     // ----------------------------------------------------
-    // COMIENZA EL ANÁLISIS SINTÁCTICO
-    fprintf(archSal,"-------------------------------------------\n\nCOMIENZA EL ANÁLISIS SINTÁCTICO:\n");
+    // COMIENZA EL ANÁLISIS SINTÁCTICO Y SEMÁNTICO
+    fprintf(archSal,"-------------------------------------------\n\nCOMIENZA EL ANÁLISIS SINTÁCTICO Y SEMÁNTICO:\n");
     tokenAux=tablaDeTokens.head; // Token Auxiliar
     c=tokenAux->atomo; // Atomo del token auxiliar que irá avanzando
     archSalG=archSal; // Referencia a archivo de salida para usar en gramatica.h

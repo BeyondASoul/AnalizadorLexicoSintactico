@@ -1,1 +1,8 @@
-No hay cadenas.
+Posicion: 0		Valor: "cadena1"
+Posicion: 1		Valor: "cadena2"
+Posicion: 2		Valor: "cadena3"
+Posicion: 3		Valor: "nueva"
+Posicion: 4		Valor: "cadena"
+Posicion: 5		Valor: "uno"
+Posicion: 6		Valor: "otracadena"
+Posicion: 7		Valor: "Se eligio opcion 1"

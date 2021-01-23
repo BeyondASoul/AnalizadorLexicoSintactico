@@ -1,14 +1,16 @@
+@ Este archivo no tiene errores
+
 @ Variables globales
 int a,b,d:
 bool c:
 char x,y,z:
 float r1,h,E,M:
-string cad, cad1, cad2:
+string cad1, cad2:
+
 
 @ Funciones
 [ void func1()
   {
-	int a,b:
 	a=12:
 	b=a%3:
 	return:
@@ -51,10 +53,12 @@ string cad, cad1, cad2:
 
 @ Setencias de Asignacion
 [ string asig() {
+	char c1,c2:
+	string cad:
 	cad = "cadena1":
 	cad = "cadena2":
-	cad = +"cadena3", cad:
-	cad2 = +cad, "uno" , "otracadena":
+	cad = +"cadena3", "nueva":
+	cad2 = +"cadena", "uno" , "otracadena":
 
 	@ Sentencia For
 	for[5] {
@@ -97,7 +101,6 @@ string cad, cad1, cad2:
 
 [ bool band() {
 	@ Constante caracter y valores booleanos
-	char c1,c2:
 	bool flag:
 	c1 = 65: @se daran como ASCII
 	flag = 0: @ valor de 0 (false) y 1 (true)

@@ -1,9 +1,0 @@
-[ void func1()
-  {
-	int a,y:
-  float b:
-  char c:
-  string cad, cad1, cad2:
-  n=3:
-  }
-]

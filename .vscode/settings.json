@@ -22,6 +22,9 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "complex": "cpp",
-        "__mutex_base": "cpp"
+        "__mutex_base": "cpp",
+        "__string": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp"
     }
 }

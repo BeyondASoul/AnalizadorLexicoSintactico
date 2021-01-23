@@ -1,10 +1,10 @@
 /*SILVA NUÑEZ ALEJANDRO BRYAN*/
 /*SANTIAGO VILLEGAS FERNANDO*/
-/*ANALIZADOR LÉXICO-SINTACTICO*/
+/*ANALIZADOR LÉXICO-SINTACTICO-SEMÁNTICO*/
 /*COMPILADORES*/
-/*ENTREGA: 03/12/2020*/
-/*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
-Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
+/*ENTREGA: 26/01/2021*/
+/*OBJETIVO: CONSTRUIR EN UN MISMO PROGRAMA, LOS ANALIZADORES LÉXICO, SINTÁCTICO 
+Y SEMÁNTICO QUE REVISEN PROGRAMAS FUENTE ESCRITOS CON EL LENGUAJE ELABORADO EN CLASE.*/
 
 #include "tokens.h"
 #include "identificadores.h"
@@ -49,16 +49,13 @@ void M();                                                                    // 
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay); // Imprime error
 void printErrorNT(bool prima, char noTerminal, char hay);                    // Imprime error
 void printEntrada(bool prima, char noTerminal, char caracter);               // Imprime entrada a cada no terminal
-void revisaIdentificador(int pos);
-void revisaTipo(int pos);
-void asignaTipo(int tipo, int pos);
-void inicializa();
-//Variables
+void revisaTipo(int pos);                                                    // Revisa el tipo de identificador
+void asignaTipo(int tipo, int pos);                                          // Asigna el tipo de identificador
+
+//Variables globales
 char c;
 int t;
 int p;
-repetidos rep;
-repetidos nodef;
 Token *tokenAux = NULL;
 FILE *archSalG;
 FILE *identificadoresActual;
@@ -73,8 +70,9 @@ void getAtomo()
     }
     else
     {
-        if(tokenAux->next->clase == 3 && tokenAux->clase == 1){
-            t = tokenAux->valor;
+        if (tokenAux->next->clase == 3 && tokenAux->clase == 1)
+        {
+            t = tokenAux->valor; // asigna t si el token actual es de clase 3 y el token anterior de clase 1
         }
         tokenAux = tokenAux->next;
         c = tokenAux->atomo;
@@ -85,7 +83,6 @@ void getAtomo()
 // Definiendo la gramática como funciones
 void P() // Conjunto de selección: c.s={ b c f n g [ }
 {
-    inicializa();
     printEntrada(0, 'P', c);
     if (c == 'b' || c == 'c' || c == 'f' || c == 'n' || c == 'g' || c == '[' || c == '_')
     {
@@ -120,8 +117,6 @@ void Y() // Conjunto de selección: c.s={ [ }
         t = VP();
         if (c == 'a')
         {
-            //revisa si el identificador no está repetido
-            revisaIdentificador(p);
             //asigna tipo
             asignaTipo(t, p);
             getAtomo();
@@ -143,11 +138,15 @@ void Y() // Conjunto de selección: c.s={ [ }
                                 getAtomo();
                             if (c == '_')
                             {
-                                fprintf(identificadoresActual,"\nIdentificadores Actualizados con su tipo:\n");
-                                verIdentificadores(identificadoresActual,tablaDeIdentificadores);
-                                printf("TERMINÓ EL ANÁLISIS SINTÁCTICO CON ÉXITO...\n\n");
+                                fprintf(identificadoresActual, "\nIdentificadores Actualizados con su tipo:\n");
+                                verIdentificadores(identificadoresActual, tablaDeIdentificadores);
+                                // Impresión en terminal
+                                printf("\n-------------------------------------------\n");
+                                printf("\nTERMINÓ EL ANÁLISIS SINTÁCTICO CON ÉXITO...\n\n");
                                 printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n\n");
                                 printf("-------------------------------------------\n");
+                                // Impresion en archivo salida.txt
+                                fprintf(archSalG, "-------------------------------------------\n");
                                 fprintf(archSalG, "TERMINÓ EL ANÁLISIS SINTÁCTICO CON ÉXITO...\n\n");
                                 fprintf(archSalG, "-------------------------------------------\n");
                                 return exit(EXIT_SUCCESS);
@@ -231,8 +230,6 @@ void L(int tipo) // Conjunto de selección: c.s={ a }
     printEntrada(0, 'L', c);
     if (c == 'a')
     {
-        //revisar si el identificaador está duplicado
-        revisaIdentificador(p);
         //asignar el tipo al identificador
         asignaTipo(tipo, p);
         getAtomo();
@@ -863,16 +860,18 @@ void M() // Conjunto de selección: c.s={ ( a e r [ s + }
 // Función que notifica el error en un no terminal, e indica lo que esperaba
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay)
 {
+    fprintf(identificadoresActual, "\nIdentificadores Actualizados con su tipo:\n");
+    verIdentificadores(identificadoresActual, tablaDeIdentificadores);
     if (prima == 1)
     {
-        fprintf(archSalG, "EL ANALISIS SINTACTICO SE HA DETENIDO EN EL NO TERMINAL '%cP', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
-        printf("ERROR EN '%cP', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
+        fprintf(archSalG, "\nEL ANALISIS SINTACTICO SE HA DETENIDO EN EL NO TERMINAL '%cP', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
+        printf("\nERROR EN '%cP', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
     }
     else
     {
-        fprintf(archSalG, "EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
-        printf("ERROR EN '%c', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
+        fprintf(archSalG, "\nEL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
+        printf("\nERROR EN '%c', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: 'salida.txt'\n");
     }
     exit(EXIT_FAILURE);
@@ -881,16 +880,18 @@ void printConEsperado(bool prima, char noTerminal, char esperado, char hay)
 // Función que notifica el error en un no terminal, e indica lo que encontró
 void printErrorNT(bool prima, char noTerminal, char hay)
 {
+    fprintf(identificadoresActual, "\nIdentificadores Actualizados con su tipo:\n");
+    verIdentificadores(identificadoresActual, tablaDeIdentificadores);
     if (prima == 1)
     {
-        fprintf(archSalG, "EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
-        printf("ERROR EN '%cP', NO SE ESPERABA '%c'\n", noTerminal, hay);
+        fprintf(archSalG, "\nEL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
+        printf("\nERROR EN '%cP', NO SE ESPERABA '%c'\n", noTerminal, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
     }
     else
     {
-        fprintf(archSalG, "EL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
-        printf("ERROR EN '%c', NO SE ESPERABA '%c'\n", noTerminal, hay);
+        fprintf(archSalG, "\nEL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
+        printf("\nERROR EN '%c', NO SE ESPERABA '%c'\n", noTerminal, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
     }
     exit(EXIT_FAILURE);
@@ -905,31 +906,7 @@ void printEntrada(bool prima, char noTerminal, char caracter)
         fprintf(archSalG, "Entrando a '%c' con el átomo = '%c'\n", noTerminal, c);
 }
 
-void revisaIdentificador(int pos)
-{
-    int i,aux;
-    IdentList *auxTabla;
-    auxTabla = &tablaDeIdentificadores;
-    Ident *auxIdent = auxTabla->head;
-    while (auxIdent->posicion != pos)
-    {
-        auxIdent = auxIdent->next;
-    }
-    for(i=0;i>=total();i++)
-    {
-        if(rep.variable[i]==NULL)
-        {
-            rep.variable[i]=auxIdent->identificador;
-            rep.cantidad[i]=rep.cantidad[i]++;
-            if(rep.cantidad[i]>0)
-            {
-                printf("ERROR: EL IDENTIFICADOR %S ESTÁ DECLARADO ANTERIORMENTE\N",rep.variable[i]);
-                printf("NÚMERO DE INCIDENCIAS: %i\n",rep.cantidad[i]);
-            }
-            break;
-        }
-    }
-}
+// Funcion que revisa si el identificador ya ha sido declarado o no
 void revisaTipo(int pos)
 {
     IdentList *auxTabla;
@@ -939,12 +916,17 @@ void revisaTipo(int pos)
     {
         auxIdent = auxIdent->next;
     }
-    if(auxIdent->tipo==-1)
+    if (auxIdent->tipo == -1)
     {
-        printf("ERROR: EL IDENTIFICADOR %S NO HA SIDO DECLARADO\n",auxIdent->identificador);
-        printf("ANALISIS SEMÁNTICO TERMINADO SIN ÉXITO\n");
+        // Error en la terminal
+        printf("\nERROR SEMÁNTICO: EL IDENTIFICADOR %s NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.\n", auxIdent->identificador);
+
+        // Error en archivo salida.txt
+        fprintf(archSalG, "\nERROR SEMÁNTICO: EL IDENTIFICADOR %s NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.\n", auxIdent->identificador);
     }
 }
+
+// Funcion que revisa si el identificador se declaró más de una vez y, en caso contrario, asigna el tipo
 void asignaTipo(int tipo, int pos)
 {
     IdentList *auxTabla;
@@ -954,20 +936,19 @@ void asignaTipo(int tipo, int pos)
     {
         auxIdent = auxIdent->next;
     }
-    auxIdent->tipo = tipo;
-}
-void inicializa()
-{
-    int i;
-    rep.cantidad=(int*)malloc(total()*sizeof(int));
-    rep.variable=(char*)malloc(total()*sizeof(char));
-    nodef.cantidad=(int*)malloc(total()*sizeof(int));
-    nodef.variable=(char*)malloc(total()*sizeof(char));
-    for(i=0;i>=total();i++)
+    // revisa que el identificador no esté repetido
+    if (auxIdent->tipo == -1)
     {
-        rep.variable[i]=NULL;
-        rep.cantidad[i]=-1;
-        nodef.variable[i]=NULL;
-        nodef.cantidad[i]=-1;
+        auxIdent->tipo = tipo;
+    }
+    else
+    {
+        // Error en la terminal
+        printf("\nERROR SEMÁNTICO: EL IDENTIFICADOR %s SE HA DECLARADO MÁS DE UNA VEZ.\n", auxIdent->identificador);
+        printf("SU ULTIMA DECLARACIÓN ES DE TIPO: %d\n", auxIdent->tipo);
+
+        // Error en archivo salida.txt
+        fprintf(archSalG, "\nERROR SEMÁNTICO: EL IDENTIFICADOR %s SE HA DECLARADO MÁS DE UNA VEZ.\n", auxIdent->identificador);
+        fprintf(archSalG, "SU ULTIMA DECLARACIÓN ES DE TIPO: %d\n", auxIdent->tipo);
     }
 }

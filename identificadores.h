@@ -1,10 +1,10 @@
 /*SILVA NUÑEZ ALEJANDRO BRYAN*/
 /*SANTIAGO VILLEGAS FERNANDO*/
-/*ANALIZADOR LÉXICO-SINTACTICO*/
+/*ANALIZADOR LÉXICO-SINTACTICO-SEMÁNTICO*/
 /*COMPILADORES*/
-/*ENTREGA: 03/12/2020*/
-/*OBJETIVO: Construir, en un mismo programa, los analizadores Léxico y
-Sintáctico Descendente Recursivo que revisen programas escritos en el lenguaje definido por la gramática de la clase.*/
+/*ENTREGA: 26/01/2021*/
+/*OBJETIVO: CONSTRUIR EN UN MISMO PROGRAMA, LOS ANALIZADORES LÉXICO, SINTÁCTICO 
+Y SEMÁNTICO QUE REVISEN PROGRAMAS FUENTE ESCRITOS CON EL LENGUAJE ELABORADO EN CLASE.*/
 /*
 La cabecera identificadores.h será utilizada para crear una lista de los 
 identificadores reconocidos a lo largo de la ejecución del programa.
@@ -15,11 +15,6 @@ definida como:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-typedef struct repetidos
-{
-    int *cantidad;
-    char *variable;
-}repetidos;
 
 
 // Estructura de los ID, con un apuntador al siguiente ID
@@ -114,15 +109,4 @@ void verIdentificadores(FILE *archSal, IdentList list)
             actual = actual->next;
         }
     }
-}
-
-int total()
-{
-    IdentList *listaux=&tablaDeIdentificadores;
-    Ident *aux=listaux->head;
-    while (aux->next != NULL)
-    {
-        aux = aux->next;
-    }
-    return aux->posicion;
 }
