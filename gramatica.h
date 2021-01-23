@@ -46,6 +46,8 @@ void TP();                                                                   // 
 void F();                                                                    // Gramatica F
 void A();                                                                    // Gramatica A
 void M();                                                                    // Gramatica M
+void LP();
+void CP();
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay); // Imprime error
 void printErrorNT(bool prima, char noTerminal, char hay);                    // Imprime error
 void printEntrada(bool prima, char noTerminal, char caracter);               // Imprime entrada a cada no terminal
@@ -234,11 +236,6 @@ void L(int tipo) // Conjunto de selección: c.s={ a }
         asignaTipo(tipo, p);
         getAtomo();
         G();
-        C();
-    }
-    else if (c == 's')
-    {
-        getAtomo(); // conjutno de selección
         C();
     }
     else
@@ -846,7 +843,7 @@ void M() // Conjunto de selección: c.s={ ( a e r [ s + }
     else if (c == '+')
     {
         getAtomo();
-        L(t);
+        LP();
         if (c == ':')
             getAtomo();
         else
@@ -856,7 +853,38 @@ void M() // Conjunto de selección: c.s={ ( a e r [ s + }
         printErrorNT(0, 'M', c);
     return;
 }
-
+void LP()
+{
+    printEntrada(0, 'LP', c);
+    if (c == 'a')
+    {
+        getAtomo();
+        G();
+        CP();
+    }
+    else if (c == 's')
+    {
+        getAtomo(); // conjutno de selección
+        CP();
+    }
+    else
+        printErrorNT(0, 'LP', c);
+    return;
+}
+void CP()
+{
+    printEntrada(0, 'CP', c);
+    if (c == ',')
+    {
+        getAtomo();
+        LP();
+    }
+    else if (c == '_' || c == ':')
+        return;
+    else
+        printErrorNT(0, 'CP', c);
+    return;
+}
 // Función que notifica el error en un no terminal, e indica lo que esperaba
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay)
 {
