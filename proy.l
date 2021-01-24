@@ -151,7 +151,10 @@ clase8 ("+"|"-"|"**"|"*"|"/"|"%")
 };
 ({espacio}|\\n|\\t) {fprintf(logFile,"        ESPACIO, SALTO O TABULACIÓN        \n");}
 (\@.*) {fprintf(logFile,"********COMENTARIO con @********\n");}
-. { printf("ERROR, EL ANALIZADOR SINTACTICO NO ESPERABA '%s'\n\n",yytext);
+. { printf("-------------------------------------------\n\nCOMIENZA EL ANÁLISIS LÉXICO:\n");
+    redText();
+    printf("ERROR, EL ANALIZADOR LÉXICO NO ESPERABA '%s'\n\n",yytext);
+    resetTextColor();
     fprintf(logFile,"xxxxxxxxERROR: '%s' NO ES NINGUN TOKEN VÁLIDOxxxxxxxx\n",yytext);};
 %%
 int main(int argc, char *argv[])
@@ -176,7 +179,9 @@ int main(int argc, char *argv[])
     verCadenas(cadenasFile,tablaDeCadenas);
     verConstantesExp(constantesExpFile,tablaDeRealesExp);
     printf("-------------------------------------------\n\n");
+    greenText();
     printf("TERMINÓ EL ANÁLISIS LÉXICO CON ÉXITO...\n\n");
+    resetTextColor();
     printf("PARA VER LOS TOKENS GENERADOS, VISITE: 'tokens.txt'\n\n");
     printf("PARA VER LOS IDENTIFICADORES GENERADOS, VISITE: 'identificadores.txt'\n\n");
     printf("PARA VER LAS CADENAS GENERADAS, VISITE: 'cadenas.txt'\n\n");

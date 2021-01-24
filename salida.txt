@@ -28,8 +28,6 @@ clase2 ,
 clase3 M
 clase2 :
 clase1 string
-clase3 cad
-clase2 ,
 clase3 cad1
 clase2 ,
 clase3 cad2
@@ -40,11 +38,6 @@ clase3 func1
 clase2 (
 clase2 )
 clase2 {
-clase1 int
-clase3 a
-clase2 ,
-clase3 b
-clase2 :
 clase3 a
 clase4 =
 clase6 12
@@ -56,6 +49,74 @@ clase8 %
 clase6 3
 clase2 :
 clase1 return
+clase2 :
+clase2 }
+clase2 ]
+clase2 [
+clase1 void
+clase3 hola
+clase2 (
+clase2 )
+clase2 {
+clase1 int
+clase3 menu
+clase2 :
+clase2 }
+clase2 ]
+clase2 [
+clase1 void
+clase3 p
+clase2 (
+clase2 )
+clase2 {
+clase2 }
+clase2 ]
+clase2 [
+clase1 int
+clase3 funcX
+clase2 (
+clase2 )
+clase2 {
+clase2 }
+clase2 ]
+clase2 [
+clase1 int
+clase3 len
+clase2 (
+clase2 )
+clase2 {
+clase2 }
+clase2 ]
+clase2 [
+clase1 int
+clase3 fun
+clase2 (
+clase2 )
+clase2 {
+clase2 }
+clase2 ]
+clase2 [
+clase1 char
+clase3 scan
+clase2 (
+clase2 )
+clase2 {
+clase1 int
+clase3 m
+clase2 ,
+clase3 n
+clase2 ,
+clase3 f
+clase2 ,
+clase3 l
+clase2 ,
+clase3 g
+clase2 ,
+clase3 j
+clase2 ,
+clase3 u
+clase2 ,
+clase3 k
 clase2 :
 clase2 }
 clase2 ]
@@ -78,6 +139,14 @@ clase3 asig
 clase2 (
 clase2 )
 clase2 {
+clase1 char
+clase3 c1
+clase2 ,
+clase3 c2
+clase2 :
+clase1 string
+clase3 cad
+clase2 :
 clase3 cad
 clase4 =
 clase7 "cadena1"
@@ -91,12 +160,12 @@ clase4 =
 clase8 +
 clase7 "cadena3"
 clase2 ,
-clase3 cad
+clase7 "nueva"
 clase2 :
 clase3 cad2
 clase4 =
 clase8 +
-clase3 cad
+clase7 "cadena"
 clase2 ,
 clase7 "uno"
 clase2 ,
@@ -257,11 +326,6 @@ clase3 band
 clase2 (
 clase2 )
 clase2 {
-clase1 char
-clase3 c1
-clase2 ,
-clase3 c2
-clase2 :
 clase1 bool
 clase3 flag
 clase2 :
@@ -477,11 +541,6 @@ Entrando a 'G' con el átomo = ','
 Entrando a 'C' con el átomo = ','
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'L' con el átomo = 'a'
-Actualizando el caracter actual: Átomo = ','
-Entrando a 'G' con el átomo = ','
-Entrando a 'C' con el átomo = ','
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'L' con el átomo = 'a'
 Actualizando el caracter actual: Átomo = ':'
 Entrando a 'G' con el átomo = ':'
 Entrando a 'C' con el átomo = ':'
@@ -494,26 +553,6 @@ Actualizando el caracter actual: Átomo = 'a'
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = '{'
-Actualizando el caracter actual: Átomo = 'n'
-Entrando a 'DP' con el átomo = 'n'
-Entrando a 'D' con el átomo = 'n'
-Entrando a 'V' con el átomo = 'n'
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'L' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR a SE HA DECLARADO MÁS DE UNA VEZ.
-SU ULTIMA DECLARACIÓN ES DE TIPO: 11
-Actualizando el caracter actual: Átomo = ','
-Entrando a 'G' con el átomo = ','
-Entrando a 'C' con el átomo = ','
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'L' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR b SE HA DECLARADO MÁS DE UNA VEZ.
-SU ULTIMA DECLARACIÓN ES DE TIPO: 11
-Actualizando el caracter actual: Átomo = ':'
-Entrando a 'G' con el átomo = ':'
-Entrando a 'C' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'DP' con el átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
@@ -556,6 +595,135 @@ Entrando a 'B' con el átomo = '}'
 Actualizando el caracter actual: Átomo = ']'
 Actualizando el caracter actual: Átomo = '['
 Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'o'
+Entrando a 'VP' con el átomo = 'o'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'n'
+Entrando a 'DP' con el átomo = 'n'
+Entrando a 'D' con el átomo = 'n'
+Entrando a 'V' con el átomo = 'n'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'DP' con el átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'o'
+Entrando a 'VP' con el átomo = 'o'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'DP' con el átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'n'
+Entrando a 'VP' con el átomo = 'n'
+Entrando a 'V' con el átomo = 'n'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'DP' con el átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'n'
+Entrando a 'VP' con el átomo = 'n'
+Entrando a 'V' con el átomo = 'n'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'DP' con el átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'n'
+Entrando a 'VP' con el átomo = 'n'
+Entrando a 'V' con el átomo = 'n'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'DP' con el átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'Y' con el átomo = '['
+Actualizando el caracter actual: Átomo = 'c'
+Entrando a 'VP' con el átomo = 'c'
+Entrando a 'V' con el átomo = 'c'
+Actualizando el caracter actual: Átomo = 'a'
+Actualizando el caracter actual: Átomo = '('
+Actualizando el caracter actual: Átomo = ')'
+Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'n'
+Entrando a 'DP' con el átomo = 'n'
+Entrando a 'D' con el átomo = 'n'
+Entrando a 'V' con el átomo = 'n'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = '}'
+Entrando a 'DP' con el átomo = '}'
+Entrando a 'B' con el átomo = '}'
+Actualizando el caracter actual: Átomo = ']'
+Actualizando el caracter actual: Átomo = '['
+Entrando a 'Y' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'n'
 Entrando a 'VP' con el átomo = 'n'
 Entrando a 'V' con el átomo = 'n'
@@ -585,6 +753,29 @@ Actualizando el caracter actual: Átomo = 'a'
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = '{'
+Actualizando el caracter actual: Átomo = 'c'
+Entrando a 'DP' con el átomo = 'c'
+Entrando a 'D' con el átomo = 'c'
+Entrando a 'V' con el átomo = 'c'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'G' con el átomo = ','
+Entrando a 'C' con el átomo = ','
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
+Actualizando el caracter actual: Átomo = 'g'
+Entrando a 'DP' con el átomo = 'g'
+Entrando a 'D' con el átomo = 'g'
+Entrando a 'V' con el átomo = 'g'
+Actualizando el caracter actual: Átomo = 'a'
+Entrando a 'L' con el átomo = 'a'
+Actualizando el caracter actual: Átomo = ':'
+Entrando a 'G' con el átomo = ':'
+Entrando a 'C' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'DP' con el átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
@@ -610,14 +801,13 @@ Actualizando el caracter actual: Átomo = '='
 Actualizando el caracter actual: Átomo = '+'
 Entrando a 'M' con el átomo = '+'
 Actualizando el caracter actual: Átomo = 's'
-Entrando a 'P' con el átomo = 's'
+Entrando a 'LP' con el átomo = 's'
 Actualizando el caracter actual: Átomo = ','
-Entrando a 'P' con el átomo = ','
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'P' con el átomo = 'a'
+Entrando a 'CP' con el átomo = ','
+Actualizando el caracter actual: Átomo = 's'
+Entrando a 'LP' con el átomo = 's'
 Actualizando el caracter actual: Átomo = ':'
-Entrando a 'G' con el átomo = ':'
-Entrando a 'P' con el átomo = ':'
+Entrando a 'CP' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
 Entrando a 'S' con el átomo = 'a'
@@ -625,19 +815,18 @@ Entrando a 'A' con el átomo = 'a'
 Actualizando el caracter actual: Átomo = '='
 Actualizando el caracter actual: Átomo = '+'
 Entrando a 'M' con el átomo = '+'
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'P' con el átomo = 'a'
-Actualizando el caracter actual: Átomo = ','
-Entrando a 'G' con el átomo = ','
-Entrando a 'P' con el átomo = ','
 Actualizando el caracter actual: Átomo = 's'
-Entrando a 'P' con el átomo = 's'
+Entrando a 'LP' con el átomo = 's'
 Actualizando el caracter actual: Átomo = ','
-Entrando a 'P' con el átomo = ','
+Entrando a 'CP' con el átomo = ','
 Actualizando el caracter actual: Átomo = 's'
-Entrando a 'P' con el átomo = 's'
+Entrando a 'LP' con el átomo = 's'
+Actualizando el caracter actual: Átomo = ','
+Entrando a 'CP' con el átomo = ','
+Actualizando el caracter actual: Átomo = 's'
+Entrando a 'LP' con el átomo = 's'
 Actualizando el caracter actual: Átomo = ':'
-Entrando a 'P' con el átomo = ':'
+Entrando a 'CP' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'p'
 Entrando a 'B' con el átomo = 'p'
 Entrando a 'S' con el átomo = 'p'
@@ -652,8 +841,6 @@ Entrando a 'S' con el átomo = 'x'
 Entrando a 'X' con el átomo = 'x'
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR menu NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = '{'
 Actualizando el caracter actual: Átomo = 'k'
@@ -730,8 +917,6 @@ Actualizando el caracter actual: Átomo = '['
 Entrando a 'B' con el átomo = '['
 Entrando a 'S' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR hola NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -744,8 +929,6 @@ Entrando a 'U' con el átomo = '('
 Actualizando el caracter actual: Átomo = '['
 Entrando a 'F' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR p NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -791,8 +974,6 @@ Entrando a 'E' con el átomo = '['
 Entrando a 'T' con el átomo = '['
 Entrando a 'F' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR funcX NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -905,8 +1086,6 @@ Entrando a 'R' con el átomo = 'a'
 Entrando a 'E' con el átomo = 'a'
 Entrando a 'T' con el átomo = 'a'
 Entrando a 'F' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR c1 NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = 'y'
 Entrando a 'G' con el átomo = 'y'
 Entrando a 'TP' con el átomo = 'y'
@@ -930,8 +1109,6 @@ Entrando a 'R' con el átomo = 'a'
 Entrando a 'E' con el átomo = 'a'
 Entrando a 'T' con el átomo = 'a'
 Entrando a 'F' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR c2 NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '<'
 Entrando a 'G' con el átomo = '<'
 Entrando a 'TP' con el átomo = '<'
@@ -946,8 +1123,6 @@ Entrando a 'E' con el átomo = '['
 Entrando a 'T' con el átomo = '['
 Entrando a 'F' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR len NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -1008,20 +1183,6 @@ Actualizando el caracter actual: Átomo = 'a'
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = '{'
-Actualizando el caracter actual: Átomo = 'c'
-Entrando a 'DP' con el átomo = 'c'
-Entrando a 'D' con el átomo = 'c'
-Entrando a 'V' con el átomo = 'c'
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'L' con el átomo = 'a'
-Actualizando el caracter actual: Átomo = ','
-Entrando a 'G' con el átomo = ','
-Entrando a 'C' con el átomo = ','
-Actualizando el caracter actual: Átomo = 'a'
-Entrando a 'L' con el átomo = 'a'
-Actualizando el caracter actual: Átomo = ':'
-Entrando a 'G' con el átomo = ':'
-Entrando a 'C' con el átomo = ':'
 Actualizando el caracter actual: Átomo = 'b'
 Entrando a 'DP' con el átomo = 'b'
 Entrando a 'D' con el átomo = 'b'
@@ -1108,8 +1269,6 @@ Actualizando el caracter actual: Átomo = '['
 Entrando a 'B' con el átomo = '['
 Entrando a 'S' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR fun NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -1146,8 +1305,6 @@ Actualizando el caracter actual: Átomo = '['
 Entrando a 'B' con el átomo = '['
 Entrando a 'S' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR scan NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -1166,8 +1323,6 @@ Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
 Entrando a 'S' con el átomo = 'a'
 Entrando a 'A' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR m NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '='
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'M' con el átomo = 'a'
@@ -1204,16 +1359,12 @@ Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
 Entrando a 'S' con el átomo = 'a'
 Entrando a 'A' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR n NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '='
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'M' con el átomo = 'a'
 Entrando a 'E' con el átomo = 'a'
 Entrando a 'T' con el átomo = 'a'
 Entrando a 'F' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR f NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '+'
 Entrando a 'G' con el átomo = '+'
 Entrando a 'TP' con el átomo = '+'
@@ -1222,8 +1373,6 @@ Actualizando el caracter actual: Átomo = '['
 Entrando a 'T' con el átomo = '['
 Entrando a 'F' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR f NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -1238,8 +1387,6 @@ Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
 Entrando a 'S' con el átomo = 'a'
 Entrando a 'A' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR l NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '='
 Actualizando el caracter actual: Átomo = 'e'
 Entrando a 'M' con el átomo = 'e'
@@ -1252,8 +1399,6 @@ Entrando a 'EP' con el átomo = '-'
 Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'T' con el átomo = 'a'
 Entrando a 'F' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR g NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '['
 Entrando a 'G' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'e'
@@ -1263,8 +1408,6 @@ Entrando a 'TP' con el átomo = '/'
 Actualizando el caracter actual: Átomo = '['
 Entrando a 'F' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR j NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '('
 Actualizando el caracter actual: Átomo = ')'
 Actualizando el caracter actual: Átomo = ']'
@@ -1275,8 +1418,6 @@ Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'B' con el átomo = 'a'
 Entrando a 'S' con el átomo = 'a'
 Entrando a 'A' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR u NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '='
 Actualizando el caracter actual: Átomo = 'e'
 Entrando a 'M' con el átomo = 'e'
@@ -1297,8 +1438,6 @@ Actualizando el caracter actual: Átomo = 'a'
 Entrando a 'E' con el átomo = 'a'
 Entrando a 'T' con el átomo = 'a'
 Entrando a 'F' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR k NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = '['
 Entrando a 'G' con el átomo = '['
 Actualizando el caracter actual: Átomo = 'e'
@@ -1324,8 +1463,6 @@ Entrando a 'R' con el átomo = 'a'
 Entrando a 'E' con el átomo = 'a'
 Entrando a 'T' con el átomo = 'a'
 Entrando a 'F' con el átomo = 'a'
-
-ERROR SEMÁNTICO: EL IDENTIFICADOR m NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.
 Actualizando el caracter actual: Átomo = 'y'
 Entrando a 'G' con el átomo = 'y'
 Entrando a 'TP' con el átomo = 'y'

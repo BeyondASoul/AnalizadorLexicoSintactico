@@ -6,6 +6,7 @@
 /*OBJETIVO: CONSTRUIR EN UN MISMO PROGRAMA, LOS ANALIZADORES LÉXICO, SINTÁCTICO 
 Y SEMÁNTICO QUE REVISEN PROGRAMAS FUENTE ESCRITOS CON EL LENGUAJE ELABORADO EN CLASE.*/
 
+#include <stdio.h>
 #include "tokens.h"
 #include "identificadores.h"
 
@@ -46,8 +47,11 @@ void TP();                                                                   // 
 void F();                                                                    // Gramatica F
 void A();                                                                    // Gramatica A
 void M();                                                                    // Gramatica M
-void LP();
-void CP();
+void LP();                                                                   //Gramatica LP
+void CP();                                                                   // Gramatica CP
+void redText();                                                              // Colorea el texto del error a rojo en la terminal
+void greenText();                                                            // Colorea el texto de success a verde en la terminal
+void resetTextColor();                                                       // Resetea el color del texto en la terminal
 void printConEsperado(bool prima, char noTerminal, char esperado, char hay); // Imprime error
 void printErrorNT(bool prima, char noTerminal, char hay);                    // Imprime error
 void printEntrada(bool prima, char noTerminal, char caracter);               // Imprime entrada a cada no terminal
@@ -140,12 +144,15 @@ void Y() // Conjunto de selección: c.s={ [ }
                                 getAtomo();
                             if (c == '_')
                             {
+                                // Se imprime la lista final de los identificadores
                                 fprintf(identificadoresActual, "\nIdentificadores Actualizados con su tipo:\n");
                                 verIdentificadores(identificadoresActual, tablaDeIdentificadores);
                                 // Impresión en terminal
                                 printf("\n-------------------------------------------\n");
+                                greenText();
                                 printf("\nTERMINÓ EL ANÁLISIS SINTÁCTICO CON ÉXITO...\n\n");
                                 printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n\n");
+                                resetTextColor();
                                 printf("-------------------------------------------\n");
                                 // Impresion en archivo salida.txt
                                 fprintf(archSalG, "-------------------------------------------\n");
@@ -855,7 +862,7 @@ void M() // Conjunto de selección: c.s={ ( a e r [ s + }
 }
 void LP()
 {
-    printEntrada(0, 'LP', c);
+    printEntrada(1, 'L', c);
     if (c == 'a')
     {
         getAtomo();
@@ -868,12 +875,12 @@ void LP()
         CP();
     }
     else
-        printErrorNT(0, 'LP', c);
+        printErrorNT(1, 'L', c);
     return;
 }
 void CP()
 {
-    printEntrada(0, 'CP', c);
+    printEntrada(1, 'C', c);
     if (c == ',')
     {
         getAtomo();
@@ -882,7 +889,7 @@ void CP()
     else if (c == '_' || c == ':')
         return;
     else
-        printErrorNT(0, 'CP', c);
+        printErrorNT(1, 'C', c);
     return;
 }
 // Función que notifica el error en un no terminal, e indica lo que esperaba
@@ -893,15 +900,20 @@ void printConEsperado(bool prima, char noTerminal, char esperado, char hay)
     if (prima == 1)
     {
         fprintf(archSalG, "\nEL ANALISIS SINTACTICO SE HA DETENIDO EN EL NO TERMINAL '%cP', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
-        printf("\nERROR EN '%cP', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
+        redText();
+        printf("\nERROR SINTÁCTICO ERROR EN '%cP', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
+        resetTextColor();
     }
     else
     {
         fprintf(archSalG, "\nEL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c', CON EL ÁTOMO '%c' PORQUE SE ESPERABA ENCONTRAR '%c'\n", noTerminal, hay, esperado);
-        printf("\nERROR EN '%c', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
+        redText();
+        printf("\nERROR SINTÁCTICO EN '%c', SE ESPERABA '%c' PERO SE ENCONTRÓ '%c'\n", noTerminal, esperado, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: 'salida.txt'\n");
+        resetTextColor();
     }
+    printf("\n-------------------------------------------\n\n");
     exit(EXIT_FAILURE);
 }
 
@@ -913,15 +925,20 @@ void printErrorNT(bool prima, char noTerminal, char hay)
     if (prima == 1)
     {
         fprintf(archSalG, "\nEL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
-        printf("\nERROR EN '%cP', NO SE ESPERABA '%c'\n", noTerminal, hay);
+        redText();
+        printf("\nERROR SINTÁCTICO EN '%cP', NO SE ESPERABA '%c'\n", noTerminal, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
+        resetTextColor();
     }
     else
     {
         fprintf(archSalG, "\nEL ANÁLISIS SINTÁCTICO SE HA DETENIDO EN EL NO TERMINAL '%c' CON EL ÁTOMO '%c'\n", noTerminal, c);
-        printf("\nERROR EN '%c', NO SE ESPERABA '%c'\n", noTerminal, hay);
+        redText();
+        printf("\nERROR SINTÁCTICO EN '%c', NO SE ESPERABA '%c'\n", noTerminal, hay);
         printf("PARA MÁS DETALLES, CONSULTE EL ARCHIVO: salida.txt\n");
+        resetTextColor();
     }
+    printf("\n-------------------------------------------\n\n");
     exit(EXIT_FAILURE);
 }
 
@@ -947,10 +964,11 @@ void revisaTipo(int pos)
     if (auxIdent->tipo == -1)
     {
         // Error en la terminal
-        printf("\nERROR SEMÁNTICO: EL IDENTIFICADOR %s NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.\n", auxIdent->identificador);
-
+        redText();
+        printf("\nERROR SEMÁNTICO: EL IDENTIFICADOR %s NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.\n\n", auxIdent->identificador);
+        resetTextColor();
         // Error en archivo salida.txt
-        fprintf(archSalG, "\nERROR SEMÁNTICO: EL IDENTIFICADOR %s NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.\n", auxIdent->identificador);
+        fprintf(archSalG, "\nERROR SEMÁNTICO: EL IDENTIFICADOR %s NO HA SIDO DECLARADO ANTES DE SU PRIMER USO.\n\n", auxIdent->identificador);
     }
 }
 
@@ -972,11 +990,26 @@ void asignaTipo(int tipo, int pos)
     else
     {
         // Error en la terminal
+        redText();
         printf("\nERROR SEMÁNTICO: EL IDENTIFICADOR %s SE HA DECLARADO MÁS DE UNA VEZ.\n", auxIdent->identificador);
-        printf("SU ULTIMA DECLARACIÓN ES DE TIPO: %d\n", auxIdent->tipo);
+        printf("SU PRIMERA DECLARACIÓN FUE DE TIPO: %d\n\n", auxIdent->tipo);
+        resetTextColor();
 
         // Error en archivo salida.txt
         fprintf(archSalG, "\nERROR SEMÁNTICO: EL IDENTIFICADOR %s SE HA DECLARADO MÁS DE UNA VEZ.\n", auxIdent->identificador);
-        fprintf(archSalG, "SU ULTIMA DECLARACIÓN ES DE TIPO: %d\n", auxIdent->tipo);
+        fprintf(archSalG, "SU PRIMERA DECLARACIÓN ES DE TIPO: %d\n\n", auxIdent->tipo);
     }
+}
+
+void redText()
+{
+    printf("\033[4;31m");
+}
+void greenText()
+{
+    printf("\033[1;32m");
+}
+void resetTextColor()
+{
+    printf("\033[0m");
 }
